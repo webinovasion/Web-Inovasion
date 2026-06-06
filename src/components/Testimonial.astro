@@ -1,114 +1,102 @@
 ---
-import testimonials from "../data/Testimonials.json";
-
-// Helper: bold-kan highlight text di dalam quote
-function formatQuote(quote: string, highlight: string): string {
-  if (!highlight) return quote;
-  return quote.replace(highlight, `<strong class="font-semibold not-italic text-ink-primary">${highlight}</strong>`);
-}
-
-// SVG bintang — reusable
-const starPath = `M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z`;
 const quotePath = `M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zM15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z`;
 ---
 
-<section
-  id="testimonials"
-  aria-labelledby="testimonials-heading"
-  class="py-20 lg:py-28 bg-surface-raised"
->
+<section id="testimonials" aria-labelledby="testimonials-heading" class="py-20 lg:py-28 bg-surface-raised">
   <div class="container-custom">
-
-    <!-- Section header -->
-    <div class="inline-flex items-center gap-1.5 rounded-full
-                border border-brand-border bg-brand-muted
-                px-3 py-1 mb-4">
-      <span class="text-[11px] font-bold tracking-widest text-brand uppercase">
-        Testimoni
-      </span>
+    <!-- Badge -->
+    <div
+      class="inline-flex items-center gap-1.5 rounded-full
+             border border-brand-border bg-brand-muted
+             px-3 py-1 mb-4"
+    >
+      <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Testimoni </span>
     </div>
 
+    <!-- Heading -->
     <h2
       id="testimonials-heading"
       class="text-3xl lg:text-4xl font-extrabold tracking-tight
              text-ink-primary leading-tight mb-3"
     >
-      Kata Mereka tentang Kami
+      Kepercayaan Dibangun dari Hasil Nyata
     </h2>
 
-    <p class="text-base text-ink-secondary leading-relaxed max-w-xl mb-12">
-      Kepercayaan klien adalah prioritas utama kami
-      di setiap project yang dikerjakan.
+    <p class="text-base text-ink-secondary leading-relaxed max-w-2xl mb-12">
+      Kami percaya bahwa kualitas pekerjaan adalah bentuk promosi terbaik. Oleh karena itu, kami hanya menampilkan
+      testimoni asli dari klien yang telah bekerja sama dan memberikan izin untuk dipublikasikan.
     </p>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {testimonials.map((t) => (
-        <figure
-          class:list={[
-            "group flex flex-col gap-5 rounded-2xl border p-7",
-            "transition-all duration-300",
-            "hover:-translate-y-0.5 hover:shadow-glow-sm",
-            t.featured
-              ? "border-brand-border bg-surface-raised shadow-card"
-              : "border-surface-border bg-surface-base hover:border-brand/25",
-          ]}
-        >
-          <!-- Top row: quote icon + stars -->
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center
-                        rounded-lg bg-brand-muted">
-              <svg
-                width="16" height="16" viewBox="0 0 24 24"
-                fill="#0F766E" aria-hidden="true"
+    <!-- Card -->
+    <div
+      class="max-w-4xl mx-auto rounded-3xl border border-brand-border
+             bg-surface-base p-8 lg:p-10 shadow-card"
+    >
+      <div class="flex items-center justify-center mb-6">
+        <div class="flex h-14 w-14 items-center justify-center
+                 rounded-2xl bg-brand-muted">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#0F766E" aria-hidden="true">
+            <path d={quotePath}></path>
+          </svg>
+        </div>
+      </div>
+
+      <h3 class="text-2xl font-bold text-center text-ink-primary mb-4">Testimoni Klien Akan Hadir</h3>
+
+      <p class="text-center text-ink-secondary leading-8 max-w-2xl mx-auto">
+        Saat ini kami sedang menyelesaikan berbagai proyek untuk bisnis, UMKM, dan perusahaan. Setiap testimoni yang
+        ditampilkan di halaman ini nantinya berasal dari pengalaman nyata klien dan dipublikasikan atas persetujuan
+        mereka.
+      </p>
+
+      <!-- Divider -->
+      <div class="h-px bg-surface-card my-8"></div>
+
+      <!-- Features -->
+      <div class="grid gap-4 md:grid-cols-3">
+        <!-- Ganti tiga div emoji dengan ini -->
+        {
+          [
+            {
+              icon: `<polyline points="20 6 9 17 4 12"/>`,
+              title: 'Terverifikasi',
+              desc: 'Berasal dari pengalaman nyata klien.',
+            },
+            {
+              icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
+              title: 'Dengan Persetujuan',
+              desc: 'Dipublikasikan atas izin klien.',
+            },
+            {
+              icon: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
+              title: 'Terus Bertumbuh',
+              desc: 'Siap menghadirkan hasil terbaik.',
+            },
+          ].map(({ icon, title, desc }) => (
+            <div class="text-center">
+              <div
+                class="mx-auto mb-3 flex h-10 w-10 items-center justify-center
+                rounded-xl bg-brand-muted"
               >
-                <path d={quotePath}/>
-              </svg>
-            </div>
-
-            <!-- Star rating -->
-            <div class="flex gap-0.5" aria-label="Rating 5 dari 5 bintang">
-              {Array.from({ length: 5 }).map(() => (
                 <svg
-                  width="13" height="13" viewBox="0 0 24 24"
-                  fill="#F59E0B" aria-hidden="true"
-                >
-                  <path d={starPath}/>
-                </svg>
-              ))}
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0F766E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  set:html={icon}
+                />
+              </div>
+              <p class="font-semibold text-ink-primary">{title}</p>
+              <p class="text-sm text-ink-secondary mt-1">{desc}</p>
             </div>
-          </div>
-
-          <!-- Quote -->
-          <blockquote
-            class="flex-1 text-sm italic leading-[1.8] text-ink-secondary"
-            set:html={`"${formatQuote(t.quote, t.highlight)}"`}
-          />
-
-          <div class="h-px bg-surface-card"></div>
-
-          <!-- Author -->
-          <figcaption class="flex items-center gap-3">
-            <div
-              class:list={[
-                "flex h-10 w-10 flex-shrink-0 items-center justify-center",
-                "rounded-full bg-gradient-to-br text-[13px] font-bold text-white",
-                t.avatarColor,
-              ]}
-              aria-hidden="true"
-            >
-              {t.initials}
-            </div>
-            <div>
-              <p class="text-sm font-bold text-ink-primary">{t.name}</p>
-              <p class="text-xs text-ink-secondary mt-0.5">{t.role}</p>
-              <p class="text-[11px] text-ink-disabled mt-0.5">{t.company}</p>
-            </div>
-          </figcaption>
-
-        </figure>
-      ))}
+          ))
+        }
+      </div>
     </div>
-
   </div>
 </section>

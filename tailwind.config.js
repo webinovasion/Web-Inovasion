@@ -51,10 +51,9 @@ export default {
       // TYPOGRAPHY
       // ──────────────────────────────────────────────
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Plus Jakarta Sans Variable", "sans-serif"],
+        mono: ["JetBrains Mono Variable", "monospace"],
       },
-
       fontSize: {
         "2xs": ["0.6875rem", { lineHeight: "1rem" }],
         nav: ["0.8125rem", { lineHeight: "1.2" }],
