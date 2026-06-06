@@ -10,21 +10,21 @@ interface Props {
 const {
   title = 'Web Inovasion – Jasa Website Profesional untuk Bisnis & UMKM',
   description = 'Web Inovasion membantu bisnis, UMKM, dan perusahaan membangun website modern, cepat, dan teroptimasi SEO. Melayani company profile, landing page, dan website custom.',
-  ogImage = '/assets/images/logo/web_web_inovasion.webp',
+  ogImage = 'https://www.webinovasion.com/assets/images/logo/web_web_inovasion.webp',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://webinovasion.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.webinovasion.com');
 
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://webinovasion.com/#business',
+      '@id': 'https://www.webinovasion.com/#business',
       name: 'Web Inovasion',
       description:
         'Jasa pembuatan website profesional untuk bisnis, UMKM, dan perusahaan. Melayani company profile, landing page, website custom, dan toko online.',
-      url: 'https://webinovasion.com',
+      url: 'https://www.webinovasion.com',
       telephone: '+6285881582774',
       email: 'websiteinovasion@gmail.com',
       address: {
@@ -94,24 +94,24 @@ const schema = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://webinovasion.com/#website',
-      url: 'https://webinovasion.com',
+      '@id': 'https://www.webinovasion.com/#website',
+      url: 'https://www.webinovasion.com',
       name: 'Web Inovasion',
       description: 'Jasa pembuatan website profesional untuk bisnis dan UMKM Indonesia.',
       publisher: {
-        '@id': 'https://webinovasion.com/#business',
+        '@id': 'https://www.webinovasion.com/#business',
       },
       inLanguage: 'id-ID',
     },
     {
       '@type': 'Person',
-      '@id': 'https://webinovasion.com/#founder',
+      '@id': 'https://www.webinovasion.com/#founder',
       name: 'Nama Kamu',
       jobTitle: 'Web Developer & Designer',
       worksFor: {
-        '@id': 'https://webinovasion.com/#business',
+        '@id': 'https://www.webinovasion.com/#business',
       },
-      url: 'https://webinovasion.com',
+      url: 'https://www.webinovasion.com',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bekasi',
