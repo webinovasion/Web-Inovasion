@@ -1,0 +1,37 @@
+[
+  {
+    "id": "company-profile",
+    "title": "Company Profile",
+    "description": "Website representatif yang membangun kredibilitas dan kepercayaan brand Anda di mata calon klien.",
+    "tags": ["Multi-page", "SEO Ready", "Responsive"],
+    "icon": "monitor"
+  },
+  {
+    "id": "landing-page",
+    "title": "Landing Page",
+    "description": "Halaman konversi tinggi yang dirancang khusus untuk campaign, produk, atau layanan spesifik Anda.",
+    "tags": ["High Conversion", "Fast Load", "CTA Focused"],
+    "icon": "zap"
+  },
+  {
+    "id": "umkm",
+    "title": "Website UMKM / Toko Online",
+    "description": "Solusi digital untuk UMKM yang ingin jualan online — dari katalog produk sampai sistem order yang simpel.",
+    "tags": ["Katalog Produk", "WhatsApp Order", "Mobile First"],
+    "icon": "cart"
+  },
+  {
+    "id": "custom",
+    "title": "Website Custom",
+    "description": "Sistem web yang dibangun dari nol sesuai workflow bisnis Anda — tidak ada batasan fitur.",
+    "tags": ["Full Custom", "Scalable", "API Ready"],
+    "icon": "code"
+  },
+  {
+    "id": "portfolio",
+    "title": "Portfolio Pribadi",
+    "description": "Website personal untuk profesional dan freelancer yang ingin tampil profesional dan mudah ditemukan.",
+    "tags": ["Personal Brand", "Blog Ready", "Fast"],
+    "icon": "grid"
+  }
+]

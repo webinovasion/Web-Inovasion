@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Berlian Teknik Nusantara",
+    "description": "Website company profile dengan sistem admin lengkap — CRUD produk, kelola pesan masuk, dan dashboard internal.",
+    "category": "Company Profile",
+    "url": "https://berlianteknus.co.id",
+    "image": "/assets/images/projects/Project1.webp",
+    "tags": ["PHP & MySQL", "Admin Dashboard", "CRUD System"],
+    "badge": "Live"
+  },
+  {
+    "title": "Abu Berkah Teknik",
+    "description": "Website company profile dengan PageSpeed 90+, structured data schema, SEO maksimal, dan arsitektur komponen berbasis JSON.",
+    "category": "Company Profile",
+    "url": "https://abuberkahteknik.com",
+    "image": "/assets/images/projects/Project2.webp",
+    "tags": ["Tailwind v3", "Schema Markup", "JSON-driven"],
+    "badge": "PageSpeed 90+"
+  }
+]
