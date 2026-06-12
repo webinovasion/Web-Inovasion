@@ -1,5 +1,5 @@
 ---
-import services from "../data/Service.json";
+import services from '../data/Service.json';
 
 // SVG icons map — tambah sesuai kebutuhan
 const icons: Record<string, string> = {
@@ -11,115 +11,145 @@ const icons: Record<string, string> = {
 };
 ---
 
-<section
-  id="services"
-  aria-labelledby="services-heading"
-  class="py-20 lg:py-28 bg-surface-raised"
->
+<section id="services" aria-labelledby="services-heading" class="py-20 lg:py-28 bg-surface-raised">
   <div class="container-custom">
-
-    <!-- Section header -->
-    <div class="inline-flex items-center gap-1.5 rounded-full
-                border border-brand-border bg-brand-muted
-                px-3 py-1 mb-4">
-      <span class="text-[11px] font-bold tracking-widest text-brand uppercase">
-        Layanan
-      </span>
+    <div
+      class="inline-flex items-center gap-1.5 rounded-full
+         border border-brand-border bg-brand-muted
+         px-3 py-1 mb-4"
+    >
+      <span class="text-[11px] font-bold tracking-widest
+           text-brand uppercase"> Layanan Kami </span>
     </div>
 
     <h2
       id="services-heading"
-      class="text-3xl lg:text-4xl font-extrabold tracking-tight
-             text-ink-primary leading-tight mb-3"
+      class="text-3xl lg:text-4xl font-extrabold
+         tracking-tight text-ink-primary
+         leading-tight mb-3"
     >
-      Apa yang Kami Kerjakan
+      Solusi Website untuk Berbagai Kebutuhan Bisnis
     </h2>
 
-    <p class="text-base text-ink-secondary leading-relaxed max-w-xl mb-12">
-      Dari landing page sederhana sampai sistem web yang kompleks —
-      kami bangun sesuai kebutuhan bisnis Anda, bukan template.
+    <p class="text-base text-ink-secondary
+          leading-relaxed max-w-2xl mb-8">
+      Web Inovasion membantu UMKM, bisnis, dan perusahaan membangun berbagai jenis website profesional, mulai dari
+      company profile, landing page, website UMKM, toko online, hingga website custom sesuai kebutuhan.
     </p>
 
-    <!-- Grid -->
+    <div class="flex flex-wrap gap-2 mb-12">
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs font-medium text-ink-secondary">
+        Company Profile
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs font-medium text-ink-secondary">
+        Landing Page
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs font-medium text-ink-secondary">
+        Website UMKM
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs font-medium text-ink-secondary">
+        Toko Online
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs font-medium text-ink-secondary">
+        Website Custom
+      </span>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {services.map((service) => (
-        <article
-          class="group relative overflow-hidden rounded-2xl
+      {
+        services.map((service) => (
+          <article
+            class="group relative overflow-hidden rounded-2xl
                  border border-surface-border bg-surface-raised p-7
                  transition-all duration-300
                  hover:-translate-y-1 hover:border-brand/30
                  hover:shadow-glow-sm"
-        >
-          <!-- Subtle hover bg -->
-          <div class="absolute inset-0 rounded-2xl bg-brand-glow
+          >
+            <div
+              class="absolute inset-0 rounded-2xl bg-brand-glow
                       opacity-0 transition-opacity duration-300
                       group-hover:opacity-100 pointer-events-none"
-               aria-hidden="true">
-          </div>
-
-          <!-- Icon -->
-          <div class="relative mb-5 flex h-12 w-12 items-center justify-center
-                      rounded-xl bg-brand-muted transition-colors duration-300
-                      group-hover:bg-brand/10">
-            <svg
-              width="22" height="22" viewBox="0 0 24 24"
-              fill="none" stroke="#0F766E"
-              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
               aria-hidden="true"
-              set:html={icons[service.icon] ?? icons.code}
             />
-          </div>
 
-          <!-- Content -->
-          <div class="relative">
-            <h3 class="mb-2 text-base font-bold text-ink-primary">
-              {service.title}
-            </h3>
-            <p class="mb-5 text-sm leading-relaxed text-ink-secondary">
-              {service.description}
-            </p>
-
-            <!-- Tags -->
-            <div class="mb-5 flex flex-wrap gap-1.5">
-              {service.tags.map((tag) => (
-                <span class="rounded-full bg-surface-card px-2.5 py-0.5
-                             text-[11px] font-medium text-ink-muted">
-                  {tag}
-                </span>
-              ))}
+            <div
+              class="relative mb-5 flex h-12 w-12 items-center justify-center
+                      rounded-xl bg-brand-muted transition-colors duration-300
+                      group-hover:bg-brand/10"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#0F766E"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={icons[service.icon] ?? icons.code}
+              />
             </div>
 
-            <!-- CTA link -->
-            <a
-              href="#contact"
-              class="inline-flex items-center gap-1.5 text-xs font-semibold
-                     text-brand transition-[gap] duration-200
-                     group-hover:gap-2.5"
-            >
-              Pelajari lebih lanjut
-              <svg
-                width="12" height="12" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
+            <div class="relative">
+              <h3 class="mb-2 text-base font-bold text-ink-primary">{service.title}</h3>
+              <p class="mb-5 text-sm leading-relaxed text-ink-secondary">{service.description}</p>
 
-          <!-- Bottom accent line -->
-          <div
-            class="absolute bottom-0 left-7 right-7 h-0.5 rounded-t-sm
+              <div class="mb-5 flex flex-wrap gap-1.5">
+                {service.tags.map((tag) => (
+                  <span
+                    class="rounded-full bg-surface-card px-2.5 py-0.5
+                             text-[11px] font-medium text-ink-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-1.5 text-xs
+                      font-semibold text-brand
+                      transition-[gap] duration-200
+                      group-hover:gap-2.5"
+              >
+                Konsultasikan Kebutuhan Anda
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+
+            <div
+              class="absolute bottom-0 left-7 right-7 h-0.5 rounded-t-sm
                    bg-gradient-to-r from-brand to-brand-light
                    scale-x-0 origin-left transition-transform
                    duration-[350ms] ease-out group-hover:scale-x-100"
-            aria-hidden="true"
-          ></div>
-        </article>
-      ))}
+              aria-hidden="true"
+            />
+          </article>
+        ))
+      }
     </div>
-
   </div>
 </section>
