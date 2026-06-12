@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://domainkamu.com/sitemap.xml
+Sitemap: https://webinovasion.com/sitemap-index.xml
