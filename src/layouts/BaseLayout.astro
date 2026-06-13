@@ -9,114 +9,257 @@ interface Props {
 
 const {
   title = 'Web Inovasion - Jasa Website Profesional untuk Bisnis & UMKM',
-  description = 'Web Inovasion membantu bisnis, UMKM, dan perusahaan membangun website modern, cepat, dan teroptimasi SEO. Melayani company profile, landing page, dan website custom.',
+  description = 'Web Inovasion membantu bisnis, UMKM, dan perusahaan membangun website modern, cepat, dan teroptimasi SEO.',
   ogImage = '/assets/images/logo/logo_web_inovasion.png',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.webinovasion.com');
+const site = Astro.site ?? new URL('https://www.webinovasion.com');
+
+const canonicalURL = new URL(Astro.url.pathname, site);
+
+const ogImageURL = new URL(ogImage, site);
+
+const keywords = [
+  'jasa pembuatan website',
+  'jasa website bekasi',
+  'jasa website indonesia',
+  'jasa website umkm',
+  'jasa landing page',
+  'website company profile',
+  'website custom',
+  'web developer indonesia',
+  'web developer bekasi',
+  'web inovasion',
+].join(', ');
 
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
+    // ======================
+    // Local Business
+    // ======================
+
     {
       '@type': 'LocalBusiness',
       '@id': 'https://www.webinovasion.com/#business',
+
       name: 'Web Inovasion',
-      description:
-        'Jasa pembuatan website profesional untuk bisnis, UMKM, dan perusahaan. Melayani company profile, landing page, website custom, dan toko online.',
+
+      image: ogImageURL.href,
+
       url: 'https://www.webinovasion.com',
+
       telephone: '+6285881582774',
+
       email: 'websiteinovasion@gmail.com',
+
+      description: 'Jasa pembuatan website profesional untuk bisnis, UMKM, dan perusahaan di Indonesia.',
+
+      priceRange: 'Rp1.000.000 - Rp10.000.000',
+
       address: {
         '@type': 'PostalAddress',
+
         addressLocality: 'Bekasi',
+
         addressRegion: 'Jawa Barat',
+
         addressCountry: 'ID',
       },
+
       geo: {
         '@type': 'GeoCoordinates',
+
         latitude: -6.3644,
+
         longitude: 107.1675,
       },
+
+      openingHours: 'Mo-Sa 08:00-17:00',
+
       areaServed: {
         '@type': 'Country',
+
         name: 'Indonesia',
       },
-      priceRange: 'Rp 1.000.000 – Rp 10.000.000',
-      openingHours: 'Mo-Sa 08:00-17:00',
-      sameAs: ['https://instagram.com/webinovasion', 'https://wa.me/6285881582774'],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Layanan Web Development',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Website Company Profile',
-              description: 'Website profesional multi-halaman untuk meningkatkan kredibilitas bisnis dan perusahaan.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Landing Page',
-              description: 'Halaman konversi tinggi yang dirancang untuk meningkatkan penjualan produk atau layanan.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Website UMKM dan Toko Online',
-              description: 'Solusi digital untuk UMKM dengan katalog produk dan sistem order via WhatsApp.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Website Custom',
-              description: 'Pengembangan sistem web dari nol sesuai kebutuhan operasional dan bisnis klien.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Portfolio Pribadi',
-              description: 'Website personal untuk profesional dan freelancer yang ingin membangun personal brand.',
-            },
-          },
-        ],
-      },
+
+      sameAs: [
+        'https://instagram.com/webinovasion',
+        'https://wa.me/6285881582774',
+        'https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/',
+      ],
     },
+
+    // ======================
+    // Organization
+    // ======================
+
+    {
+      '@type': 'Organization',
+
+      '@id': 'https://www.webinovasion.com/#organization',
+
+      name: 'Web Inovasion',
+
+      url: 'https://www.webinovasion.com',
+
+      logo: 'https://www.webinovasion.com/assets/images/logo/logo_web_inovasion.png',
+
+      image: ogImageURL.href,
+
+      sameAs: [
+        'https://instagram.com/webinovasion',
+        'https://wa.me/6285881582774',
+        'https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/',
+      ],
+    },
+
+    // ======================
+    // Website
+    // ======================
+
     {
       '@type': 'WebSite',
+
       '@id': 'https://www.webinovasion.com/#website',
+
       url: 'https://www.webinovasion.com',
+
       name: 'Web Inovasion',
-      description: 'Jasa pembuatan website profesional untuk bisnis dan UMKM Indonesia.',
+
+      description,
+
+      inLanguage: 'id-ID',
+
       publisher: {
+        '@id': 'https://www.webinovasion.com/#organization',
+      },
+    },
+
+    // ======================
+    // WebPage
+    // ======================
+
+    {
+      '@type': 'WebPage',
+
+      '@id': 'https://www.webinovasion.com/#webpage',
+
+      url: 'https://www.webinovasion.com',
+
+      name: title,
+
+      description,
+
+      inLanguage: 'id-ID',
+
+      isPartOf: {
+        '@id': 'https://www.webinovasion.com/#website',
+      },
+
+      about: {
         '@id': 'https://www.webinovasion.com/#business',
       },
-      inLanguage: 'id-ID',
+
+      primaryImageOfPage: ogImageURL.href,
     },
+
+    // ======================
+    // Founder
+    // ======================
+
     {
       '@type': 'Person',
+
       '@id': 'https://www.webinovasion.com/#founder',
+
       name: 'Rannur',
-      jobTitle: 'Web Developer & Designer',
+
+      jobTitle: 'Founder',
+
       worksFor: {
         '@id': 'https://www.webinovasion.com/#business',
       },
+
       url: 'https://www.webinovasion.com',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Bekasi',
-        addressRegion: 'Jawa Barat',
-        addressCountry: 'ID',
+    },
+
+    // ======================
+    // Service
+    // ======================
+
+    {
+      '@type': 'Service',
+
+      name: 'Jasa Pembuatan Website',
+      serviceType: 'Website Development',
+
+      provider: {
+        '@id': 'https://www.webinovasion.com/#business',
+      },
+
+      areaServed: {
+        '@type': 'Country',
+
+        name: 'Indonesia',
+      },
+
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+
+        name: 'Layanan Web Inovasion',
+
+        itemListElement: [
+          {
+            '@type': 'Offer',
+
+            itemOffered: {
+              '@type': 'Service',
+
+              name: 'Website Company Profile',
+            },
+          },
+
+          {
+            '@type': 'Offer',
+
+            itemOffered: {
+              '@type': 'Service',
+
+              name: 'Landing Page',
+            },
+          },
+
+          {
+            '@type': 'Offer',
+
+            itemOffered: {
+              '@type': 'Service',
+
+              name: 'Website UMKM',
+            },
+          },
+
+          {
+            '@type': 'Offer',
+
+            itemOffered: {
+              '@type': 'Service',
+
+              name: 'Website Custom',
+            },
+          },
+
+          {
+            '@type': 'Offer',
+
+            itemOffered: {
+              '@type': 'Service',
+
+              name: 'Portfolio Pribadi',
+            },
+          },
+        ],
       },
     },
   ],
@@ -124,37 +267,44 @@ const schema = {
 ---
 
 <!doctype html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Web Inovasion" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0F766E" />
+    <meta name="format-detection" content="telephone=no" />
 
-    <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Web Inovasion" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:site_name" content="Web Inovasion" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageURL} />
 
-    <!-- Favicon -->
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="id-ID" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
     <link rel="icon" type="image/webp" href="/assets/images/logo/logo_web_inovasion.webp" />
 
-    <!-- Schema.org Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
     <title>{title}</title>
   </head>
-
   <body class="bg-surface-base text-ink-primary font-sans antialiased">
     <slot />
   </body>
