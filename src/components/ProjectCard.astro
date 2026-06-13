@@ -1,189 +1,208 @@
 ---
-import projects from "../data/Projects.json";
+import projects from '../data/Projects.json';
 ---
 
-<section
-  id="portfolio"
-  aria-labelledby="portfolio-heading"
-  class="py-20 lg:py-28 bg-surface-base"
->
+<section id="portfolio" aria-labelledby="portfolio-heading" class="py-20 lg:py-28 bg-surface-base">
   <div class="container-custom">
-
-    <!-- Section header -->
-    <div class="inline-flex items-center gap-1.5 rounded-full
+    <div
+      class="inline-flex items-center gap-1.5 rounded-full
                 border border-brand-border bg-brand-muted
-                px-3 py-1 mb-4">
-      <span class="text-[11px] font-bold tracking-widest text-brand uppercase">
-        Portfolio
-      </span>
+                px-3 py-1 mb-4"
+    >
+      <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Portfolio </span>
     </div>
 
     <h2
       id="portfolio-heading"
       class="text-3xl lg:text-4xl font-extrabold tracking-tight
-             text-ink-primary leading-tight mb-3"
+         text-ink-primary leading-tight mb-3"
     >
-      Project yang Sudah Kami Kerjakan
+      Portfolio Website yang Telah Kami Kerjakan
     </h2>
 
-    <p class="text-base text-ink-secondary leading-relaxed max-w-xl mb-12">
-      Setiap project dibangun dengan standar performa, SEO,
-      dan struktur kode yang profesional.
+    <p class="text-base text-ink-secondary leading-relaxed max-w-2xl mb-12">
+      Berikut beberapa website yang telah kami kembangkan untuk membantu bisnis membangun kredibilitas digital melalui
+      performa, SEO, dan pengalaman pengguna yang optimal.
     </p>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-      {projects.map((project) => (
-        <article
-          class="group relative overflow-hidden rounded-2xl
+    <div class="mb-10 flex flex-wrap gap-2">
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs text-ink-secondary">
+        Company Profile
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs text-ink-secondary">
+        SEO Friendly
+      </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs text-ink-secondary"> Responsive </span>
+
+      <span class="rounded-full bg-surface-card px-3 py-1
+               text-xs text-ink-secondary"> Fast Load </span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      {
+        projects.map((project) => (
+          <article
+            class="group relative overflow-hidden rounded-2xl
                  border border-surface-border bg-surface-raised
                  transition-all duration-300
                  hover:-translate-y-1 hover:border-brand/35
                  hover:shadow-[0_8px_40px_rgba(15,118,110,0.12)]"
-        >
-          <!-- Thumbnail -->
-          <div class="relative h-56 overflow-hidden">
-
-            <!-- Gradient fallback (tampil kalau image belum ada) -->
-            <div
-              class="absolute inset-0 bg-gradient-to-br
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br
                      from-brand/20 to-cyan-500/10"
-              aria-hidden="true"
-            ></div>
+                aria-hidden="true"
+              />
 
-            <!-- Project screenshot -->
-            <img
-              src={project.image}
-              alt={`Screenshot website ${project.title}`}
-              width="640"
-              height="360"
-              loading="lazy"
-              decoding="async"
-              class="absolute inset-0 h-full w-full object-cover object-top
+              <img
+                src={project.image}
+                alt={`Portfolio website ${project.title} oleh Web Inovasion`}
+                width="640"
+                height="360"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover object-top
                      transition-transform duration-700 ease-out
                      group-hover:scale-105"
-            />
+              />
 
-            <!-- Gradient overlay -->
-            <div
-              class="absolute inset-0 bg-gradient-to-t
+              <div
+                class="absolute inset-0 bg-gradient-to-t
                      from-ink-primary/75 via-ink-primary/15
                      to-transparent"
-              aria-hidden="true"
-            ></div>
+                aria-hidden="true"
+              />
 
-            <!-- Hover overlay content -->
-            <div
-              class="absolute bottom-0 left-0 right-0 p-5
+              <div
+                class="absolute bottom-0 left-0 right-0 p-5
                      translate-y-2 opacity-0 transition-all
                      duration-[350ms] ease-out
                      group-hover:translate-y-0 group-hover:opacity-100"
-            >
-              <p class="text-[10px] font-bold tracking-widest
-                        text-brand-light uppercase mb-1">
-                Lihat Project
-              </p>
-              <p class="flex items-center gap-1.5 text-sm
-                        font-semibold text-white">
-                {new URL(project.url).hostname}
-                <svg
-                  width="13" height="13" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="text-brand-light flex-shrink-0"
-                  aria-hidden="true"
+              >
+                <p
+                  class="text-[10px] font-bold tracking-widest
+          text-brand-light uppercase mb-1"
                 >
-                  <line x1="7" y1="17" x2="17" y2="7"/>
-                  <polyline points="7 7 17 7 17 17"/>
-                </svg>
-              </p>
+                  Kunjungi Website
+                </p>
+                <p
+                  class="flex items-center gap-1.5 text-sm
+                        font-semibold text-white"
+                >
+                  {new URL(project.url).hostname}
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-brand-light flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </p>
+              </div>
             </div>
 
-          </div>
+            <div class="p-5">
+              <h3 class="mb-1.5 font-bold text-ink-primary">{project.title}</h3>
 
-          <!-- Card body -->
-          <div class="p-5">
-            <h3 class="mb-1.5 font-bold text-ink-primary">
-              {project.title}
-            </h3>
+              <p class="mb-4 text-sm leading-relaxed text-ink-secondary">{project.description}</p>
 
-            <p class="mb-4 text-sm leading-relaxed text-ink-secondary">
-              {project.description}
-            </p>
-
-            <!-- Tags -->
-            <div class="mb-4 flex flex-wrap gap-1.5">
-              <span class="rounded-full border border-brand-border
+              <div class="mb-4 flex flex-wrap gap-1.5">
+                <span
+                  class="rounded-full border border-brand-border
                            bg-brand-muted px-2.5 py-0.5
-                           text-[10px] font-semibold text-brand">
-                {project.category}
-              </span>
-              {project.tags.map((tag) => (
-                <span class="rounded-full border border-surface-border
-                             bg-surface-glass px-2.5 py-0.5
-                             text-[10px] font-medium text-ink-muted">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <!-- Meta row -->
-            <div class="flex items-center justify-between
-                        border-t border-surface-card pt-4">
-
-              <!-- Performance badge -->
-              <span class="inline-flex items-center gap-1.5
-                           rounded-full bg-success/8 px-2.5 py-0.5
-                           text-[10px] font-semibold text-success">
-                <svg
-                  width="10" height="10" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true"
+                           text-[10px] font-semibold text-brand"
                 >
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                {project.badge}
-              </span>
+                  {project.category}
+                </span>
+                {project.tags.map((tag) => (
+                  <span
+                    class="rounded-full border border-surface-border
+                             bg-surface-glass px-2.5 py-0.5
+                             text-[10px] font-medium text-ink-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-              <!-- Visit link -->
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-1 text-[11px]
+              <div
+                class="flex items-center justify-between
+                        border-t border-surface-card pt-4"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5
+                           rounded-full bg-success/8 px-2.5 py-0.5
+                           text-[10px] font-semibold text-success"
+                >
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {project.badge}
+                </span>
+
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-[11px]
                        font-semibold text-brand transition-[gap]
                        duration-200 group-hover:gap-2"
-                aria-label={`Kunjungi website ${project.title}`}
-              >
-                Kunjungi
-                <svg
-                  width="11" height="11" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true"
+                  aria-label={`Kunjungi website ${project.title}`}
                 >
-                  <line x1="7" y1="17" x2="17" y2="7"/>
-                  <polyline points="7 7 17 7 17 17"/>
-                </svg>
-              </a>
-
+                  Kunjungi
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <!-- Clickable overlay untuk whole-card link -->
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="absolute inset-0"
-            tabindex="-1"
-            aria-hidden="true"
-          ></a>
-
-        </article>
-      ))}
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute inset-0"
+              tabindex="-1"
+              aria-hidden="true"
+            />
+          </article>
+        ))
+      }
     </div>
-
   </div>
 </section>

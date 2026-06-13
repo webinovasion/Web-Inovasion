@@ -1,7 +1,7 @@
 [
   {
     "title": "Berlian Teknik Nusantara",
-    "description": "Website company profile dengan sistem admin lengkap — CRUD produk, kelola pesan masuk, dan dashboard internal.",
+    "description": "Website company profile profesional dengan dashboard admin untuk mengelola produk, pesan pelanggan, dan kebutuhan operasional bisnis.",
     "category": "Company Profile",
     "url": "https://berlianteknus.co.id",
     "image": "/assets/images/projects/Project1.webp",
@@ -10,7 +10,7 @@
   },
   {
     "title": "Abu Berkah Teknik",
-    "description": "Website company profile dengan PageSpeed 90+, structured data schema, SEO maksimal, dan arsitektur komponen berbasis JSON.",
+    "description": "Website company profile dengan optimasi PageSpeed, structured data, dan arsitektur komponen modern untuk mendukung performa serta SEO.",
     "category": "Company Profile",
     "url": "https://abuberkahteknik.com",
     "image": "/assets/images/projects/Project2.webp",
