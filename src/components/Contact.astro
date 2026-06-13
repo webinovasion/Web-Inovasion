@@ -1,39 +1,45 @@
 ---
-const WA_NUMBER = "6285881582774"; 
+const WA_NUMBER = '6285881582774';
 const services = [
-  "Company Profile",
-  "Landing Page",
-  "Website UMKM / Toko Online",
-  "Website Custom",
-  "Portfolio Pribadi",
-  "Lainnya",
+  'Company Profile',
+  'Landing Page',
+  'Website UMKM / Toko Online',
+  'Website Custom',
+  'Portfolio Pribadi',
+  'Lainnya',
 ];
 const budgets = [
-  "< Rp 1 juta",
-  "Rp 1 – 3 juta",
-  "Rp 3 – 5 juta",
-  "Rp 5 – 10 juta",
-  "> Rp 10 juta",
-  "Belum tau / fleksibel",
+  '< Rp 1 juta',
+  'Rp 1 – 3 juta',
+  'Rp 3 – 5 juta',
+  'Rp 5 – 10 juta',
+  '> Rp 10 juta',
+  'Belum tau / fleksibel',
 ];
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPoint',
+  contactType: 'customer support',
+  telephone: '+6285881582774',
+  email: 'websiteinovasion@gmail.com',
+  areaServed: 'ID',
+  availableLanguage: 'Indonesian',
+};
 ---
 
-<section
-  id="contact"
-  aria-labelledby="contact-heading"
-  class="py-20 lg:py-28 bg-surface-raised"
->
+<script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+<section id="contact" aria-labelledby="contact-heading" class="py-20 lg:py-28 bg-surface-raised">
   <div class="container-custom">
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-14 items-start">
-
-      <!-- ── Kiri: info ──────────────────────── -->
       <div>
-        <div class="inline-flex items-center gap-1.5 rounded-full
+        <div
+          class="inline-flex items-center gap-1.5 rounded-full
                     border border-brand-border bg-brand-muted
-                    px-3 py-1 mb-4">
-          <span class="text-[11px] font-bold tracking-widest text-brand uppercase">
-            Kontak
-          </span>
+                    px-3 py-1 mb-4"
+        >
+          <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Kontak </span>
         </div>
 
         <h2
@@ -45,81 +51,102 @@ const budgets = [
         </h2>
 
         <p class="text-base text-ink-secondary leading-relaxed mb-8">
-          Isi form dan kami akan balas via WhatsApp
-          dalam waktu kurang dari 24 jam.
+          Isi form dan kami akan balas via WhatsApp dalam waktu kurang dari 24 jam.
         </p>
 
-        <!-- Info items -->
-        {[
-          {
-            icon: `<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>`,
-            label: "WhatsApp",
-            value: "+62 858-8158-2774",
-            sub: "Respon dalam < 24 jam",
-          },
-          {
-            icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
-            label: "Email",
-            value: "websiteinovasion@gmail.com",
-            sub: "Untuk brief & dokumen",
-          },
-          {
-            icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
-            label: "Lokasi",
-            value: "Bekasi, Jawa Barat",
-            sub: "Bisa remote seluruh Indonesia",
-          },
-        ].map(({ icon, label, value, sub }) => (
-          <div class="flex items-start gap-4 mb-6 last:mb-0">
-            <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center
-                        rounded-xl bg-brand-muted">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                   stroke="#0F766E" stroke-width="1.8"
-                   stroke-linecap="round" stroke-linejoin="round"
-                   aria-hidden="true" set:html={icon}/>
+        {
+          [
+            {
+              icon: `<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>`,
+              label: 'WhatsApp',
+              value: '+62 858-8158-2774',
+              sub: 'Respon maksimal 24 jam',
+            },
+            {
+              icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
+              label: 'Email',
+              value: 'websiteinovasion@gmail.com',
+              sub: 'Untuk brief & dokumen',
+            },
+            {
+              icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
+              label: 'Lokasi',
+              value: 'Bekasi, Jawa Barat',
+              sub: 'Bisa remote seluruh Indonesia',
+            },
+          ].map(({ icon, label, value, sub }) => (
+            <div class="flex items-start gap-4 mb-6 last:mb-0">
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center
+                        rounded-xl bg-brand-muted"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0F766E"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  set:html={icon}
+                />
+              </div>
+              <div>
+                <p
+                  class="text-[11px] font-semibold uppercase tracking-wider
+                        text-ink-disabled mb-0.5"
+                >
+                  {label}
+                </p>
+                <p class="text-sm font-semibold text-ink-primary">{value}</p>
+                <p class="text-xs text-ink-muted mt-0.5">{sub}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-[11px] font-semibold uppercase tracking-wider
-                        text-ink-disabled mb-0.5">{label}</p>
-              <p class="text-sm font-semibold text-ink-primary">{value}</p>
-              <p class="text-xs text-ink-muted mt-0.5">{sub}</p>
-            </div>
-          </div>
-        ))}
+          ))
+        }
 
-        <!-- Promise box -->
-        <div class="mt-8 flex items-start gap-3 rounded-xl
-                    border border-brand-border bg-brand-muted/50 p-4">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="#0F766E" stroke-width="2.5"
-               stroke-linecap="round" stroke-linejoin="round"
-               class="mt-0.5 flex-shrink-0" aria-hidden="true">
-            <polyline points="20 6 9 17 4 12"/>
+        <div
+          class="mt-8 flex items-start gap-3 rounded-xl
+                    border border-brand-border bg-brand-muted/50 p-4"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0F766E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mt-0.5 flex-shrink-0"
+            aria-hidden="true"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
           <div class="text-sm text-brand leading-relaxed">
             <strong class="font-bold block mb-0.5">Konsultasi 100% Gratis</strong>
-            Tidak ada biaya untuk diskusi awal. Kami bantu analisis
-            kebutuhan dan estimasi budget tanpa komitmen.
+            Tidak ada biaya untuk diskusi awal. Kami bantu analisis kebutuhan dan estimasi budget tanpa komitmen.
           </div>
         </div>
       </div>
 
-      <!-- ── Kanan: form ─────────────────────── -->
       <div class="rounded-2xl border border-surface-border
                   bg-surface-base p-8">
         <form id="contactForm" novalidate>
-
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <!-- Nama -->
             <div>
-              <label for="name"
-                class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+              <label for="name" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
                 Nama Lengkap <span class="text-brand" aria-label="wajib diisi">*</span>
               </label>
               <input
-                id="name" name="name" type="text"
+                id="name"
+                name="name"
+                type="text"
                 placeholder="Budi Santoso"
-                required autocomplete="name"
+                required
+                autocomplete="name"
                 class="w-full rounded-xl border border-surface-border
                        bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                        placeholder:text-ink-disabled
@@ -128,16 +155,17 @@ const budgets = [
               />
             </div>
 
-            <!-- WA -->
             <div>
-              <label for="phone"
-                class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+              <label for="phone" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
                 Nomor WhatsApp <span class="text-brand" aria-label="wajib diisi">*</span>
               </label>
               <input
-                id="phone" name="phone" type="tel"
+                id="phone"
+                name="phone"
+                type="tel"
                 placeholder="08xxxxxxxxxx"
-                required autocomplete="tel"
+                required
+                autocomplete="tel"
                 class="w-full rounded-xl border border-surface-border
                        bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                        placeholder:text-ink-disabled
@@ -147,16 +175,17 @@ const budgets = [
             </div>
           </div>
 
-          <!-- Email -->
           <div class="mb-4">
-            <label for="email"
-              class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+            <label for="email" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
               Email <span class="text-brand" aria-label="wajib diisi">*</span>
             </label>
             <input
-              id="email" name="email" type="email"
+              id="email"
+              name="email"
+              type="email"
               placeholder="budi@email.com"
-              required autocomplete="email"
+              required
+              autocomplete="email"
               class="w-full rounded-xl border border-surface-border
                      bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                      placeholder:text-ink-disabled
@@ -166,14 +195,14 @@ const budgets = [
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <!-- Layanan -->
             <div>
-              <label for="service"
-                class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+              <label for="service" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
                 Layanan <span class="text-brand" aria-label="wajib diisi">*</span>
               </label>
               <select
-                id="service" name="service" required
+                id="service"
+                name="service"
+                required
                 class="w-full appearance-none rounded-xl border border-surface-border
                        bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                        transition focus:border-brand focus:outline-none
@@ -186,14 +215,13 @@ const budgets = [
               </select>
             </div>
 
-            <!-- Budget -->
             <div>
-              <label for="budget"
-                class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+              <label for="budget" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
                 Estimasi Budget
               </label>
               <select
-                id="budget" name="budget"
+                id="budget"
+                name="budget"
                 class="w-full appearance-none rounded-xl border border-surface-border
                        bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                        transition focus:border-brand focus:outline-none
@@ -207,16 +235,16 @@ const budgets = [
             </div>
           </div>
 
-          <!-- Pesan -->
           <div class="mb-6">
-            <label for="message"
-              class="mb-1.5 block text-xs font-semibold text-ink-secondary">
+            <label for="message" class="mb-1.5 block text-xs font-semibold text-ink-secondary">
               Ceritakan Kebutuhan Anda <span class="text-brand" aria-label="wajib diisi">*</span>
             </label>
             <textarea
-              id="message" name="message"
-              rows="4" required
-              placeholder="Contoh: Saya butuh website company profile untuk bisnis kontraktor. Ingin tampil profesional dan mudah ditemukan di Google..."
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Contoh: Saya membutuhkan website company profile untuk bisnis kontraktor dengan tampilan profesional dan mudah ditemukan di Google."
               class="w-full resize-y rounded-xl border border-surface-border
                      bg-surface-raised px-4 py-2.5 text-sm text-ink-primary
                      placeholder:text-ink-disabled leading-relaxed
@@ -225,7 +253,6 @@ const budgets = [
             ></textarea>
           </div>
 
-          <!-- Submit -->
           <button
             type="submit"
             class="group w-full inline-flex items-center justify-center gap-2
@@ -233,42 +260,52 @@ const budgets = [
                    transition-colors hover:bg-brand-hover"
           >
             Kirim via WhatsApp
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5"
-                 stroke-linecap="round" stroke-linejoin="round"
-                 class="transition-transform group-hover:translate-x-1"
-                 aria-hidden="true">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              ></path>
             </svg>
           </button>
 
-          <p class="mt-3 text-center text-[11px] text-ink-disabled leading-relaxed">
-            Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis.
+          <p class="mt-3 text-center text-[11px]
+          text-ink-disabled leading-relaxed">
+            Setelah klik kirim, Anda akan diarahkan ke WhatsApp dengan detail kebutuhan yang sudah terisi otomatis.
           </p>
-
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
 <script define:vars={{ WA_NUMBER }}>
-  const form = document.getElementById("contactForm");
+  const form = document.getElementById('contactForm');
 
-  form?.addEventListener("submit", (e) => {
+  if (!(form instanceof HTMLFormElement)) return;
+
+  form?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name    = form.name.value.trim();
-    const phone   = form.phone.value.trim();
-    const email   = form.email.value.trim();
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const email = form.email.value.trim();
     const service = form.service.value;
-    const budget  = form.budget.value || "Belum ditentukan";
+    const budget = form.budget.value || 'Belum ditentukan';
     const message = form.message.value.trim();
 
     // Validasi manual — browser default novalidate
     if (!name || !phone || !email || !service || !message) {
-      alert("Mohon lengkapi semua field yang wajib diisi (*).");
+      alert('Mohon lengkapi semua field yang wajib diisi (*).');
       return;
     }
 
@@ -284,9 +321,9 @@ const budgets = [
       ``,
       `*Kebutuhan:*`,
       message,
-    ].join("\n");
+    ].join('\n');
 
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, '_blank', 'noopener,noreferrer');
   });
 </script>
