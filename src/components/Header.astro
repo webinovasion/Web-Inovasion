@@ -2,6 +2,7 @@
 const navLinks = [
   { href: "#services", label: "Layanan" },
   { href: "#portfolio", label: "Portfolio" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Kontak" },
 ];
 ---
@@ -11,77 +12,129 @@ const navLinks = [
     <div class="flex h-16 items-center justify-between">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 font-extrabold text-lg text-brand tracking-tight">
-        <span class="block h-2 w-2 rounded-full bg-brand"></span>
+      <a
+        href="/"
+        aria-label="Web Inovasion"
+        class="flex items-center gap-2 text-lg font-extrabold tracking-tight text-brand"
+      >
+        <span
+          class="block h-2 w-2 rounded-full bg-brand"
+          aria-hidden="true"
+        ></span>
         Web Inovasion
       </a>
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
-        {navLinks.map(({ href, label }) => (
-          <a
-            href={href}
-            class="relative text-nav font-medium text-ink-secondary transition-colors duration-200
-                   hover:text-ink-primary
-                   after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0
-                   after:bg-brand after:rounded-full after:transition-all after:duration-250
-                   hover:after:w-full"
-          >
-            {label}
-          </a>
-        ))}
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden md:flex items-center"
+        aria-label="Navigasi utama"
+      >
+        <ul class="flex items-center gap-8">
+          {navLinks.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class="relative text-nav font-medium text-ink-secondary
+                       transition-colors duration-200
+                       hover:text-ink-primary
+                       after:absolute after:left-0 after:-bottom-0.5
+                       after:h-px after:w-0
+                       after:rounded-full after:bg-brand
+                       after:transition-all after:duration-300
+                       hover:after:w-full"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
 
-      <!-- Desktop CTA + hamburger -->
+      <!-- Right Side -->
       <div class="flex items-center gap-3">
+
+        <!-- CTA -->
         <a
           href="#contact"
-          class="hidden md:inline-flex rounded-lg bg-brand px-4 py-2 text-nav font-semibold
-                 text-white transition-colors duration-200 hover:bg-brand-hover"
+          class="hidden md:inline-flex items-center justify-center
+                 rounded-lg bg-brand px-4 py-2
+                 text-nav font-semibold text-white
+                 transition-colors duration-200
+                 hover:bg-brand-hover"
         >
           Konsultasi Gratis
         </a>
 
-        <!-- Hamburger button -->
+        <!-- Mobile Menu Button -->
         <button
           id="menuBtn"
           aria-controls="mobileMenu"
           aria-expanded="false"
-          aria-label="Toggle navigation menu"
+          aria-label="Buka menu navigasi"
           class="group flex md:hidden flex-col gap-[5px] p-1"
         >
-          <span class="block h-0.5 w-[22px] rounded-full bg-ink-primary transition-all duration-300
-                       group-aria-expanded:translate-y-[7px] group-aria-expanded:rotate-45"></span>
-          <span class="block h-0.5 w-[22px] rounded-full bg-ink-primary transition-all duration-300
-                       group-aria-expanded:opacity-0 group-aria-expanded:scale-x-0"></span>
-          <span class="block h-0.5 w-[22px] rounded-full bg-ink-primary transition-all duration-300
-                       group-aria-expanded:-translate-y-[7px] group-aria-expanded:-rotate-45"></span>
-        </button>
-      </div>
+          <span
+            class="block h-0.5 w-[22px] rounded-full bg-ink-primary
+                   transition-all duration-300
+                   group-aria-expanded:translate-y-[7px]
+                   group-aria-expanded:rotate-45"
+          ></span>
 
+          <span
+            class="block h-0.5 w-[22px] rounded-full bg-ink-primary
+                   transition-all duration-300
+                   group-aria-expanded:opacity-0
+                   group-aria-expanded:scale-x-0"
+          ></span>
+
+          <span
+            class="block h-0.5 w-[22px] rounded-full bg-ink-primary
+                   transition-all duration-300
+                   group-aria-expanded:-translate-y-[7px]
+                   group-aria-expanded:-rotate-45"
+          ></span>
+        </button>
+
+      </div>
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile Menu -->
   <div
     id="mobileMenu"
-    role="navigation"
-    aria-label="Mobile navigation"
-    class="md:hidden overflow-hidden max-h-0 opacity-0 transition-[max-height,opacity] duration-400 ease-in-out"
+    aria-label="Navigasi seluler"
+    class="md:hidden overflow-hidden
+           max-h-0 opacity-0
+           transition-[max-height,opacity]
+           duration-300 ease-in-out"
   >
-    <div class="container-custom pb-6 pt-2 flex flex-col">
+    <div class="container-custom flex flex-col pb-6 pt-2">
+
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class="flex items-center justify-between border-b border-surface-border
-                 py-3 text-base font-medium text-ink-secondary
-                 transition-colors duration-200 hover:text-brand last:border-none"
+          class="flex items-center justify-between
+                 border-b border-surface-border
+                 py-3 text-base font-medium
+                 text-ink-secondary
+                 transition-colors duration-200
+                 hover:text-brand
+                 last:border-none"
         >
           {label}
-          <!-- Chevron right -->
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round"
-               stroke-linejoin="round" class="text-ink-disabled" aria-hidden="true">
+
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-ink-disabled"
+            aria-hidden="true"
+          >
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </a>
@@ -89,11 +142,15 @@ const navLinks = [
 
       <a
         href="#contact"
-        class="mt-4 block rounded-lg bg-brand py-3 text-center text-base
-               font-semibold text-white transition-colors hover:bg-brand-hover"
+        class="mt-4 block rounded-lg
+               bg-brand py-3 text-center
+               text-base font-semibold text-white
+               transition-colors duration-200
+               hover:bg-brand-hover"
       >
-        Konsultasi Gratis →
+        Konsultasi Gratis
       </a>
+
     </div>
   </div>
 </header>
@@ -102,24 +159,27 @@ const navLinks = [
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("mobileMenu");
 
-  btn?.addEventListener("click", () => {
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!isOpen));
-    if (!isOpen) {
-      menu!.style.maxHeight = menu!.scrollHeight + "px";
-      menu!.style.opacity = "1";
-    } else {
-      menu!.style.maxHeight = "0";
-      menu!.style.opacity = "0";
-    }
-  });
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-  // Tutup menu saat nav link diklik
-  menu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      btn?.setAttribute("aria-expanded", "false");
-      menu.style.maxHeight = "0";
-      menu.style.opacity = "0";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+
+      if (!isOpen) {
+        menu.style.maxHeight = menu.scrollHeight + "px";
+        menu.style.opacity = "1";
+      } else {
+        menu.style.maxHeight = "0";
+        menu.style.opacity = "0";
+      }
     });
-  });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        btn.setAttribute("aria-expanded", "false");
+        menu.style.maxHeight = "0";
+        menu.style.opacity = "0";
+      });
+    });
+  }
 </script>
