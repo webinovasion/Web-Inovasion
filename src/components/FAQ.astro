@@ -1,82 +1,97 @@
 ---
 const faqs = [
   {
-    q: "Berapa lama proses pengerjaan website?",
-    a: "Tergantung jenis dan kompleksitas project. <strong>Landing page dan company profile</strong> biasanya selesai dalam <strong>7–14 hari kerja</strong>. Untuk <strong>web application</strong> yang lebih kompleks bisa memakan waktu <strong>1–2 bulan</strong>. Timeline pasti akan disepakati di awal sebelum pengerjaan dimulai.",
+    q: 'Berapa lama proses pengerjaan website?',
+    a: 'Tergantung jenis dan kompleksitas project. <strong>Landing page dan company profile</strong> biasanya selesai dalam <strong>7–14 hari kerja</strong>. Untuk <strong>web application</strong> yang lebih kompleks bisa memakan waktu <strong>1–2 bulan</strong>. Timeline pasti akan disepakati di awal sebelum pengerjaan dimulai.',
   },
   {
-    q: "Berapa kali bisa request revisi?",
-    a: "Setiap project mendapatkan <strong>2x revisi gratis</strong>. Revisi di luar ketentuan akan dikenakan biaya tambahan yang disepakati bersama. Untuk meminimalisir revisi, kami selalu melakukan diskusi brief yang detail di awal project.",
+    q: 'Berapa kali bisa request revisi?',
+    a: 'Setiap project mendapatkan <strong>2x revisi gratis</strong>. Revisi di luar ketentuan akan dikenakan biaya tambahan yang disepakati bersama. Untuk meminimalisir revisi, kami selalu melakukan diskusi brief yang detail di awal project.',
   },
   {
-    q: "Teknologi apa yang digunakan?",
-    a: "Teknologi menyesuaikan kebutuhan project. Jika tidak ada requirement khusus, kami menggunakan <strong>Astro atau PHP</strong> untuk frontend dan <strong>MySQL</strong> untuk database. Kalau kamu punya preferensi tech stack tertentu, kami bisa diskusikan di awal.",
+    q: 'Teknologi apa yang digunakan?',
+    a: 'Kami memilih teknologi yang sesuai dengan kebutuhan project, baik website company profile, landing page, maupun sistem web custom.. Kalau kamu punya preferensi tech stack tertentu, kami bisa diskusikan di awal.',
   },
   {
-    q: "Apakah saya bisa kelola konten sendiri setelah website jadi?",
-    a: "Bisa, jika kamu request penambahan <strong>CMS (Content Management System)</strong>. Dengan CMS, kamu bisa update konten, gambar, dan produk sendiri tanpa perlu skill coding. Tanpa CMS, update konten dilakukan melalui kami.",
+    q: 'Apakah saya bisa kelola konten sendiri setelah website jadi?',
+    a: 'Bisa, jika kamu request penambahan <strong>CMS (Content Management System)</strong>. Dengan CMS, kamu bisa update konten, gambar, dan produk sendiri tanpa perlu skill coding. Tanpa CMS, update konten dilakukan melalui kami.',
   },
   {
-    q: "Apakah sudah termasuk domain dan hosting?",
-    a: "<strong>Ya, sudah termasuk domain dan hosting 1 tahun.</strong> Setelah tahun pertama, perpanjangan domain dan hosting menjadi tanggung jawab klien. Kami juga memberikan <strong>free maintenance selama 3 bulan</strong> pertama setelah website live.",
+    q: 'Apakah sudah termasuk domain dan hosting?',
+    a: '<strong>Ya, sudah termasuk domain dan hosting 1 tahun.</strong> Setelah tahun pertama, perpanjangan domain dan hosting menjadi tanggung jawab klien. Kami juga memberikan <strong>free maintenance selama 3 bulan</strong> pertama setelah website live.',
   },
   {
-    q: "Bisa handle klien dari luar Bekasi?",
-    a: "<strong>Bisa, kami melayani seluruh Indonesia secara remote.</strong> Proses diskusi, briefing, dan presentasi dilakukan via WhatsApp atau video call. Untuk klien yang ingin meeting langsung, kami juga terbuka untuk tatap muka jika diperlukan.",
+    q: 'Apakah Web Inovasion melayani klien di seluruh Indonesia?',
+    a: '<strong>Bisa, kami melayani seluruh Indonesia secara remote.</strong> Proses diskusi, briefing, dan presentasi dilakukan via WhatsApp atau video call. Untuk klien yang ingin meeting langsung, kami juga terbuka untuk tatap muka jika diperlukan.',
   },
   {
-    q: "Bagaimana sistem pembayarannya?",
-    a: "Sistem pembayaran dibagi dua tahap: <strong>DP 30%</strong> di awal setelah kesepakatan project, dan <strong>pelunasan 70%</strong> setelah website selesai dan siap dipublish. Pembayaran bisa via transfer bank atau e-wallet.",
+    q: 'Bagaimana sistem pembayarannya?',
+    a: 'Sistem pembayaran dibagi dua tahap: <strong>DP 30%</strong> di awal setelah kesepakatan project, dan <strong>pelunasan 70%</strong> setelah website selesai dan siap dipublish. Pembayaran bisa via transfer bank atau e-wallet.',
   },
   {
-    q: "Ada garansi setelah website selesai?",
-    a: "Ya. Setiap project mendapatkan <strong>2x revisi gratis</strong> dan <strong>free maintenance selama 3 bulan</strong> setelah website live. Maintenance mencakup perbaikan bug, update minor, dan konsultasi teknis selama periode tersebut.",
+    q: 'Apakah website yang dibuat sudah SEO friendly?',
+    a: 'Ya. Kami membangun website dengan memperhatikan struktur HTML yang baik, performa, mobile responsiveness, dan optimasi dasar SEO agar lebih mudah ditemukan di mesin pencari.',
+  },
+  {
+    q: 'Apakah website bisa dikembangkan di kemudian hari?',
+    a: 'Bisa. Website dirancang agar dapat dikembangkan sesuai kebutuhan bisnis, seperti penambahan halaman, fitur baru, sistem administrasi, maupun integrasi layanan lainnya.',
+  },
+  {
+    q: 'Ada garansi setelah website selesai?',
+    a: 'Ya. Setiap project mendapatkan <strong>2x revisi gratis</strong> dan <strong>free maintenance selama 3 bulan</strong> setelah website live. Maintenance mencakup perbaikan bug, update minor, dan konsultasi teknis selama periode tersebut.',
   },
 ];
 
-const WA_NUMBER = "6285881582774";
+const WA_NUMBER = '6285881582774';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a.replace(/<[^>]*>/g, ''),
+    },
+  })),
+};
 ---
 
-<section
-  id="faq"
-  aria-labelledby="faq-heading"
-  class="py-20 lg:py-28 bg-surface-base"
->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" aria-labelledby="faq-heading" class="py-20 lg:py-28 bg-surface-base">
   <div class="container-custom">
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 items-start">
-
-      <!-- Kiri: header sticky -->
       <div class="lg:sticky lg:top-24">
-        <div class="inline-flex items-center gap-1.5 rounded-full
+        <div
+          class="inline-flex items-center gap-1.5 rounded-full
                     border border-brand-border bg-brand-muted
-                    px-3 py-1 mb-4">
-          <span class="text-[11px] font-bold tracking-widest text-brand uppercase">
-            FAQ
-          </span>
+                    px-3 py-1 mb-4"
+        >
+          <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> FAQ </span>
         </div>
 
         <h2
           id="faq-heading"
           class="text-3xl lg:text-4xl font-extrabold tracking-tight
-                 text-ink-primary leading-tight mb-3"
+         text-ink-primary leading-tight mb-3"
         >
-          Pertanyaan yang Sering Ditanyakan
+          Pertanyaan Umum Seputar Jasa Pembuatan Website
         </h2>
 
         <p class="text-base text-ink-secondary leading-relaxed mb-8">
-          Tidak menemukan jawaban yang kamu cari?
-          Langsung tanyakan via WhatsApp.
+          Temukan jawaban untuk pertanyaan yang sering diajukan seputar proses pembuatan website, biaya, revisi,
+          maintenance, dan layanan Web Inovasion.
         </p>
 
-        <!-- CTA box -->
         <div class="rounded-xl border border-brand-border
                     bg-surface-raised p-5">
           <p class="text-sm text-ink-secondary leading-relaxed mb-3">
-            Punya pertanyaan lain seputar project
-            atau kebutuhan website kamu?
+            Masih punya pertanyaan tentang layanan atau kebutuhan website bisnis Anda?
           </p>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Halo Web Inovasion, saya ingin bertanya seputar layanan website.")}`}
+            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Halo Web Inovasion, saya ingin bertanya seputar layanan website.')}`}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1.5 text-sm
@@ -84,95 +99,114 @@ const WA_NUMBER = "6285881582774";
                    duration-200 hover:gap-3"
           >
             Tanya via WhatsApp
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5"
-                 stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Kanan: accordion -->
       <div class="flex flex-col gap-2" id="faqList">
-        {faqs.map((faq, i) => (
-          <div
-            class="faq-item group rounded-2xl border border-surface-border
+        {
+          faqs.map((faq, i) => (
+            <div
+              class="faq-item group rounded-2xl border border-surface-border
                    bg-surface-raised overflow-hidden
                    transition-colors duration-250"
-            data-index={i}
-          >
-            <button
-              class="faq-btn flex w-full items-center justify-between
-                     gap-4 px-5 py-[18px] text-left"
-              aria-expanded="false"
+              data-index={i}
             >
-              <span class="text-sm font-semibold text-ink-primary
-                           leading-snug">
-                {faq.q}
-              </span>
-              <div class="faq-icon flex h-7 w-7 flex-shrink-0
-                          items-center justify-center rounded-lg
-                          bg-surface-card transition-all duration-300">
-                <svg
-                  width="14" height="14" viewBox="0 0 24 24"
-                  fill="none" stroke="#64748B" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true"
+              <button
+                class="faq-btn flex w-full items-center justify-between
+                     gap-4 px-5 py-[18px] text-left"
+                aria-expanded="false"
+              >
+                <span
+                  class="text-sm font-semibold text-ink-primary
+                           leading-snug"
                 >
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </div>
-            </button>
+                  {faq.q}
+                </span>
+                <div
+                  class="faq-icon flex h-7 w-7 flex-shrink-0
+                          items-center justify-center rounded-lg
+                          bg-surface-card transition-all duration-300"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#64748B"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </button>
 
-            <div class="faq-body max-h-0 overflow-hidden
+              <div
+                class="faq-body max-h-0 overflow-hidden
                         transition-[max-height] duration-[350ms]
-                        ease-in-out">
-              <div class="border-t border-surface-card px-5 pb-5 pt-3.5
+                        ease-in-out"
+              >
+                <div
+                  class="border-t border-surface-card px-5 pb-5 pt-3.5
                           text-sm leading-[1.8] text-ink-secondary"
-                   set:html={faq.a}
-              />
+                  set:html={faq.a}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
-
     </div>
   </div>
 </section>
 
 <script>
-  const items = document.querySelectorAll<HTMLElement>(".faq-item");
+  const items = document.querySelectorAll<HTMLElement>('.faq-item');
 
   items.forEach((item) => {
-    const btn  = item.querySelector<HTMLButtonElement>(".faq-btn")!;
-    const body = item.querySelector<HTMLElement>(".faq-body")!;
-    const icon = item.querySelector<HTMLElement>(".faq-icon")!;
+    const btn = item.querySelector<HTMLButtonElement>('.faq-btn')!;
+    const body = item.querySelector<HTMLElement>('.faq-body')!;
+    const icon = item.querySelector<HTMLElement>('.faq-icon')!;
 
-    btn.addEventListener("click", () => {
-      const isOpen = btn.getAttribute("aria-expanded") === "true";
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
       // Tutup semua
       items.forEach((el) => {
-        const b = el.querySelector<HTMLButtonElement>(".faq-btn")!;
-        const d = el.querySelector<HTMLElement>(".faq-body")!;
-        const ic = el.querySelector<HTMLElement>(".faq-icon")!;
-        b.setAttribute("aria-expanded", "false");
-        d.style.maxHeight = "0";
-        el.style.borderColor = "";
-        ic.style.transform = "";
-        ic.style.background = "";
+        const b = el.querySelector<HTMLButtonElement>('.faq-btn')!;
+        const d = el.querySelector<HTMLElement>('.faq-body')!;
+        const ic = el.querySelector<HTMLElement>('.faq-icon')!;
+        b.setAttribute('aria-expanded', 'false');
+        d.style.maxHeight = '0';
+        el.style.borderColor = '';
+        ic.style.transform = '';
+        ic.style.background = '';
       });
 
       // Buka yang diklik kalau sebelumnya tertutup
       if (!isOpen) {
-        btn.setAttribute("aria-expanded", "true");
-        body.style.maxHeight = body.scrollHeight + "px";
-        item.style.borderColor = "rgba(15,118,110,0.25)";
-        icon.style.transform = "rotate(180deg)";
-        icon.style.background = "rgba(15,118,110,0.1)";
+        btn.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        item.style.borderColor = 'rgba(15,118,110,0.25)';
+        icon.style.transform = 'rotate(180deg)';
+        icon.style.background = 'rgba(15,118,110,0.1)';
       }
     });
   });
