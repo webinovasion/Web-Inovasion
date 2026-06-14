@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
 
 interface Props {
@@ -307,5 +309,7 @@ const schema = {
   </head>
   <body class="bg-surface-base text-ink-primary font-sans antialiased">
     <slot />
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
