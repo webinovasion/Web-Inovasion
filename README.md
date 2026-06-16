@@ -1,22 +1,33 @@
-# Web Inovasion — Landing Page
+![Astro](https://img.shields.io/badge/Astro-v6-FF5D01)
+![Tailwind](https://img.shields.io/badge/Tailwind-v3-38BDF8)
+![SEO](https://img.shields.io/badge/SEO-Optimized-10B981)
+
+# Web Inovasion — Official Landing Page
+
+Fast • SEO-Friendly • Responsive • Structured Data • JSON-Driven
 
 Landing page resmi **Web Inovasion**, layanan pembuatan website profesional untuk bisnis, UMKM, startup, dan perusahaan di Indonesia.
 
----
-
-## 🚀 Tech Stack
-
-| Layer      | Technology                          |
-| :--------- | :---------------------------------- |
-| Framework  | Astro v6                            |
-| Styling    | Tailwind CSS v3                     |
-| Font       | Plus Jakarta Sans, JetBrains Mono   |
-| Icons      | Inline SVG                          |
-| Deployment | Vercel / Netlify / Cloudflare Pages |
+Dirancang dengan pendekatan modern, SEO-friendly, performa tinggi, dan arsitektur komponen berbasis Astro.
 
 ---
 
-## 📁 Project Structure
+# 🚀 Tech Stack
+
+| Layer           | Technology                          |
+| :-------------- | :---------------------------------- |
+| Framework       | Astro v6                            |
+| Styling         | Tailwind CSS v3                     |
+| Language        | TypeScript                          |
+| Font            | Plus Jakarta Sans, JetBrains Mono   |
+| Icons           | Inline SVG                          |
+| Data Source     | JSON                                |
+| Structured Data | Schema.org JSON-LD                  |
+| Deployment      | Vercel / Netlify / Cloudflare Pages |
+
+---
+
+# 📁 Project Structure
 
 ```text
 src/
@@ -26,14 +37,15 @@ src/
 │   ├── ServiceCard.astro
 │   ├── ProjectCard.astro
 │   ├── Testimonial.astro
+│   ├── FAQ.astro
 │   ├── CTA.astro
 │   ├── Contact.astro
 │   └── Footer.astro
 │
 ├── data/
-│   ├── services.json
-│   ├── projects.json
-│   └── testimonials.json
+│   ├── Service.json
+│   ├── Projects.json
+│   └── Testimonials.json
 │
 ├── layouts/
 │   └── BaseLayout.astro
@@ -43,24 +55,30 @@ src/
 │
 └── styles/
     └── global.css
+
+public/
+└── assets/
+    ├── images/
+    ├── favicon/
+    └── logo/
 ```
 
 ---
 
-## ⚙️ Getting Started
+# ⚙️ Getting Started
 
-### Prerequisites
+## Requirements
 
-* Node.js >= 22.12.0
-* npm atau package manager lainnya
+* Node.js >= 22
+* npm
 
-### Install Dependencies
+## Install
 
 ```bash
 npm install
 ```
 
-### Development
+## Development
 
 ```bash
 npm run dev
@@ -72,13 +90,13 @@ Development server:
 http://localhost:4321
 ```
 
-### Build Production
+## Production Build
 
 ```bash
 npm run build
 ```
 
-### Preview Build
+## Preview
 
 ```bash
 npm run preview
@@ -86,67 +104,56 @@ npm run preview
 
 ---
 
-## 🔧 Configuration Before Deployment
+# 🔧 Project Configuration
 
-Pastikan beberapa konfigurasi berikut telah diperbarui sebelum website dipublikasikan.
+## Astro
 
-### 1. `astro.config.mjs`
+Pastikan domain sudah diatur.
 
 ```js
-export default defineConfig({
-  site: "https://webinovasion.com",
-});
+site: "https://webinovasion.com"
 ```
 
 ---
 
-### 2. `src/layouts/BaseLayout.astro`
+## BaseLayout
 
-Sesuaikan informasi berikut:
+Sesuaikan apabila diperlukan:
 
-* Nomor WhatsApp (`telephone`)
-* URL media sosial (`sameAs`)
-* Koordinat lokasi (`geo`)
+* Meta Title
+* Meta Description
+* Canonical URL
+* Open Graph
+* Twitter Card
+* Structured Data
+* Social Media URL
+* Business Information
 
 ---
 
-### 3. `src/components/Contact.astro`
+## Contact
+
+Perbarui nomor WhatsApp.
 
 ```astro
-const WA_NUMBER = "6285881582774";
+const WA_NUMBER = "...";
 ```
 
 ---
 
-### 4. `src/components/Footer.astro`
+## Footer
 
-Perbarui:
+Periksa:
 
 * Instagram
 * WhatsApp
 * LinkedIn
 * Email
-* Informasi perusahaan
+* Lokasi
 
 ---
 
-### 5. Sitemap
-
-Jika menggunakan sitemap manual:
-
-```
-public/sitemap.xml
-```
-
-Perbarui:
-
-```xml
-<lastmod>YYYY-MM-DD</lastmod>
-```
-
----
-
-### 6. Data Content
+## Project Data
 
 Folder:
 
@@ -154,66 +161,105 @@ Folder:
 src/data/
 ```
 
-Periksa:
+Kelola:
 
-* `services.json`
-* `projects.json`
-* `testimonials.json`
+* Service.json
+* Projects.json
+* Testimonials.json
+
+Seluruh section bersifat JSON-driven.
 
 ---
 
-### 7. Project Images
+## Images
 
 Folder:
 
 ```
-public/assets/images/projects/
+public/assets/images/
 ```
 
 Rekomendasi:
 
-* Format: `.webp`
-* Resolusi: minimal 1280×720 px
-* Ukuran: < 100 KB
+* Format: WebP
+* Minimal: 1280×720
+* Maksimal: 100 KB
 
-Optimasi gambar menggunakan Squoosh.
-
----
-
-## 🔍 SEO Checklist
-
-### Basic SEO
-
-* [x] Meta Title
-* [x] Meta Description
-* [x] Canonical URL
-* [x] Open Graph Tags
-* [x] Twitter Card
-
-### Structured Data
-
-* [x] LocalBusiness
-* [x] WebSite
-* [x] Person
-
-### Accessibility
-
-* [x] Semantic HTML
-* [x] Heading hierarchy
-* [x] Image alt text
-* [x] aria-label
-* [x] aria-labelledby
-
-### Technical SEO
-
-* [x] robots.txt
-* [x] sitemap.xml
-* [ ] Submit sitemap ke Google Search Console
-* [ ] Validasi Rich Results Test
+Optimasi menggunakan Squoosh.
 
 ---
 
-## 📈 Performance Goals
+# 🔍 SEO Features
+
+## Basic SEO
+
+* Meta Title
+* Meta Description
+* Canonical URL
+* Open Graph
+* Twitter Card
+* robots.txt
+* sitemap.xml
+
+---
+
+## Structured Data
+
+Website menggunakan JSON-LD.
+
+### Organization
+
+* Brand information
+* Logo
+* Contact
+
+### LocalBusiness
+
+* Area served
+* Contact
+* Service catalog
+
+### WebSite
+
+* Publisher
+* Language
+
+### Person
+
+* Founder
+
+### FAQPage
+
+* Frequently Asked Questions
+
+---
+
+## Accessibility
+
+* Semantic HTML
+* Single H1
+* Proper heading hierarchy
+* Accessible navigation
+* aria-label
+* aria-labelledby
+* Keyboard friendly
+* Decorative elements hidden from screen readers
+
+---
+
+## Technical SEO
+
+* Clean URL
+* Canonical
+* Lazy loading
+* Async image decoding
+* Optimized SVG
+* Mobile-first
+* Internal anchor navigation
+
+---
+
+# 📈 Performance Goals
 
 | Metric         | Target |
 | :------------- | :----: |
@@ -224,41 +270,84 @@ Optimasi gambar menggunakan Squoosh.
 
 ---
 
-## 🚀 Deployment
+# 🚀 Deployment
 
-Direkomendasikan menggunakan:
+Recommended:
 
-| Platform         | Keterangan                    |
-| :--------------- | :---------------------------- |
-| Vercel           | Integrasi GitHub paling mudah |
-| Netlify          | Alternatif yang stabil        |
-| Cloudflare Pages | Edge performance terbaik      |
+| Platform         | Description        |
+| :--------------- | :----------------- |
+| Vercel           | GitHub integration |
+| Netlify          | Stable deployment  |
+| Cloudflare Pages | Edge performance   |
 
-### Build Settings
+Build settings:
 
-```text
-Build Command : npm run build
-Output Folder : dist
+```
+Build Command:
+npm run build
+
+Output:
+dist
 ```
 
 ---
 
-## 📝 Content Management
+# 📊 Search Engine
 
-Seluruh konten utama dikelola melalui file JSON.
+Current implementation includes:
 
-| Konten    | File                |
-| :-------- | :------------------ |
-| Layanan   | `services.json`     |
-| Portfolio | `projects.json`     |
-| Testimoni | `testimonials.json` |
+* Google Search Console
+* XML Sitemap
+* robots.txt
+* Canonical URL
+* Structured Data
+* Open Graph
+* Twitter Card
 
-Penambahan atau perubahan konten tidak memerlukan modifikasi komponen Astro.
+Recommended validation:
+
+* Google Rich Results Test
+* Schema Validator
+* PageSpeed Insights
 
 ---
 
-## 📄 License
+# 📝 Content Management
 
-**Private Project**
+Main content is JSON-driven.
 
-Seluruh kode dan aset dalam repository ini bersifat privat dan tidak diperbolehkan untuk didistribusikan tanpa izin dari pemilik proyek.
+| Content      | File              |
+| :----------- | :---------------- |
+| Services     | Service.json      |
+| Portfolio    | Projects.json     |
+| Testimonials | Testimonials.json |
+
+Adding new content does not require modifying Astro components.
+
+---
+
+# 🎯 Main Features
+
+* Responsive Design
+* Landing Page Architecture
+* JSON-driven Content
+* SEO Optimized
+* Structured Data
+* FAQ Schema
+* WhatsApp Lead Form
+* Portfolio Showcase
+* Testimonial Section
+* Performance Optimized
+* Accessibility Friendly
+
+---
+
+# 📄 License
+
+Private Project.
+
+All source code and assets are proprietary and may not be redistributed, copied, modified, or used commercially without permission from the project owner.
+
+---
+
+Built with Astro + Tailwind CSS for Web Inovasion.
