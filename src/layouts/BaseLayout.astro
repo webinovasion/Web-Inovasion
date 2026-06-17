@@ -23,13 +23,14 @@ const ogImageURL = new URL(ogImage, site);
 
 const keywords = [
   'jasa pembuatan website',
+  'jasa pembuatan website bekasi',
+  'jasa pembuatan website umkm',
   'jasa website bekasi',
-  'jasa website indonesia',
   'jasa website umkm',
   'jasa landing page',
+  'jasa pembuatan landing page',
+  'jasa pembuatan landing page bekasi',
   'website company profile',
-  'website custom',
-  'web developer indonesia',
   'web developer bekasi',
   'web inovasion',
 ].join(', ');
@@ -304,6 +305,19 @@ const schema = {
     <link rel="icon" type="image/webp" href="/assets/images/logo/logo_web_inovasion.webp" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1D3PJ8FHK"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag(...args) {
+        window.dataLayer.push(args);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'G-R1D3PJ8FHK');
+    </script>
 
     <title>{title}</title>
   </head>
