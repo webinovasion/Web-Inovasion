@@ -302,7 +302,10 @@ const schema = {
     <link rel="alternate" hreflang="id-ID" href={canonicalURL} />
     <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
-    <link rel="icon" type="image/webp" href="/assets/images/logo/logo_web_inovasion.webp" />
+    <link rel="icon" type="image/webp" href={ogImage} />
+    <link rel="shortcut icon" type="image/x-icon" href={ogImage} >
+    <link rel="apple-touch-icon" href={ogImage}>
+    
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
