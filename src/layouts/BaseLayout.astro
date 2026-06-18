@@ -15,7 +15,7 @@ const {
   ogImage = '/assets/images/logo/logo_web_inovasion.png',
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://www.webinovasion.com');
+const site = Astro.site ?? new URL('https://webinovasion.com');
 
 const canonicalURL = new URL(Astro.url.pathname, site);
 
@@ -44,13 +44,13 @@ const schema = {
 
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://www.webinovasion.com/#business',
+      '@id': 'https://webinovasion.com/#business',
 
       name: 'Web Inovasion',
 
       image: ogImageURL.href,
 
-      url: 'https://www.webinovasion.com',
+      url: 'https://webinovasion.com',
 
       telephone: '+6285881582774',
 
@@ -89,7 +89,7 @@ const schema = {
       sameAs: [
         'https://instagram.com/webinovasion',
         'https://wa.me/6285881582774',
-        'https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/',
+        'https://linkedin.com/in/rayhan-nurahman-1b29a2300/',
       ],
     },
 
@@ -100,20 +100,20 @@ const schema = {
     {
       '@type': 'Organization',
 
-      '@id': 'https://www.webinovasion.com/#organization',
+      '@id': 'https://webinovasion.com/#organization',
 
       name: 'Web Inovasion',
 
-      url: 'https://www.webinovasion.com',
+      url: 'https://webinovasion.com',
 
-      logo: 'https://www.webinovasion.com/assets/images/logo/logo_web_inovasion.png',
+      logo: 'https://webinovasion.com/assets/images/logo/logo_web_inovasion.png',
 
       image: ogImageURL.href,
 
       sameAs: [
         'https://instagram.com/webinovasion',
         'https://wa.me/6285881582774',
-        'https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/',
+        'https://linkedin.com/in/rayhan-nurahman-1b29a2300/',
       ],
     },
 
@@ -124,9 +124,9 @@ const schema = {
     {
       '@type': 'WebSite',
 
-      '@id': 'https://www.webinovasion.com/#website',
+      '@id': 'https://webinovasion.com/#website',
 
-      url: 'https://www.webinovasion.com',
+      url: 'https://webinovasion.com',
 
       name: 'Web Inovasion',
 
@@ -135,7 +135,7 @@ const schema = {
       inLanguage: 'id-ID',
 
       publisher: {
-        '@id': 'https://www.webinovasion.com/#organization',
+        '@id': 'https://webinovasion.com/#organization',
       },
     },
 
@@ -146,9 +146,9 @@ const schema = {
     {
       '@type': 'WebPage',
 
-      '@id': 'https://www.webinovasion.com/#webpage',
+      '@id': 'https://webinovasion.com/#webpage',
 
-      url: 'https://www.webinovasion.com',
+      url: 'https://webinovasion.com',
 
       name: title,
 
@@ -157,11 +157,11 @@ const schema = {
       inLanguage: 'id-ID',
 
       isPartOf: {
-        '@id': 'https://www.webinovasion.com/#website',
+        '@id': 'https://webinovasion.com/#website',
       },
 
       about: {
-        '@id': 'https://www.webinovasion.com/#business',
+        '@id': 'https://webinovasion.com/#business',
       },
 
       primaryImageOfPage: ogImageURL.href,
@@ -174,17 +174,17 @@ const schema = {
     {
       '@type': 'Person',
 
-      '@id': 'https://www.webinovasion.com/#founder',
+      '@id': 'https://webinovasion.com/#founder',
 
       name: 'Rannur',
 
       jobTitle: 'Founder',
 
       worksFor: {
-        '@id': 'https://www.webinovasion.com/#business',
+        '@id': 'https://webinovasion.com/#business',
       },
 
-      url: 'https://www.webinovasion.com',
+      url: 'https://webinovasion.com',
     },
 
     // ======================
@@ -198,7 +198,7 @@ const schema = {
       serviceType: 'Website Development',
 
       provider: {
-        '@id': 'https://www.webinovasion.com/#business',
+        '@id': 'https://webinovasion.com/#business',
       },
 
       areaServed: {
@@ -310,7 +310,7 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1D3PJ8FHK"></script>
+    <script async src="https://googletagmanager.com/gtag/js?id=G-R1D3PJ8FHK"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
 
