@@ -1,0 +1,156 @@
+---
+import pricing from '../data/Pricing.json';
+---
+
+<section id="pricing" aria-labelledby="pricing-heading" class="py-20 lg:py-28 bg-surface-raised">
+  <div class="container-custom">
+    <div
+      class="inline-flex items-center gap-1.5 rounded-full
+                border border-brand-border bg-brand-muted
+                px-3 py-1 mb-4"
+    >
+      <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Investasi </span>
+    </div>
+
+    <h2
+      id="pricing-heading"
+      class="text-3xl lg:text-4xl font-extrabold tracking-tight
+             text-ink-primary leading-tight mb-3"
+    >
+      Pilih Paket Sesuai Kebutuhan
+    </h2>
+
+    <p class="text-base text-ink-secondary leading-relaxed max-w-xl mb-12">
+      Mulai dari website sederhana hingga sistem custom untuk bisnis Anda. Konsultasi gratis untuk menentukan solusi
+      yang paling sesuai.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+      {
+        pricing.map((tier) => (
+          <div
+            class:list={[
+              'relative flex flex-col rounded-2xl border p-6',
+              'transition-all duration-300 hover:-translate-y-1',
+              tier.popular
+                ? 'bg-brand border-brand shadow-glow-sm order-first lg:order-none'
+                : 'bg-surface-base border-surface-border hover:shadow-card',
+            ]}
+          >
+            {tier.popular && (
+              <span
+                class="absolute -top-[11px] left-1/2 -translate-x-1/2
+                         whitespace-nowrap rounded-full bg-ink-primary
+                         px-3 py-1 text-[10px] font-bold text-white
+                         tracking-wide"
+              >
+                Paling Direkomendasikan
+              </span>
+            )}
+
+            <p
+              class:list={[
+                'mb-2.5 min-h-[34px] text-[13px] font-bold',
+                tier.popular ? 'text-white/75' : 'text-ink-muted',
+              ]}
+            >
+              {tier.name}
+            </p>
+
+            <p
+              class:list={[
+                'text-[1.6rem] font-extrabold leading-none tracking-tight',
+                tier.popular ? 'text-white' : 'text-ink-primary',
+              ]}
+            >
+              {tier.price}
+            </p>
+
+            <p class:list={['mb-[18px] text-[11px] font-medium', tier.popular ? 'text-white/60' : 'text-ink-disabled']}>
+              mulai dari
+            </p>
+
+            <ul class="mb-5 flex flex-1 flex-col gap-2.5" role="list">
+              {tier.features.map((feat) => (
+                <li
+                  class:list={[
+                    'flex items-start gap-1.5 text-xs leading-relaxed',
+                    tier.popular ? 'text-white/90' : 'text-ink-secondary',
+                  ]}
+                >
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={tier.popular ? '#fff' : '#0F766E'}
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mt-0.5 flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {feat}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#contact"
+              class:list={[
+                'block rounded-lg py-2.5 text-center text-xs font-bold',
+                'transition-colors duration-200',
+                tier.popular
+                  ? 'bg-white text-brand hover:bg-teal-50'
+                  : 'border border-surface-border bg-surface-raised text-brand hover:border-brand',
+              ]}
+            >
+              {tier.cta}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-surface-border bg-surface-base p-6">
+      <h3 class="text-lg font-bold text-ink-primary mb-4">Semua Paket Sudah Termasuk</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div>✓ Responsive di HP & Laptop</div>
+        <div>✓ Integrasi WhatsApp</div>
+        <div>✓ SSL Gratis</div>
+        <div>✓ Optimasi Kecepatan</div>
+        <div>✓ Bantuan Teknis</div>
+        <div>✓ Revisi Sesuai Kesepakatan</div>
+      </div>
+    </div>
+
+    <div
+      class="mt-7 flex items-start gap-2.5 rounded-xl
+                border border-warning/20 bg-warning/8 px-4.5 py-3.5"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#92400E"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="mt-0.5 flex-shrink-0"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <p class="text-[12.5px] leading-relaxed text-amber-800">
+        Harga di atas adalah starting price untuk scope dasar. Harga final bisa berbeda menyesuaikan jumlah halaman,
+        fitur tambahan, dan tingkat kompleksitas project.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Portfolio Pribadi",
+    "price": "Rp199rb",
+    "popular": false,
+    "features": [
+      "1 halaman profesional",
+      "Gratis domain .my.id 1 tahun",
+      "Mobile friendly",
+      "Cocok untuk CV & personal branding"
+    ],
+    "cta": "Konsultasi Gratis"
+  },
+  {
+    "name": "Landing Page",
+    "price": "Rp1,499jt",
+    "popular": false,
+    "features": [
+      "Desain fokus konversi",
+      "Integrasi WhatsApp",
+      "Loading cepat",
+      "Cocok untuk promosi produk & jasa"
+    ],
+    "cta": "Konsultasi Gratis"
+  },
+  {
+    "name": "Website UMKM",
+    "price": "Rp999rb",
+    "popular": false,
+    "features": [
+      "Katalog produk sederhana",
+      "Integrasi WhatsApp",
+      "Mobile & desktop friendly",
+      "Optimasi kecepatan website"
+    ],
+    "cta": "Konsultasi Gratis"
+  },
+  {
+    "name": "Company Profile",
+    "price": "Rp2,999jt",
+    "popular": true,
+    "features": [
+      "Hingga 5 halaman",
+      "Gratis domain .com + hosting 1 tahun",
+      "SEO friendly",
+      "Google Maps & WhatsApp"
+    ],
+    "cta": "Konsultasi Gratis"
+  },
+  {
+    "name": "Website Custom",
+    "price": "Rp4,999jt",
+    "popular": false,
+    "features": [
+      "Fitur sesuai kebutuhan",
+      "Dashboard admin",
+      "Sistem login & database",
+      "Konsultasi dan perencanaan gratis"
+    ],
+    "cta": "Diskusikan Kebutuhan"
+  }
+]
