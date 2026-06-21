@@ -303,13 +303,19 @@ const contactSchema = {
     const budget = form.budget.value || 'Belum ditentukan';
     const message = form.message.value.trim();
 
-    // Validasi manual — browser default novalidate
     if (!name || !phone || !email || !service || !message) {
       alert('Mohon lengkapi semua field yang wajib diisi (*).');
       return;
     }
 
-    // Format pesan WA
+    // Kirim event ke GA4
+    if (typeof gtag === 'function') {
+      gtag('event', 'contact_form_submit', {
+        service,
+        budget,
+      });
+    }
+
     const text = [
       `Halo Web Inovasion! Saya tertarik dengan layanan Anda. 🙏`,
       ``,
@@ -324,6 +330,7 @@ const contactSchema = {
     ].join('\n');
 
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
     window.open(url, '_blank', 'noopener,noreferrer');
   });
 </script>

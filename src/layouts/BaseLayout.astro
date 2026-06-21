@@ -303,9 +303,8 @@ const schema = {
     <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
     <link rel="icon" type="image/webp" href={ogImage} />
-    <link rel="shortcut icon" type="image/x-icon" href={ogImage} >
-    <link rel="apple-touch-icon" href={ogImage}>
-    
+    <link rel="shortcut icon" type="image/x-icon" href={ogImage} />
+    <link rel="apple-touch-icon" href={ogImage} />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
@@ -328,5 +327,18 @@ const schema = {
     <slot />
     <Analytics />
     <SpeedInsights />
+    <script is:inline>
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+
+        if (!link) return;
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', {
+            link_url: link.href,
+          });
+        }
+      });
+    </script>
   </body>
 </html>
