@@ -1,0 +1,55 @@
+---
+const benefits = [
+  {
+    title: 'Lebih Mudah Ditemukan',
+    desc: 'Website membantu bisnis Anda ditemukan melalui pencarian Google.',
+  },
+  {
+    title: 'Meningkatkan Kepercayaan',
+    desc: 'Tampilan profesional meningkatkan kredibilitas bisnis.',
+  },
+  {
+    title: 'SEO Friendly',
+    desc: 'Dibangun dengan struktur yang mendukung optimasi mesin pencari.',
+  },
+  {
+    title: 'Mobile Responsive',
+    desc: 'Nyaman digunakan di smartphone, tablet, maupun desktop.',
+  },
+  {
+    title: 'Loading Cepat',
+    desc: 'Website ringan dan optimal untuk pengalaman pengguna.',
+  },
+  {
+    title: 'Support Berkelanjutan',
+    desc: 'Bantuan dan konsultasi setelah website selesai.',
+  },
+];
+---
+
+<section class="py-24 bg-white" id="benefits">
+  <div class="container-custom">
+    <div class="max-w-3xl">
+      <span class="text-brand text-sm font-medium"> KEUNGGULAN </span>
+
+      <h2 class="mt-3 text-3xl lg:text-4xl font-bold">Mengapa Bisnis di Bekasi Membutuhkan Website?</h2>
+
+      <p class="mt-4 text-ink-secondary">
+        Website membantu bisnis menjangkau lebih banyak pelanggan, meningkatkan kepercayaan, dan membangun identitas
+        digital yang profesional.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {
+        benefits.map((item) => (
+          <div class="rounded-3xl border border-surface-border bg-white p-6 shadow-card">
+            <h3 class="font-semibold text-lg">{item.title}</h3>
+
+            <p class="mt-3 text-ink-secondary">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+---
+import type { LocalPage } from '../../config/LocalPage';
+
+interface Props {
+  page: LocalPage;
+}
+
+const { page } = Astro.props;
+
+const pinIcon = `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`;
+---
+
+<section id="areas" aria-labelledby="areas-heading" class="py-20 lg:py-28 bg-surface-base">
+  <div class="container-custom">
+    <!-- Heading -->
+    <div class="mx-auto mb-14 max-w-3xl text-center">
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full
+               border border-brand-border bg-brand-muted
+               px-4 py-1.5 text-sm font-semibold text-brand"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          set:html={pinIcon}
+        />
+        Area Layanan
+      </span>
+
+      <h2
+        id="areas-heading"
+        class="mt-5 text-3xl font-extrabold tracking-tight
+               text-ink-primary md:text-4xl"
+      >
+        Melayani Seluruh Wilayah {page.city}
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed
+                text-ink-secondary">
+        Kami membantu UMKM, bisnis, startup, hingga perusahaan di berbagai wilayah {page.city} membangun website profesional,
+        cepat, mobile-friendly, dan SEO friendly.
+      </p>
+    </div>
+
+    <!-- Area Grid -->
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        page.areas.map((area) => (
+          <article
+            class="group rounded-2xl border border-surface-border
+                 bg-surface-card p-5 transition-all duration-300
+                 hover:-translate-y-1 hover:border-brand/40
+                 hover:shadow-card"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center
+                     justify-center rounded-xl bg-brand-muted
+                     transition-colors duration-300
+                     group-hover:bg-brand/15"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0F766E"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  set:html={pinIcon}
+                />
+              </div>
+
+              <div>
+                <h3 class="font-semibold text-ink-primary">{area}</h3>
+                <p class="mt-0.5 text-sm text-ink-secondary">Jasa Pembuatan Website</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-14 rounded-3xl border border-brand-border
+             bg-brand-muted p-8 text-center">
+      <h3 class="text-2xl font-bold text-ink-primary">Tidak menemukan wilayah Anda?</h3>
+
+      <p class="mx-auto mt-3 max-w-2xl text-ink-secondary">
+        Tidak masalah. Kami juga melayani seluruh Kota Bekasi, Kabupaten Bekasi, Jabodetabek, hingga seluruh Indonesia
+        secara online.
+      </p>
+      <a
+        href={page.cta.primary.href}
+        class="mt-7 inline-flex items-center justify-center rounded-xl bg-brand px-6 py-3 font-semibold text-white transition-colors
+      hover:bg-brand-hover"
+      >
+        {page.cta.primary.text}
+      </a>
+    </div>
+  </div>
+</section>

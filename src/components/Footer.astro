@@ -1,26 +1,15 @@
 ---
+import { footerMenus, type FooterPage } from '../config/Footer';
+
+interface Props {
+  page?: FooterPage;
+}
+
+const { page = 'home' } = Astro.props;
+
 const currentYear = new Date().getFullYear();
 
-const services = ['Company Profile', 'Landing Page', 'Website UMKM', 'Website Custom', 'Portfolio Pribadi'];
-
-const quickLinks = [
-  {
-    href: '#portfolio',
-    label: 'Portfolio',
-  },
-  {
-    href: '#faq',
-    label: 'FAQ',
-  },
-  {
-    href: '#contact',
-    label: 'Kontak',
-  },
-  {
-    href: '#contact',
-    label: 'Konsultasi Gratis',
-  },
-];
+const { heading, services, quickLinks } = footerMenus[page];
 
 const socials = [
   {
@@ -105,19 +94,19 @@ const socials = [
       </section>
 
       <nav aria-label="Layanan">
-        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-white">Layanan</p>
+        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-white">{heading}</p>
 
         <ul class="space-y-2.5">
           {
-            services.map((service) => (
+            services.map(({ href, label }) => (
               <li>
                 <a
-                  href="#services"
+                  href={href}
                   class="text-sm text-ink-muted
-                       transition-colors
-                       hover:text-brand-light"
+               transition-colors
+               hover:text-brand-light"
                 >
-                  {service}
+                  {label}
                 </a>
               </li>
             ))

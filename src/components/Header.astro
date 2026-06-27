@@ -1,18 +1,35 @@
 ---
-const navLinks = [
-  { href: "#services", label: "Layanan" },
-  { href: "#harga", label: "Harga" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Kontak" },
-];
+import {
+  navigation,
+  type NavigationPage,
+} from "../config/Navigation";
+
+interface Props {
+  page?: NavigationPage;
+
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  page = "home",
+
+  ctaText = "Konsultasi Gratis",
+
+  ctaHref = "#contact",
+} = Astro.props;
+
+const navLinks = navigation[page];
 ---
 
 <header class="sticky top-0 z-50 border-b border-surface-border bg-surface-overlay backdrop-blur-md">
+
   <div class="container-custom">
+
     <div class="flex h-16 items-center justify-between">
 
       <!-- Logo -->
+
       <a
         href="/"
         aria-label="Web Inovasion"
@@ -22,51 +39,69 @@ const navLinks = [
           class="block h-2 w-2 rounded-full bg-brand"
           aria-hidden="true"
         ></span>
+
         Web Inovasion
+
       </a>
 
       <!-- Desktop Navigation -->
+
       <nav
         class="hidden md:flex items-center"
         aria-label="Navigasi utama"
       >
+
         <ul class="flex items-center gap-8">
-          {navLinks.map(({ href, label }) => (
-            <li>
-              <a
-                href={href}
-                class="relative text-nav font-medium text-ink-secondary
-                       transition-colors duration-200
-                       hover:text-ink-primary
-                       after:absolute after:left-0 after:-bottom-0.5
-                       after:h-px after:w-0
-                       after:rounded-full after:bg-brand
-                       after:transition-all after:duration-300
-                       hover:after:w-full"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+
+          {
+            navLinks.map(({ href, label }) => (
+
+              <li>
+
+                <a
+                  href={href}
+                  class="relative text-nav font-medium text-ink-secondary
+                         transition-colors duration-200
+                         hover:text-ink-primary
+                         after:absolute after:left-0 after:-bottom-0.5
+                         after:h-px after:w-0
+                         after:rounded-full after:bg-brand
+                         after:transition-all after:duration-300
+                         hover:after:w-full"
+                >
+
+                  {label}
+
+                </a>
+
+              </li>
+
+            ))
+          }
+
         </ul>
+
       </nav>
 
-      <!-- Right Side -->
+      <!-- Right -->
+
       <div class="flex items-center gap-3">
 
-        <!-- CTA -->
         <a
-          href="#contact"
+          href={ctaHref}
           class="hidden md:inline-flex items-center justify-center
                  rounded-lg bg-brand px-4 py-2
                  text-nav font-semibold text-white
                  transition-colors duration-200
                  hover:bg-brand-hover"
         >
-          Konsultasi Gratis
+
+          {ctaText}
+
         </a>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile -->
+
         <button
           id="menuBtn"
           aria-controls="mobileMenu"
@@ -74,6 +109,7 @@ const navLinks = [
           aria-label="Buka menu navigasi"
           class="group flex md:hidden flex-col gap-[5px] p-1"
         >
+
           <span
             class="block h-0.5 w-[22px] rounded-full bg-ink-primary
                    transition-all duration-300
@@ -94,13 +130,17 @@ const navLinks = [
                    group-aria-expanded:-translate-y-[7px]
                    group-aria-expanded:-rotate-45"
           ></span>
+
         </button>
 
       </div>
+
     </div>
+
   </div>
 
   <!-- Mobile Menu -->
+
   <div
     id="mobileMenu"
     aria-label="Navigasi seluler"
@@ -109,51 +149,61 @@ const navLinks = [
            transition-[max-height,opacity]
            duration-300 ease-in-out"
   >
+
     <div class="container-custom flex flex-col pb-6 pt-2">
 
-      {navLinks.map(({ href, label }) => (
-        <a
-          href={href}
-          class="flex items-center justify-between
-                 border-b border-surface-border
-                 py-3 text-base font-medium
-                 text-ink-secondary
-                 transition-colors duration-200
-                 hover:text-brand
-                 last:border-none"
-        >
-          {label}
+      {
+        navLinks.map(({ href, label }) => (
 
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="text-ink-disabled"
-            aria-hidden="true"
+          <a
+            href={href}
+            class="flex items-center justify-between
+                   border-b border-surface-border
+                   py-3 text-base font-medium
+                   text-ink-secondary
+                   transition-colors duration-200
+                   hover:text-brand
+                   last:border-none"
           >
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </a>
-      ))}
+
+            {label}
+
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-ink-disabled"
+            >
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+
+          </a>
+
+        ))
+      }
 
       <a
-        href="#contact"
+        href={ctaHref}
         class="mt-4 block rounded-lg
                bg-brand py-3 text-center
                text-base font-semibold text-white
                transition-colors duration-200
                hover:bg-brand-hover"
       >
-        Konsultasi Gratis
+
+        {ctaText}
+
       </a>
 
     </div>
+
   </div>
+
 </header>
 
 <script>

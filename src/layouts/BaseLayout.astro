@@ -1,316 +1,118 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+
 import '../styles/global.css';
+
+import { siteConfig } from '../config/site';
+import { createSchema } from '../config/Schema';
 
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
-  title = 'Web Inovasion - Jasa Website Profesional untuk Bisnis & UMKM',
-  description = 'Web Inovasion membantu bisnis, UMKM, dan perusahaan membangun website modern, cepat, dan teroptimasi SEO.',
-  ogImage = '/assets/images/logo/logo_web_inovasion.png',
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonical,
+  ogImage = siteConfig.defaultOgImage,
+  noindex = false,
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://webinovasion.com');
+const site = Astro.site ?? new URL(siteConfig.url);
 
-const canonicalURL = new URL(Astro.url.pathname, site);
+const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
 
 const ogImageURL = new URL(ogImage, site);
 
-const keywords = [
-  'jasa pembuatan website',
-  'jasa pembuatan website bekasi',
-  'jasa pembuatan website umkm',
-  'jasa website bekasi',
-  'jasa website umkm',
-  'jasa landing page',
-  'jasa pembuatan landing page',
-  'jasa pembuatan landing page bekasi',
-  'website company profile',
-  'web developer bekasi',
-  'web inovasion',
-].join(', ');
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    // ======================
-    // Local Business
-    // ======================
-
-    {
-      '@type': 'LocalBusiness',
-      '@id': 'https://webinovasion.com/#business',
-
-      name: 'Web Inovasion',
-
-      image: ogImageURL.href,
-
-      url: 'https://webinovasion.com',
-
-      telephone: '+6285881582774',
-
-      email: 'websiteinovasion@gmail.com',
-
-      description: 'Jasa pembuatan website profesional untuk bisnis, UMKM, dan perusahaan di Indonesia.',
-
-      priceRange: 'Rp1.000.000 - Rp10.000.000',
-
-      address: {
-        '@type': 'PostalAddress',
-
-        addressLocality: 'Bekasi',
-
-        addressRegion: 'Jawa Barat',
-
-        addressCountry: 'ID',
-      },
-
-      geo: {
-        '@type': 'GeoCoordinates',
-
-        latitude: -6.3644,
-
-        longitude: 107.1675,
-      },
-
-      openingHours: 'Mo-Sa 08:00-17:00',
-
-      areaServed: {
-        '@type': 'Country',
-
-        name: 'Indonesia',
-      },
-
-      sameAs: [
-        'https://instagram.com/webinovasion',
-        'https://wa.me/6285881582774',
-        'https://linkedin.com/in/rayhan-nurahman-1b29a2300/',
-      ],
-    },
-
-    // ======================
-    // Organization
-    // ======================
-
-    {
-      '@type': 'Organization',
-
-      '@id': 'https://webinovasion.com/#organization',
-
-      name: 'Web Inovasion',
-
-      url: 'https://webinovasion.com',
-
-      logo: 'https://webinovasion.com/assets/images/logo/logo_web_inovasion.png',
-
-      image: ogImageURL.href,
-
-      sameAs: [
-        'https://instagram.com/webinovasion',
-        'https://wa.me/6285881582774',
-        'https://linkedin.com/in/rayhan-nurahman-1b29a2300/',
-      ],
-    },
-
-    // ======================
-    // Website
-    // ======================
-
-    {
-      '@type': 'WebSite',
-
-      '@id': 'https://webinovasion.com/#website',
-
-      url: 'https://webinovasion.com',
-
-      name: 'Web Inovasion',
-
-      description,
-
-      inLanguage: 'id-ID',
-
-      publisher: {
-        '@id': 'https://webinovasion.com/#organization',
-      },
-    },
-
-    // ======================
-    // WebPage
-    // ======================
-
-    {
-      '@type': 'WebPage',
-
-      '@id': 'https://webinovasion.com/#webpage',
-
-      url: 'https://webinovasion.com',
-
-      name: title,
-
-      description,
-
-      inLanguage: 'id-ID',
-
-      isPartOf: {
-        '@id': 'https://webinovasion.com/#website',
-      },
-
-      about: {
-        '@id': 'https://webinovasion.com/#business',
-      },
-
-      primaryImageOfPage: ogImageURL.href,
-    },
-
-    // ======================
-    // Founder
-    // ======================
-
-    {
-      '@type': 'Person',
-
-      '@id': 'https://webinovasion.com/#founder',
-
-      name: 'Rannur',
-
-      jobTitle: 'Founder',
-
-      worksFor: {
-        '@id': 'https://webinovasion.com/#business',
-      },
-
-      url: 'https://webinovasion.com',
-    },
-
-    // ======================
-    // Service
-    // ======================
-
-    {
-      '@type': 'Service',
-
-      name: 'Jasa Pembuatan Website',
-      serviceType: 'Website Development',
-
-      provider: {
-        '@id': 'https://webinovasion.com/#business',
-      },
-
-      areaServed: {
-        '@type': 'Country',
-
-        name: 'Indonesia',
-      },
-
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-
-        name: 'Layanan Web Inovasion',
-
-        itemListElement: [
-          {
-            '@type': 'Offer',
-
-            itemOffered: {
-              '@type': 'Service',
-
-              name: 'Website Company Profile',
-            },
-          },
-
-          {
-            '@type': 'Offer',
-
-            itemOffered: {
-              '@type': 'Service',
-
-              name: 'Landing Page',
-            },
-          },
-
-          {
-            '@type': 'Offer',
-
-            itemOffered: {
-              '@type': 'Service',
-
-              name: 'Website UMKM',
-            },
-          },
-
-          {
-            '@type': 'Offer',
-
-            itemOffered: {
-              '@type': 'Service',
-
-              name: 'Website Custom',
-            },
-          },
-
-          {
-            '@type': 'Offer',
-
-            itemOffered: {
-              '@type': 'Service',
-
-              name: 'Portfolio Pribadi',
-            },
-          },
-        ],
-      },
-    },
-  ],
-};
+const schema = createSchema({
+  title,
+  description,
+  url: canonicalURL.href,
+  image: ogImage,
+});
 ---
 
 <!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="Web Inovasion" />
+
+    <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
+
+    <meta name="author" content={siteConfig.author} />
+
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#0F766E" />
+
+    <meta name="theme-color" content={siteConfig.themeColor} />
+
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Open Graph -->
+
     <meta property="og:type" content="website" />
+
     <meta property="og:url" content={canonicalURL} />
+
     <meta property="og:title" content={title} />
+
     <meta property="og:description" content={description} />
+
     <meta property="og:image" content={ogImageURL} />
+
     <meta property="og:image:width" content="1200" />
+
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Web Inovasion" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Web Inovasion" />
+
+    <meta property="og:image:alt" content={siteConfig.name} />
+
+    <meta property="og:locale" content={siteConfig.locale.replace('-', '_')} />
+
+    <meta property="og:site_name" content={siteConfig.name} />
+
+    <!-- Twitter -->
 
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta name="twitter:title" content={title} />
+
     <meta name="twitter:description" content={description} />
+
     <meta name="twitter:image" content={ogImageURL} />
 
+    <!-- Canonical -->
+
     <link rel="canonical" href={canonicalURL} />
-    <link rel="alternate" hreflang="id-ID" href={canonicalURL} />
+
+    <link rel="alternate" hreflang={siteConfig.locale} href={canonicalURL} />
+
     <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
-    <link rel="icon" type="image/webp" href={ogImage} />
-    <link rel="shortcut icon" type="image/x-icon" href={ogImage} />
-    <link rel="apple-touch-icon" href={ogImage} />
+    <!-- Icons -->
+
+    <link rel="icon" href={siteConfig.logo} />
+
+    <link rel="shortcut icon" href={siteConfig.logo} />
+
+    <link rel="apple-touch-icon" href={siteConfig.logo} />
+
+    <!-- Schema -->
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://googletagmanager.com/gtag/js?id=G-R1D3PJ8FHK"></script>
-    <script is:inline>
+    <!-- Google Analytics -->
+
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.ga}`}></script>
+
+    <script is:inline define:vars={{ ga: siteConfig.ga }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag(...args) {
@@ -318,18 +120,22 @@ const schema = {
       }
 
       gtag('js', new Date());
-      gtag('config', 'G-R1D3PJ8FHK');
+      gtag('config', ga);
     </script>
 
     <title>{title}</title>
   </head>
-  <body class="bg-surface-base text-ink-primary font-sans antialiased">
+
+  <body class="bg-surface-base font-sans antialiased text-ink-primary">
     <slot />
+
     <Analytics />
+
     <SpeedInsights />
-    <script is:inline>
+
+    <script is:inline define:vars={{ ga: siteConfig.ga }}>
       document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        const link = e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"]');
 
         if (!link) return;
 

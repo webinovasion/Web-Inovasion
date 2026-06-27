@@ -1,0 +1,211 @@
+---
+import type { LocalPage } from '../../config/LocalPage';
+
+interface Props {
+  page: LocalPage;
+}
+
+const { page } = Astro.props;
+
+// SVG icon paths — reusable
+const icons = {
+  pin: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
+  arrowRight: `<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>`,
+  grid: `<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>`,
+  clock: `<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 15.5"/>`,
+  check: `<polyline points="20 6 9 17 4 12"/>`,
+};
+---
+
+<section aria-labelledby="hero-local-heading" class="relative overflow-hidden bg-hero py-22 lg:py-28">
+  <!-- Background glow — dekoratif -->
+  <div
+    class="absolute left-1/2 top-0 h-[480px] w-[480px]
+           -translate-x-1/2 rounded-full bg-brand/8 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-custom relative z-[1]">
+    <div class="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+      <!-- LEFT -->
+      <div>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full
+                 border border-brand-border bg-brand-muted
+                 px-4 py-[7px] text-sm font-medium text-brand"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            set:html={icons.pin}
+          />
+          {page.badge}
+        </span>
+
+        <h1
+          id="hero-local-heading"
+          class="mt-[22px] max-w-xl text-[1.9rem] font-extrabold
+                 leading-[1.15] tracking-tight text-ink-primary
+                 lg:text-[2.8rem]"
+        >
+          {page.hero.title}
+        </h1>
+
+        <p class="mt-[18px] max-w-lg text-base leading-relaxed
+                  text-ink-secondary">
+          {page.hero.subtitle}
+        </p>
+
+        <div class="mt-[30px] flex flex-wrap gap-3">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-[7px] rounded-[11px] bg-brand px-[22px] py-3 text-sm
+          font-semibold text-white transition-colors hover:bg-brand-hover"
+          >
+            {page.cta.primary.text}
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={icons.arrowRight}
+            />
+          </a>
+          <a
+            href="#portfolio"
+            class="inline-flex items-center gap-[7px] rounded-[11px] border border-surface-border
+        bg-surface-raised px-[22px] py-3 text-sm font-semibold text-ink-primary transition-colors hover:bg-surface-card"
+          >
+            {page.cta.secondary.text}
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-9 flex flex-wrap gap-8">
+          {
+            page.stats.map((stat, index) => (
+              <div class="flex items-center gap-[11px]">
+                <div
+                  class="flex h-10 w-10 flex-shrink-0 items-center
+                  justify-center rounded-[10px] bg-brand-muted"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0F766E"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    set:html={index === 0 ? icons.grid : icons.clock}
+                  />
+                </div>
+                <div>
+                  <p
+                    class="text-[1.35rem] font-extrabold leading-none
+                  tracking-tight text-ink-primary"
+                  >
+                    {stat.value}
+                  </p>
+                  <p class="mt-0.5 text-[11.5px] text-ink-muted">{stat.label}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <div class="rounded-[24px] border border-surface-border
+                 bg-surface-raised p-7 shadow-card">
+          <div class="mb-[22px] flex items-start justify-between">
+            <div>
+              <p class="mb-1.5 text-[11px] font-bold uppercase
+                        tracking-wider text-brand">
+                Area Layanan
+              </p>
+              <h2 class="text-[1.4rem] font-extrabold tracking-tight
+                         text-ink-primary">
+                {page.city}
+              </h2>
+            </div>
+
+            <span
+              class="whitespace-nowrap rounded-full bg-brand-muted
+                         px-2.5 py-1 text-[11px] font-bold text-brand"
+            >
+              {page.areas.length} Wilayah
+            </span>
+          </div>
+
+          <!-- Area grid — auto-fit supaya tidak ada empty space -->
+          <div class="grid grid-cols-2 gap-[9px]">
+            {
+              page.areas.slice(0, 8).map((area) => (
+                <div
+                  class="flex items-center gap-[7px] rounded-[11px]
+                       border border-surface-border bg-surface-card
+                       px-3 py-2.5 text-[13px] font-medium
+                       text-ink-secondary"
+                >
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="flex-shrink-0 text-ink-disabled"
+                    aria-hidden="true"
+                    set:html={icons.check}
+                  />
+                  {area}
+                </div>
+              ))
+            }
+          </div>
+
+          <div
+            class="mt-[18px] flex items-center gap-[9px]
+                      rounded-2xl bg-brand-muted px-4 py-3.5"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#0F766E"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="flex-shrink-0"
+              aria-hidden="true"
+              set:html={icons.pin}
+            />
+            <p class="text-[12.5px] leading-relaxed text-brand">
+              Melayani seluruh wilayah {page.city} dan sekitarnya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
