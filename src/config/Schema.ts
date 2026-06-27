@@ -1,4 +1,4 @@
-import { siteConfig } from "./site";
+import { siteConfig } from "./Site";
 
 export interface SchemaOptions {
   title: string;
