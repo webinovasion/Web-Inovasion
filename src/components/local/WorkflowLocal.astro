@@ -1,0 +1,107 @@
+---
+import type { LocalPage } from "../../config/LocalPage";
+
+interface Props {
+  page: LocalPage;
+}
+
+const { page } = Astro.props;
+---
+
+<section
+  id="workflow"
+  class="section-padding bg-surface-card"
+>
+  <div class="container-custom">
+
+    <!-- Heading -->
+    <div class="mx-auto max-w-3xl text-center">
+
+      <span
+        class="inline-flex items-center rounded-full
+               border border-brand/20
+               bg-brand/10
+               px-4 py-1.5
+               text-sm font-semibold
+               text-brand"
+      >
+        ⚙️ Cara Kerja Kami
+      </span>
+
+      <h2
+        class="mt-5 text-3xl font-extrabold md:text-5xl"
+      >
+        Proses Pembuatan Website
+        <span class="text-brand">
+          yang Mudah & Transparan
+        </span>
+      </h2>
+
+      <p
+        class="mt-5 text-lg leading-relaxed text-ink-secondary"
+      >
+        Kami menerapkan proses kerja yang jelas agar setiap proyek berjalan
+        terstruktur, tepat waktu, dan sesuai kebutuhan bisnis Anda.
+      </p>
+
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+    >
+
+      {
+        page.workflow.map((item) => (
+
+          <article
+            class="group relative overflow-hidden
+                   rounded-3xl
+                   border border-surface-border
+                   bg-surface-base
+                   p-8
+                   transition-all duration-300
+                   hover:-translate-y-2
+                   hover:border-brand/30
+                   hover:shadow-xl"
+          >
+
+            <!-- Background Number -->
+            <span
+              class="absolute right-5 top-3
+                     text-6xl font-black
+                     text-brand/10
+                     select-none"
+            >
+              {item.step}
+            </span>
+
+            <!-- Badge -->
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center
+                     rounded-xl bg-brand text-lg font-bold text-white"
+            >
+              {item.step}
+            </div>
+
+            <h3
+              class="text-xl font-bold"
+            >
+              {item.title}
+            </h3>
+
+            <p
+              class="mt-3 leading-relaxed text-ink-secondary"
+            >
+              {item.description}
+            </p>
+
+          </article>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>

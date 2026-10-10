@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../config/Site';
+
 const faqs = [
   {
     q: 'Berapa lama proses pengerjaan website?',
@@ -42,7 +44,7 @@ const faqs = [
   },
 ];
 
-const WA_NUMBER = '6285881582774';
+const WA_NUMBER = siteConfig.phone.replace('+', '');
 
 const faqSchema = {
   '@context': 'https://schema.org',

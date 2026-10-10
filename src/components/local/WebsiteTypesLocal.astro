@@ -1,0 +1,64 @@
+---
+import type { LocalPage } from '../../config/LocalPage';
+
+interface Props {
+  page: LocalPage;
+}
+
+const { page } = Astro.props;
+---
+
+<section id="website-types" class="section-padding">
+  <div class="container-custom">
+    <div class="mx-auto max-w-3xl text-center">
+      <span
+        class="inline-flex items-center rounded-full
+               border border-brand/20
+               bg-brand/10
+               px-4 py-1.5
+               text-sm font-semibold
+               text-brand"
+      >
+        💼 Jenis Website
+      </span>
+
+      <h2 class="mt-5 text-3xl font-extrabold md:text-5xl">
+        Kami Siap Membuat Berbagai
+        <span class="text-brand"> Jenis Website </span>
+      </h2>
+
+      <p class="mt-5 text-lg leading-relaxed text-ink-secondary">
+        Web Inovasion melayani pembuatan website untuk berbagai kebutuhan bisnis, UMKM, startup, hingga perusahaan di
+        Bekasi dan sekitarnya.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {
+        page.websiteTypes.map((item) => (
+          <article
+            class="group rounded-2xl
+                   border border-surface-border
+                   bg-surface-card
+                   p-6
+                   transition-all duration-300
+                   hover:-translate-y-1
+                   hover:border-brand/40
+                   hover:shadow-lg"
+          >
+            <div
+              class="mb-4 flex h-14 w-14 items-center justify-center
+                     rounded-xl bg-brand/10 text-2xl"
+            >
+              {item.icon}
+            </div>
+
+            <h3 class="text-lg font-bold">{item.title}</h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-ink-secondary">{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

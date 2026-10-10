@@ -1,42 +1,42 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-import HeroLocal from "../components/local/HeroLocal.astro";
-import BenefitsLocal from "../components/local/BenefitsLocal.astro";
-import CoverageArea from "../components/local/CoverageArea.astro";
+import HeroLocal from '../components/local/HeroLocal.astro';
+import BenefitsLocal from '../components/local/BenefitsLocal.astro';
+import WebsiteTypesLocal from '../components/local/WebsiteTypesLocal.astro';
+import WorkflowLocal from "../components/local/WorkflowLocal.astro";
+import CoverageArea from '../components/local/CoverageArea.astro';
+import FAQLocal from '../components/local/LocalFAQ.astro';
 
-import Services from "../components/ServiceCard.astro";
-import Pricing from "../components/Pricing.astro";
-import Portfolio from "../components/ProjectCard.astro";
-import Testimonial from "../components/Testimonial.astro";
-import FAQ from "../components/FAQ.astro";
-import CTA from "../components/CTA.astro";
-import Contact from "../components/Contact.astro";
+import Pricing from '../components/Pricing.astro';
+import Portfolio from '../components/ProjectCard.astro';
+import Testimonial from '../components/Testimonial.astro';
+import CTA from '../components/CTA.astro';
+import Contact from '../components/Contact.astro';
 
-import { localPages } from "../config/LocalPage";
+import { localPages } from '../config/LocalPage';
 
 const page = localPages.bekasi;
 ---
 
-<BaseLayout
-  title={page.title}
-  description={page.description}
->
-
+<BaseLayout title={page.title} description={page.description} areaServed={page.city}>
   <Header page={page.navigation} />
 
   <main>
-
     <HeroLocal page={page} />
 
     <BenefitsLocal page={page} />
 
+    <WebsiteTypesLocal page={page} />
+
     <CoverageArea page={page} />
 
-    <Services />
+    <WorkflowLocal page={page} />
+    
+    <FAQLocal page={page} />
 
     <Pricing />
 
@@ -44,14 +44,10 @@ const page = localPages.bekasi;
 
     <Testimonial />
 
-    <FAQ />
-
     <CTA />
 
     <Contact />
-
   </main>
 
   <Footer page={page.footer} />
-
 </BaseLayout>

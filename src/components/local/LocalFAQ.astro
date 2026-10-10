@@ -1,0 +1,178 @@
+---
+import type { LocalPage } from '../../config/LocalPage';
+import { siteConfig } from '../../config/Site';
+
+interface Props {
+  page: LocalPage;
+}
+
+const WA_NUMBER = siteConfig.phone.replace('+', '');
+const { page } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${siteConfig.url}/${page.slug}/#faq`,
+  mainEntity: page.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer.replace(/<[^>]*>/g, ''),
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" aria-labelledby="faq-heading" class="section-padding">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 items-start">
+      <div class="lg:sticky lg:top-24">
+        <div
+          class="inline-flex items-center gap-1.5 rounded-full
+                    border border-brand-border bg-brand-muted
+                    px-3 py-1 mb-4"
+        >
+          <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> FAQ </span>
+        </div>
+
+        <h2
+          id="faq-heading"
+          class="text-3xl lg:text-4xl font-extrabold tracking-tight
+         text-ink-primary leading-tight mb-3"
+        >
+          {page.faqSection.title}
+        </h2>
+
+        <p class="text-base text-ink-secondary leading-relaxed mb-8">
+          {page.faqSection.description}
+        </p>
+
+        <div class="rounded-xl border border-brand-border
+                    bg-surface-raised p-5">
+          <p class="text-sm text-ink-secondary leading-relaxed mb-3">
+            {page.faqSection.cta}
+          </p>
+          <a
+            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Halo Web Inovasion, saya ingin bertanya seputar layanan website.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm
+                   font-semibold text-brand transition-[gap]
+                   duration-200 hover:gap-3"
+          >
+            Tanya via WhatsApp
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2" id="faqList">
+        {
+          page.faq.map((faq, index) => (
+            <div
+              class="faq-item group rounded-2xl border border-surface-border
+                   bg-surface-raised overflow-hidden
+                   transition-colors duration-250"
+              data-index={index}
+            >
+              <button
+                class="faq-btn flex w-full items-center justify-between
+                     gap-4 px-5 py-[18px] text-left"
+                aria-expanded="false"
+              >
+                <span
+                  class="text-sm font-semibold text-ink-primary
+                           leading-snug"
+                >
+                  {faq.question}
+                </span>
+                <div
+                  class="faq-icon flex h-7 w-7 flex-shrink-0
+                          items-center justify-center rounded-lg
+                          bg-surface-card transition-all duration-300"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#64748B"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </button>
+
+              <div
+                class="faq-body max-h-0 overflow-hidden
+                        transition-[max-height] duration-[350ms]
+                        ease-in-out"
+              >
+                <div
+                  class="border-t border-surface-card px-5 pb-5 pt-3.5
+                          text-sm leading-[1.8] text-ink-secondary"
+                  set:html={faq.answer}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.faq-item');
+
+  items.forEach((item) => {
+    const btn = item.querySelector<HTMLButtonElement>('.faq-btn')!;
+    const body = item.querySelector<HTMLElement>('.faq-body')!;
+    const icon = item.querySelector<HTMLElement>('.faq-icon')!;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Tutup semua
+      items.forEach((el) => {
+        const b = el.querySelector<HTMLButtonElement>('.faq-btn')!;
+        const d = el.querySelector<HTMLElement>('.faq-body')!;
+        const ic = el.querySelector<HTMLElement>('.faq-icon')!;
+        b.setAttribute('aria-expanded', 'false');
+        d.style.maxHeight = '0';
+        el.style.borderColor = '';
+        ic.style.transform = '';
+        ic.style.background = '';
+      });
+
+      // Buka yang diklik kalau sebelumnya tertutup
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        item.style.borderColor = 'rgba(15,118,110,0.25)';
+        icon.style.transform = 'rotate(180deg)';
+        icon.style.background = 'rgba(15,118,110,0.1)';
+      }
+    });
+  });
+</script>
