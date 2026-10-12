@@ -1,139 +1,251 @@
+
 ---
 import pricing from '../data/Pricing.json';
+
+const whatsappNumber = '6285881582774';
+
+const sharedBenefits = [
+  {
+    title: 'Desain Responsif',
+    description: 'Tampilan menyesuaikan perangkat HP, tablet, dan desktop.',
+  },
+  {
+    title: 'Optimasi Teknis Dasar',
+    description: 'Struktur website dibuat dengan memperhatikan performa dan kemudahan penggunaan.',
+  },
+  {
+    title: 'Konsultasi Awal Gratis',
+    description: 'Diskusikan kebutuhan dan ruang lingkup proyek sebelum mulai.',
+  },
+  {
+    title: 'Revisi Sesuai Paket',
+    description: 'Jumlah dan cakupan revisi mengikuti ketentuan paket yang dipilih.',
+  },
+  {
+    title: 'Panduan Penggunaan',
+    description: 'Informasi pengelolaan website diberikan sesuai jenis paket dan fiturnya.',
+  },
+  {
+    title: 'Dukungan Teknis',
+    description: 'Dukungan setelah pengerjaan mengikuti masa garansi atau pemeliharaan paket.',
+  },
+];
 ---
 
-<section id="harga" aria-labelledby="pricing-heading" class="py-20 lg:py-28 bg-surface-raised">
+<section
+  id="harga"
+  aria-labelledby="pricing-heading"
+  class="bg-surface-raised py-20 lg:py-28"
+>
   <div class="container-custom">
     <div
-      class="inline-flex items-center gap-1.5 rounded-full
-                border border-brand-border bg-brand-muted
-                px-3 py-1 mb-4"
+      class="mb-4 inline-flex items-center gap-1.5 rounded-full
+             border border-brand-border bg-brand-muted px-3 py-1"
     >
-      <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Investasi </span>
+      <span class="text-[11px] font-bold uppercase tracking-widest text-brand">
+        Investasi
+      </span>
     </div>
 
     <h2
       id="pricing-heading"
-      class="text-3xl lg:text-4xl font-extrabold tracking-tight
-             text-ink-primary leading-tight mb-3"
+      class="mb-3 text-3xl font-extrabold leading-tight tracking-tight
+             text-ink-primary lg:text-4xl"
     >
       Pilih Paket Sesuai Kebutuhan
     </h2>
 
-    <p class="text-base text-ink-secondary leading-relaxed max-w-xl mb-12">
-      Mulai dari website sederhana hingga sistem custom untuk bisnis Anda. Konsultasi gratis untuk menentukan solusi
-      yang paling sesuai.
+    <p class="mb-10 max-w-2xl text-base leading-relaxed text-ink-secondary lg:mb-14">
+      Mulai dari portfolio pribadi hingga website profesional untuk bisnis.
+      Konsultasi gratis untuk membantu menentukan solusi yang sesuai dengan
+      kebutuhan dan anggaran Anda.
     </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
       {
-        pricing.map((tier) => (
-          <div
-            class:list={[
-              'relative flex flex-col rounded-2xl border p-6',
-              'transition-all duration-300 hover:-translate-y-1',
-              tier.popular
-                ? 'bg-brand border-brand shadow-glow-sm order-first lg:order-none'
-                : 'bg-surface-base border-surface-border hover:shadow-card',
-            ]}
-          >
-            {tier.popular && (
-              <span
-                class="absolute -top-[11px] left-1/2 -translate-x-1/2
+        pricing.map((tier, index) => {
+          const message = [
+            'Halo Web Inovasion, saya tertarik dengan paket website berikut.',
+            '',
+            `Paket: ${tier.name}`,
+            `Harga: ${tier.price}`,
+            `Keterangan: ${tier.priceNote}`,
+            '',
+            'Boleh saya konsultasi mengenai detail fitur, ruang lingkup pengerjaan, dan biaya tambahan jika ada?',
+          ].join('\n');
+
+          const whatsappUrl =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+          return (
+            <article
+              class:list={[
+                'relative flex h-full flex-col rounded-2xl border p-6',
+                'transition-all duration-300 hover:-translate-y-1',
+                'lg:p-7',
+                index >= 3 ? 'lg:col-span-3' : 'lg:col-span-2',
+                tier.popular
+                  ? 'border-brand bg-brand shadow-glow-sm'
+                  : 'border-surface-border bg-surface-base hover:shadow-card',
+              ]}
+            >
+              {tier.popular && (
+                <span
+                  class="absolute -top-3 left-1/2 -translate-x-1/2
                          whitespace-nowrap rounded-full bg-ink-primary
-                         px-3 py-1 text-[10px] font-bold text-white
-                         tracking-wide"
-              >
-                Paling Direkomendasikan
-              </span>
-            )}
+                         px-4 py-1.5 text-[10px] font-bold tracking-wide text-white"
+                >
+                  Paling Direkomendasikan
+                </span>
+              )}
 
-            <p
-              class:list={[
-                'mb-2.5 min-h-[34px] text-[13px] font-bold',
-                tier.popular ? 'text-white/75' : 'text-ink-muted',
-              ]}
-            >
-              {tier.name}
-            </p>
-
-            <p
-              class:list={[
-                'text-[1.6rem] font-extrabold leading-none tracking-tight',
-                tier.popular ? 'text-white' : 'text-ink-primary',
-              ]}
-            >
-              {tier.price}
-            </p>
-
-            <p class:list={['mb-[18px] text-[11px] font-medium', tier.popular ? 'text-white/60' : 'text-ink-disabled']}>
-              mulai dari
-            </p>
-
-            <ul class="mb-5 flex flex-1 flex-col gap-2.5" role="list">
-              {tier.features.map((feat) => (
-                <li
+              <div class="mb-5">
+                <p
                   class:list={[
-                    'flex items-start gap-1.5 text-xs leading-relaxed',
-                    tier.popular ? 'text-white/90' : 'text-ink-secondary',
+                    'mb-2 text-sm font-bold',
+                    tier.popular ? 'text-white/85' : 'text-ink-muted',
                   ]}
                 >
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={tier.popular ? '#fff' : '#0F766E'}
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mt-0.5 flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {feat}
-                </li>
-              ))}
-            </ul>
+                  {tier.name}
+                </p>
 
-            <a
-              href="#contact"
-              class:list={[
-                'block rounded-lg py-2.5 text-center text-xs font-bold',
-                'transition-colors duration-200',
-                tier.popular
-                  ? 'bg-white text-brand hover:bg-teal-50'
-                  : 'border border-surface-border bg-surface-raised text-brand hover:border-brand',
-              ]}
-            >
-              {tier.cta}
-            </a>
-          </div>
-        ))
+                <p
+                  class:list={[
+                    'text-3xl font-extrabold leading-tight tracking-tight lg:text-[2rem]',
+                    tier.popular ? 'text-white' : 'text-ink-primary',
+                  ]}
+                >
+                  {tier.price}
+                </p>
+
+                <p
+                  class:list={[
+                    'mt-2 text-xs leading-relaxed',
+                    tier.popular ? 'text-white/75' : 'text-ink-secondary',
+                  ]}
+                >
+                  {tier.priceNote}
+                </p>
+              </div>
+
+              <div
+                class:list={[
+                  'mb-5 h-px',
+                  tier.popular ? 'bg-white/20' : 'bg-surface-border',
+                ]}
+              />
+
+              <ul class="mb-7 flex flex-1 flex-col gap-3" role="list">
+                {tier.features.map((feature) => (
+                  <li
+                    class:list={[
+                      'flex items-start gap-2.5 text-sm leading-relaxed',
+                      tier.popular ? 'text-white/95' : 'text-ink-secondary',
+                    ]}
+                  >
+                    <svg
+                      width="17"
+                      height="17"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke={tier.popular ? '#FFFFFF' : '#0F766E'}
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mt-0.5 flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Konsultasi WhatsApp untuk paket ${tier.name}`}
+                class:list={[
+                  'mt-auto block rounded-xl px-4 py-3 text-center',
+                  'text-sm font-bold transition-colors duration-200',
+                  tier.popular
+                    ? 'bg-white text-brand hover:bg-teal-50'
+                    : 'border border-surface-border bg-surface-raised text-brand hover:border-brand hover:bg-brand-muted',
+                ]}
+              >
+                {tier.cta}
+                <span class="ml-1" aria-hidden="true">→</span>
+              </a>
+            </article>
+          );
+        })
       }
     </div>
 
-    <div class="mt-10 rounded-2xl border border-surface-border bg-surface-base p-6">
-      <h3 class="text-lg font-bold text-ink-primary mb-4">Semua Paket Sudah Termasuk</h3>
+    <div class="mt-14">
+      <div class="mb-6 max-w-2xl">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
+          Standar Pengerjaan
+        </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <div>✓ Responsive di HP & Laptop</div>
-        <div>✓ Integrasi WhatsApp</div>
-        <div>✓ SSL Gratis</div>
-        <div>✓ Optimasi Kecepatan</div>
-        <div>✓ Bantuan Teknis</div>
-        <div>✓ Revisi Sesuai Kesepakatan</div>
+        <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-ink-primary">
+          Dukungan untuk Website Anda
+        </h3>
+
+        <p class="text-sm leading-relaxed text-ink-secondary">
+          Setiap proyek memiliki ruang lingkup berbeda. Berikut standar
+          pengerjaan yang menjadi perhatian kami, dengan detail mengikuti
+          paket dan kesepakatan proyek.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          sharedBenefits.map((benefit) => (
+            <div class="flex items-start gap-3 rounded-xl border border-surface-border bg-surface-base p-5">
+              <div
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center
+                       rounded-xl border border-brand-border bg-brand-muted text-brand"
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-sm font-bold text-ink-primary">
+                  {benefit.title}
+                </h4>
+                <p class="text-sm leading-relaxed text-ink-secondary">
+                  {benefit.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
 
     <div
-      class="mt-7 flex items-start gap-2.5 rounded-xl
-                border border-warning/20 bg-warning/8 px-4.5 py-3.5"
+      class="mt-8 flex items-start gap-3 rounded-xl
+             border border-warning/20 bg-warning/8 p-5"
+      role="note"
     >
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="#92400E"
@@ -143,14 +255,26 @@ import pricing from '../data/Pricing.json';
         class="mt-0.5 flex-shrink-0"
         aria-hidden="true"
       >
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
       </svg>
-      <p class="text-[12.5px] leading-relaxed text-amber-800">
-        Harga di atas adalah starting price untuk scope dasar. Harga final bisa berbeda menyesuaikan jumlah halaman,
-        fitur tambahan, dan tingkat kompleksitas project.
-      </p>
+
+      <div>
+        <h4 class="mb-1 text-sm font-bold text-ink-primary">
+          Informasi Harga dan Pemeliharaan
+        </h4>
+
+        <p class="text-sm leading-relaxed text-ink-secondary">
+          Harga paket merupakan harga awal sesuai ruang lingkup yang tercantum.
+          Penambahan halaman, fitur, integrasi, atau perubahan kebutuhan dapat
+          memengaruhi harga. Domain dan hosting yang termasuk dalam paket
+          berlaku sesuai periode yang disebutkan; biaya perpanjangan tahun
+          berikutnya akan dikonfirmasikan sebelum layanan diperpanjang.
+          Garansi bug dan pemeliharaan hanya berlaku sesuai durasi serta
+          cakupan paket yang disepakati.
+        </p>
+      </div>
     </div>
   </div>
 </section>

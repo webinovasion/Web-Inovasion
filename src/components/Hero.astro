@@ -6,8 +6,29 @@ const stats = [
 ];
 ---
 
-<section id="hero" aria-labelledby="hero-heading" class="py-20 lg:py-28 bg-hero overflow-hidden">
-  <div class="container-custom">
+<section id="hero" aria-labelledby="hero-heading" class="relative py-20 lg:py-28 bg-hero overflow-hidden">
+  <!-- ── Background Layers: Tech Blueprint Grid + Ambient Radial Glow (0 Lag, No Blur Filters) ── -->
+  <div class="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
+    <!-- Ambient Radial Glow 1 (Top right / behind visual) -->
+    <div
+      class="absolute -top-24 -right-20 h-[620px] w-[620px]"
+      style="background: radial-gradient(circle at 60% 40%, rgba(15, 118, 110, 0.13) 0%, rgba(20, 184, 166, 0.04) 50%, transparent 72%);"
+    ></div>
+
+    <!-- Ambient Radial Glow 2 (Left / accent glow) -->
+    <div
+      class="absolute top-1/4 -left-28 h-[520px] w-[520px]"
+      style="background: radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 68%);"
+    ></div>
+
+    <!-- Subtle Blueprint Grid with Radial Masking -->
+    <div
+      class="absolute inset-0 opacity-[0.35]"
+      style="background-image: linear-gradient(to right, rgba(15, 118, 110, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(15, 118, 110, 0.12) 1px, transparent 1px); background-size: 36px 36px; mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 80%);"
+    ></div>
+  </div>
+
+  <div class="container-custom relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <!-- ── Konten kiri ───────────────────── -->
       <div class="animate-fade-up">
@@ -40,26 +61,32 @@ const stats = [
           dan dirancang untuk meningkatkan kredibilitas serta menjangkau lebih banyak pelanggan.
         </p>
 
-        <div class="mt-6 grid grid-cols-2 gap-3 max-w-md">
-          <div class="flex items-center gap-2 text-sm text-ink-secondary">
-            <span class="text-brand font-bold">✓</span>
-            Website Cepat
-          </div>
-
-          <div class="flex items-center gap-2 text-sm text-ink-secondary">
-            <span class="text-brand font-bold">✓</span>
+        <!-- Feature Pills (Desain modern, rapi & berbobot) -->
+        <div class="mt-7 flex flex-wrap gap-2.5 max-w-lg">
+          <span class="inline-flex items-center gap-1.5 rounded-lg border border-surface-border bg-surface-raised/85 px-3 py-1.5 text-xs font-semibold text-ink-secondary shadow-sm">
+            <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Loading Cepat &lt;2s
+          </span>
+          <span class="inline-flex items-center gap-1.5 rounded-lg border border-surface-border bg-surface-raised/85 px-3 py-1.5 text-xs font-semibold text-ink-secondary shadow-sm">
+            <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             SEO Friendly
-          </div>
-
-          <div class="flex items-center gap-2 text-sm text-ink-secondary">
-            <span class="text-brand font-bold">✓</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 rounded-lg border border-surface-border bg-surface-raised/85 px-3 py-1.5 text-xs font-semibold text-ink-secondary shadow-sm">
+            <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             Mobile Responsive
-          </div>
-
-          <div class="flex items-center gap-2 text-sm text-ink-secondary">
-            <span class="text-brand font-bold">✓</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 rounded-lg border border-surface-border bg-surface-raised/85 px-3 py-1.5 text-xs font-semibold text-ink-secondary shadow-sm">
+            <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             Maintenance Tersedia
-          </div>
+          </span>
         </div>
 
         <!-- CTA buttons -->
@@ -114,94 +141,117 @@ const stats = [
         </div>
 
         <!-- Trust signal -->
-        <div class="mt-10 flex items-center gap-4">
-          <!-- Avatar stack -->
-          <p class="text-sm text-ink-secondary leading-relaxed max-w-md">
-            <strong class="font-semibold text-ink-primary"> 2 project telah diselesaikan </strong>
-            dengan fokus pada kualitas, performa, dan pengalaman pengguna yang baik.
-          </p>
+        <div class="mt-10 flex items-center gap-3.5">
+          <!-- Avatar client badges -->
+          <div class="flex -space-x-2 overflow-hidden" aria-hidden="true">
+            <div class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white ring-2 ring-surface-base">BT</div>
+            <div class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-600 text-[11px] font-bold text-white ring-2 ring-surface-base">AB</div>
+            <div class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-[11px] font-bold text-white ring-2 ring-surface-base">WI</div>
+          </div>
+          <div class="text-xs text-ink-secondary leading-relaxed">
+            <div class="flex items-center gap-1 text-amber-500 font-bold mb-0.5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-ink-primary text-xs ml-1 font-semibold">5.0 / 5.0</span>
+            </div>
+            <span><strong class="font-semibold text-ink-primary">2+ project bisnis</strong> telah live dengan kepuasan penuh.</span>
+          </div>
         </div>
       </div>
 
       <!-- ── Visual kanan ──────────────────── -->
-      <div class="hidden lg:flex items-center justify-center
-               relative animate-fade-in" aria-hidden="true">
-        <!-- Background circle dekoratif -->
-        <div class="absolute h-80 w-80 rounded-full bg-brand-glow"></div>
-
-        <!-- Floating badge -->
+      <div class="hidden lg:flex items-center justify-center relative animate-fade-in" aria-hidden="true">
+        <!-- Floating badge top right -->
         <div
-          class="absolute -top-3 right-0 z-10 flex items-center gap-2.5
+          class="absolute -top-4 -right-2 z-20 flex items-center gap-2.5
          rounded-xl border border-surface-border bg-surface-raised
          px-3.5 py-2.5 shadow-card animate-float"
         >
-          <div class="flex h-7 w-7 items-center justify-center
-            rounded-lg bg-success/10 flex-shrink-0">
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#10B981"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+          <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 flex-shrink-0">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
-
           <div>
-            <p class="text-[11px] font-semibold text-ink-primary">Website Modern</p>
-            <p class="text-[10px] text-ink-disabled mt-0.5">SEO Friendly & Responsive</p>
+            <p class="text-[11px] font-semibold text-ink-primary">Website Berstandar Tinggi</p>
+            <p class="text-[10px] text-ink-disabled mt-0.5">Ultra Fast &amp; Mobile-Ready</p>
           </div>
         </div>
 
-        <!-- Card Lighthouse scores -->
+        <!-- Floating chip bottom left -->
         <div
-          class="relative z-[1] w-full max-w-[340px] rounded-2xl
-                    border border-surface-border bg-surface-raised p-6 shadow-card"
+          class="absolute -bottom-4 -left-4 z-20 flex items-center gap-2
+                 rounded-xl border border-brand-border bg-surface-raised px-3.5 py-2 shadow-card"
         >
-          <div class="mb-5 flex items-center justify-between">
-            <span class="text-sm font-semibold text-ink-primary">Performa Website</span>
-            <span
-              class="rounded-full bg-brand-muted px-2.5 py-0.5
-                         text-[11px] font-semibold text-brand"
-              >Live</span
-            >
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
+          </span>
+          <span class="text-xs font-semibold text-brand">Astro + Tailwind CSS</span>
+        </div>
+
+        <!-- Main Window Container (Browser Frame Mockup) -->
+        <div
+          class="relative z-[1] w-full max-w-[370px] overflow-hidden rounded-2xl
+                 border border-surface-border bg-surface-raised shadow-card"
+        >
+          <!-- Window Header (Mac-style traffic lights & URL bar) -->
+          <div class="flex items-center justify-between border-b border-surface-border/80 bg-surface-card/60 px-4 py-3">
+            <div class="flex items-center gap-1.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="flex items-center gap-1.5 rounded-md bg-surface-raised px-3 py-1 text-[11px] font-medium text-ink-muted border border-surface-border/60">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-brand">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>webinovasion.com</span>
+            </div>
+            <div class="w-8"></div>
           </div>
 
-          <!-- Score bars -->
-          {
-            [
-              { label: 'Performance', value: 98 },
-              { label: 'SEO', value: 100 },
-              { label: 'Accessibility', value: 95 },
-              { label: 'Best Practices', value: 100 },
-            ].map(({ label, value }) => (
-              <div class="mb-3.5 last:mb-0">
-                <div class="mb-1.5 flex justify-between">
-                  <span class="text-xs text-ink-secondary">{label}</span>
-                  <span class="text-xs font-semibold text-ink-primary">{value}</span>
-                </div>
-                <div class="h-1.5 overflow-hidden rounded-full bg-surface-card">
-                  <div class="h-full rounded-full bg-brand" style={`width: ${value}%`} />
-                </div>
+          <!-- Window Content -->
+          <div class="p-6">
+            <div class="mb-5 flex items-center justify-between">
+              <div>
+                <span class="text-sm font-bold text-ink-primary block">Audit Kualitas Website</span>
+                <span class="text-[11px] text-ink-muted">Hasil Pengujian Lighthouse</span>
               </div>
-            ))
-          }
+              <span class="rounded-full bg-brand-muted px-2.5 py-0.5 text-[11px] font-bold text-brand">Live 100%</span>
+            </div>
 
-          <!-- Stats bottom -->
-          <div class="mt-5 grid grid-cols-2 gap-2.5
-                      border-t border-surface-card pt-5">
+            <!-- Score bars -->
             {
-              stats.map(({ value, label }) => (
-                <div class="text-center">
-                  <p class="text-2xl font-extrabold tracking-tight text-brand">{value}</p>
-                  <p class="mt-0.5 text-[11px] text-ink-disabled">{label}</p>
+              [
+                { label: 'Performance', value: 98 },
+                { label: 'SEO', value: 100 },
+                { label: 'Accessibility', value: 95 },
+                { label: 'Best Practices', value: 100 },
+              ].map(({ label, value }) => (
+                <div class="mb-3.5 last:mb-0">
+                  <div class="mb-1.5 flex justify-between">
+                    <span class="text-xs text-ink-secondary">{label}</span>
+                    <span class="text-xs font-bold text-ink-primary">{value}</span>
+                  </div>
+                  <div class="h-1.5 overflow-hidden rounded-full bg-surface-card">
+                    <div class="h-full rounded-full bg-brand" style={`width: ${value}%`} />
+                  </div>
                 </div>
               ))
             }
+
+            <!-- Stats bottom -->
+            <div class="mt-5 grid grid-cols-2 gap-2.5 border-t border-surface-card pt-5">
+              {
+                stats.map(({ value, label }) => (
+                  <div class="text-center rounded-xl bg-surface-base/80 p-2.5 border border-surface-border/50">
+                    <p class="text-2xl font-extrabold tracking-tight text-brand">{value}</p>
+                    <p class="mt-0.5 text-[11px] font-medium text-ink-disabled">{label}</p>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
