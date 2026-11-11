@@ -18,7 +18,7 @@ const faqSchema = {
     name: item.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: item.answer.replace(/<[^>]*>/g, ''),
+      text: item.answer,
     },
   })),
 };
@@ -131,8 +131,9 @@ const faqSchema = {
                 <div
                   class="border-t border-surface-card px-5 pb-5 pt-3.5
                           text-sm leading-[1.8] text-ink-secondary"
-                  set:html={faq.answer}
-                />
+                >
+                  {faq.answer}
+                </div>
               </div>
             </div>
           ))

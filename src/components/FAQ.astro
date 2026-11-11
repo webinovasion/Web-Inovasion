@@ -3,44 +3,32 @@ import { siteConfig } from '../config/Site';
 
 const faqs = [
   {
-    q: 'Berapa lama proses pengerjaan website?',
-    a: 'Tergantung jenis dan kompleksitas project. <strong>Landing page dan company profile</strong> biasanya selesai dalam <strong>7–14 hari kerja</strong>. Untuk <strong>web application</strong> yang lebih kompleks bisa memakan waktu <strong>1–2 bulan</strong>. Timeline pasti akan disepakati di awal sebelum pengerjaan dimulai.',
+    q: 'Jenis website apa yang bisa dibuat?',
+    a: 'Web Inovasion mengerjakan website company profile, landing page, website UMKM atau toko online, website custom, dan portfolio pribadi. Fitur akhir mengikuti paket atau ruang lingkup yang disepakati.',
   },
   {
-    q: 'Berapa kali bisa request revisi?',
-    a: 'Setiap project mendapatkan <strong>2x revisi gratis</strong>. Revisi di luar ketentuan akan dikenakan biaya tambahan yang disepakati bersama. Untuk meminimalisir revisi, kami selalu melakukan diskusi brief yang detail di awal project.',
+    q: 'Berapa harga pembuatan website?',
+    a: 'Harga paket tercantum pada bagian Paket dan Harga. Website custom dihitung berdasarkan halaman dan fitur yang dibutuhkan; kami membahas ruang lingkupnya sebelum memberikan penawaran.',
   },
   {
-    q: 'Teknologi apa yang digunakan?',
-    a: 'Kami memilih teknologi yang sesuai dengan kebutuhan project, baik website company profile, landing page, maupun sistem web custom.. Kalau kamu punya preferensi tech stack tertentu, kami bisa diskusikan di awal.',
+    q: 'Berapa lama pengerjaannya?',
+    a: 'Waktu pengerjaan bergantung pada jumlah halaman, fitur, dan kesiapan materi. Jadwal dibicarakan setelah kebutuhan proyek dipahami.',
   },
   {
-    q: 'Apakah saya bisa kelola konten sendiri setelah website jadi?',
-    a: 'Bisa, jika kamu request penambahan <strong>CMS (Content Management System)</strong>. Dengan CMS, kamu bisa update konten, gambar, dan produk sendiri tanpa perlu skill coding. Tanpa CMS, update konten dilakukan melalui kami.',
+    q: 'Apakah domain dan hosting termasuk?',
+    a: 'Detail domain dan hosting berbeda di tiap paket. Periksa daftar fitur pada paket yang dipilih; kebutuhan di luar paket akan dicantumkan dalam penawaran.',
   },
   {
-    q: 'Apakah sudah termasuk domain dan hosting?',
-    a: '<strong>Ya, sudah termasuk domain dan hosting 1 tahun.</strong> Setelah tahun pertama, perpanjangan domain dan hosting menjadi tanggung jawab klien. Kami juga memberikan <strong>free maintenance selama 3 bulan</strong> pertama setelah website live.',
+    q: 'Bisakah saya mengubah konten sendiri?',
+    a: 'Bisa jika CMS termasuk dalam ruang lingkup proyek. Tanpa CMS, perubahan konten dapat dibahas dan dikerjakan oleh Web Inovasion.',
   },
   {
-    q: 'Apakah Web Inovasion melayani klien di seluruh Indonesia?',
-    a: '<strong>Bisa, kami melayani seluruh Indonesia secara remote.</strong> Proses diskusi, briefing, dan presentasi dilakukan via WhatsApp atau video call. Untuk klien yang ingin meeting langsung, kami juga terbuka untuk tatap muka jika diperlukan.',
+    q: 'Berapa kali revisi yang didapat?',
+    a: 'Jumlah revisi dan dukungan setelah peluncuran mengikuti paket. Rinciannya tercantum pada bagian Paket dan Harga.',
   },
   {
-    q: 'Bagaimana sistem pembayarannya?',
-    a: 'Sistem pembayaran dibagi dua tahap: <strong>DP 30%</strong> di awal setelah kesepakatan project, dan <strong>pelunasan 70%</strong> setelah website selesai dan siap dipublish. Pembayaran bisa via transfer bank atau e-wallet.',
-  },
-  {
-    q: 'Apakah website yang dibuat sudah SEO friendly?',
-    a: 'Ya. Kami membangun website dengan memperhatikan struktur HTML yang baik, performa, mobile responsiveness, dan optimasi dasar SEO agar lebih mudah ditemukan di mesin pencari.',
-  },
-  {
-    q: 'Apakah website bisa dikembangkan di kemudian hari?',
-    a: 'Bisa. Website dirancang agar dapat dikembangkan sesuai kebutuhan bisnis, seperti penambahan halaman, fitur baru, sistem administrasi, maupun integrasi layanan lainnya.',
-  },
-  {
-    q: 'Ada garansi setelah website selesai?',
-    a: 'Ya. Setiap project mendapatkan <strong>2x revisi gratis</strong> dan <strong>free maintenance selama 3 bulan</strong> setelah website live. Maintenance mencakup perbaikan bug, update minor, dan konsultasi teknis selama periode tersebut.',
+    q: 'Apakah website dibuat dengan SEO?',
+    a: 'Paket tertentu mencakup SEO on-page dasar. Detail teknis dan konten yang dikerjakan mengikuti paket; tidak ada jaminan posisi tertentu di hasil pencarian.',
   },
 ];
 
@@ -55,7 +43,7 @@ const faqSchema = {
     name: faq.q,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.a.replace(/<[^>]*>/g, ''),
+      text: faq.a,
     },
   })),
 };
@@ -80,12 +68,11 @@ const faqSchema = {
           class="text-3xl lg:text-4xl font-extrabold tracking-tight
          text-ink-primary leading-tight mb-3"
         >
-          Pertanyaan Umum Seputar Jasa Pembuatan Website
+          Pertanyaan tentang Website dan Layanan
         </h2>
 
         <p class="text-base text-ink-secondary leading-relaxed mb-8">
-          Temukan jawaban untuk pertanyaan yang sering diajukan seputar proses pembuatan website, biaya, revisi,
-          maintenance, dan layanan Web Inovasion.
+          Informasi paket, waktu pengerjaan, revisi, dan fitur yang sering ditanyakan sebelum proyek dimulai.
         </p>
 
         <div class="rounded-xl border border-brand-border
@@ -169,8 +156,9 @@ const faqSchema = {
                 <div
                   class="border-t border-surface-card px-5 pb-5 pt-3.5
                           text-sm leading-[1.8] text-ink-secondary"
-                  set:html={faq.a}
-                />
+                >
+                  {faq.a}
+                </div>
               </div>
             </div>
           ))

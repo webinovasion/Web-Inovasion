@@ -1,14 +1,14 @@
 ![Astro](https://img.shields.io/badge/Astro-v6-FF5D01)
 ![Tailwind](https://img.shields.io/badge/Tailwind-v3-38BDF8)
-![SEO](https://img.shields.io/badge/SEO-Optimized-10B981)
+![SEO](https://img.shields.io/badge/SEO-Basics%20Configured-10B981)
 
 # Web Inovasion — Official Landing Page
 
-Fast • SEO-Friendly • Responsive • Structured Data • JSON-Driven
+Responsive • Static HTML • Structured Data • Data-Driven Sections
 
 Landing page resmi **Web Inovasion**, layanan pembuatan website profesional untuk bisnis, UMKM, startup, dan perusahaan di Indonesia.
 
-Dirancang dengan pendekatan modern, SEO-friendly, performa tinggi, dan arsitektur komponen berbasis Astro.
+Menggunakan halaman statis Astro, komponen yang dapat digunakan ulang, metadata SEO dasar, dan beberapa section berbasis data JSON.
 
 ---
 
@@ -32,35 +32,32 @@ Dirancang dengan pendekatan modern, SEO-friendly, performa tinggi, dan arsitektu
 ```text
 src/
 ├── components/
-│   ├── Header.astro
-│   ├── Hero.astro
-│   ├── ServiceCard.astro
-│   ├── ProjectCard.astro
-│   ├── Testimonial.astro
-│   ├── FAQ.astro
-│   ├── CTA.astro
-│   ├── Contact.astro
-│   └── Footer.astro
+│   ├── Header.astro, Hero.astro, ServiceCard.astro
+│   ├── Pricing.astro, ProjectCard.astro, Testimonial.astro
+│   ├── FAQ.astro, CTA.astro, Contact.astro, Footer.astro
+│   └── local/                 # Section khusus halaman Bekasi
 │
 ├── data/
 │   ├── Service.json
 │   ├── Projects.json
-│   └── Testimonials.json
+│   └── Pricing.json
 │
+├── config/                    # Site, schema, navigasi, footer, konten lokal
 ├── layouts/
 │   └── BaseLayout.astro
 │
 ├── pages/
-│   └── index.astro
+│   ├── index.astro
+│   └── jasa-pembuatan-website-bekasi.astro
 │
 └── styles/
     └── global.css
 
 public/
-└── assets/
-    ├── images/
-    ├── favicon/
-    └── logo/
+├── assets/images/             # Logo dan gambar portfolio
+├── favicon.ico
+├── favicon.svg
+└── robots.txt
 ```
 
 ---
@@ -69,7 +66,7 @@ public/
 
 ## Requirements
 
-* Node.js >= 22
+* Node.js >= 22.12
 * npm
 
 ## Install
@@ -133,23 +130,7 @@ Sesuaikan apabila diperlukan:
 
 ## Contact
 
-Perbarui nomor WhatsApp.
-
-```astro
-const WA_NUMBER = "...";
-```
-
----
-
-## Footer
-
-Periksa:
-
-* Instagram
-* WhatsApp
-* LinkedIn
-* Email
-* Lokasi
+Perbarui domain, email, nomor WhatsApp, analytics ID, dan tautan sosial di `src/config/Site.ts`. Nomor WhatsApp dipakai oleh form kontak dan tautan konsultasi. Susunan menu footer berada di `src/config/Footer.ts`.
 
 ---
 
@@ -165,9 +146,9 @@ Kelola:
 
 * Service.json
 * Projects.json
-* Testimonials.json
+* Pricing.json
 
-Seluruh section bersifat JSON-driven.
+Layanan, portfolio, dan harga dibaca dari JSON. FAQ dan sebagian besar konten halaman Bekasi berada dalam komponen serta `src/config/LocalPage.ts`. Komponen testimonial berupa placeholder dan belum dipasang pada halaman aktif.
 
 ---
 
@@ -207,30 +188,7 @@ Optimasi menggunakan Squoosh.
 
 Website menggunakan JSON-LD.
 
-### Organization
-
-* Brand information
-* Logo
-* Contact
-
-### LocalBusiness
-
-* Area served
-* Contact
-* Service catalog
-
-### WebSite
-
-* Publisher
-* Language
-
-### Person
-
-* Founder
-
-### FAQPage
-
-* Frequently Asked Questions
+Schema pada `src/config/Schema.ts` mencakup Organization, LocalBusiness, WebSite, WebPage, dan Service. Schema FAQ ditambahkan oleh komponen FAQ beranda dan halaman Bekasi.
 
 ---
 
@@ -294,15 +252,14 @@ dist
 
 # 📊 Search Engine
 
-Current implementation includes:
+Repository currently configures:
 
-* Google Search Console
-* XML Sitemap
-* robots.txt
-* Canonical URL
-* Structured Data
-* Open Graph
-* Twitter Card
+* XML sitemap melalui integrasi `@astrojs/sitemap`
+* `robots.txt` yang menunjuk ke sitemap index
+* Canonical URL, Open Graph, dan Twitter Card di `BaseLayout.astro`
+* Structured data JSON-LD
+
+Record TXT verifikasi Google Search Console ditemukan pada DNS publik `webinovasion.com`. Ini mengonfirmasi record DNS tersedia; status properti dan pengiriman sitemap tetap perlu dipastikan dari akun Search Console.
 
 Recommended validation:
 
@@ -314,15 +271,15 @@ Recommended validation:
 
 # 📝 Content Management
 
-Main content is JSON-driven.
+Beberapa konten utama menggunakan JSON.
 
-| Content      | File              |
-| :----------- | :---------------- |
-| Services     | Service.json      |
-| Portfolio    | Projects.json     |
-| Testimonials | Testimonials.json |
+| Content   | File          |
+| :-------- | :------------ |
+| Services  | Service.json  |
+| Portfolio | Projects.json |
+| Pricing   | Pricing.json  |
 
-Adding new content does not require modifying Astro components.
+Menambah item layanan, portfolio, atau paket biasanya hanya memerlukan perubahan pada file JSON terkait. Menambah halaman, mengubah FAQ, atau mengubah struktur section memerlukan perubahan pada berkas Astro/config yang menggunakannya.
 
 ---
 
@@ -331,13 +288,12 @@ Adding new content does not require modifying Astro components.
 * Responsive Design
 * Landing Page Architecture
 * JSON-driven Content
-* SEO Optimized
+* SEO Metadata and Structured Data
 * Structured Data
 * FAQ Schema
 * WhatsApp Lead Form
 * Portfolio Showcase
-* Testimonial Section
-* Performance Optimized
+* Static Page Rendering
 * Accessibility Friendly
 
 ---

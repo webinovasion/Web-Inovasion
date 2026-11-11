@@ -2,36 +2,36 @@
   {
     "id": "company-profile",
     "title": "Company Profile",
-    "description": "Website company profile profesional untuk membangun kredibilitas bisnis dan memudahkan calon pelanggan mengenal layanan Anda.",
-    "tags": ["Multi-page", "SEO Ready", "Responsive"],
+    "description": "Tampilkan profil, layanan, proyek, dan kontak agar calon pelanggan mendapat gambaran bisnis sebelum menghubungi Anda.",
+    "tags": ["Profil dan layanan", "Galeri proyek", "Kontak bisnis"],
     "icon": "monitor"
   },
   {
     "id": "landing-page",
     "title": "Landing Page",
-    "description": "Landing page profesional yang dirancang untuk meningkatkan konversi kampanye, produk, atau layanan bisnis Anda.",
-    "tags": ["High Conversion", "Fast Load", "CTA Focused"],
+    "description": "Satu halaman untuk kampanye atau penawaran tertentu, dengan informasi yang mengarahkan pengunjung ke tindakan berikutnya.",
+    "tags": ["Satu halaman", "CTA WhatsApp", "Form calon pelanggan"],
     "icon": "zap"
   },
   {
     "id": "umkm",
     "title": "Website UMKM / Toko Online",
-    "description": "Website UMKM dan toko online untuk membantu bisnis menjual produk secara online dengan katalog dan sistem pemesanan yang mudah.",
-    "tags": ["Katalog Produk", "WhatsApp Order", "Mobile First"],
+    "description": "Tampilkan katalog dan informasi usaha, lalu arahkan calon pembeli untuk memesan atau bertanya melalui WhatsApp.",
+    "tags": ["Katalog produk", "Pesan via WhatsApp", "Tampilan responsif"],
     "icon": "cart"
   },
   {
     "id": "custom",
     "title": "Website Custom",
-    "description": "Website custom yang dirancang sesuai kebutuhan operasional dan workflow bisnis tanpa batasan fitur.",
-    "tags": ["Full Custom", "Scalable", "API Ready"],
+    "description": "Fitur dan alur kerja khusus dibahas berdasarkan kebutuhan bisnis serta ruang lingkup yang disepakati.",
+    "tags": ["Fitur sesuai scope", "Dashboard opsional", "Integrasi sesuai kebutuhan"],
     "icon": "code"
   },
   {
     "id": "portfolio",
     "title": "Portfolio Pribadi",
-    "description": "Website portfolio pribadi untuk freelancer, kreator, dan profesional yang ingin membangun personal branding secara digital.",
-    "tags": ["Personal Brand", "Blog Ready", "Fast"],
+    "description": "Susun proyek, pengalaman, dan informasi kontak dalam satu halaman portfolio yang mudah dibagikan.",
+    "tags": ["Proyek", "Skill dan pengalaman", "Informasi kontak"],
     "icon": "grid"
   }
 ]

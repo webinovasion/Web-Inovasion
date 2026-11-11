@@ -19,21 +19,20 @@ const { page } = Astro.props;
                text-sm font-semibold
                text-brand"
       >
-        💼 Jenis Website
+        Jenis Layanan
       </span>
 
       <h2 class="mt-5 text-3xl font-extrabold md:text-5xl">
-        Kami Siap Membuat Berbagai
-        <span class="text-brand"> Jenis Website </span>
+        Pilih format website yang
+        <span class="text-brand"> sesuai kebutuhan </span>
       </h2>
 
       <p class="mt-5 text-lg leading-relaxed text-ink-secondary">
-        Web Inovasion melayani pembuatan website untuk berbagai kebutuhan bisnis, UMKM, startup, hingga perusahaan di
-        Bekasi dan sekitarnya.
+        Berikut beberapa jenis website yang dapat dibahas untuk usaha Anda di Bekasi. Fitur akhir mengikuti materi dan ruang lingkup proyek.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {
         page.websiteTypes.map((item) => (
           <article

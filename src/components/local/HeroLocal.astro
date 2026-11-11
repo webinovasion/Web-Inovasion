@@ -11,8 +11,6 @@ const { page } = Astro.props;
 const icons = {
   pin: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
   arrowRight: `<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>`,
-  grid: `<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>`,
-  clock: `<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 15.5"/>`,
   check: `<polyline points="20 6 9 17 4 12"/>`,
 };
 ---
@@ -93,41 +91,9 @@ const icons = {
           </a>
         </div>
 
-        <!-- Stats -->
-        <div class="mt-9 flex flex-wrap gap-8">
-          {
-            page.stats.map((stat, index) => (
-              <div class="flex items-center gap-[11px]">
-                <div
-                  class="flex h-10 w-10 flex-shrink-0 items-center
-                  justify-center rounded-[10px] bg-brand-muted"
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0F766E"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                    set:html={index === 0 ? icons.grid : icons.clock}
-                  />
-                </div>
-                <div>
-                  <p
-                    class="text-[1.35rem] font-extrabold leading-none
-                  tracking-tight text-ink-primary"
-                  >
-                    {stat.value}
-                  </p>
-                  <p class="mt-0.5 text-[11.5px] text-ink-muted">{stat.label}</p>
-                </div>
-              </div>
-            ))
-          }
-        </div>
+        <p class="mt-6 text-sm leading-relaxed text-ink-muted">
+          Konsultasi awal dapat dilakukan melalui WhatsApp atau Google Meet.
+        </p>
       </div>
 
       <!-- RIGHT -->
@@ -138,7 +104,7 @@ const icons = {
             <div>
               <p class="mb-1.5 text-[11px] font-bold uppercase
                         tracking-wider text-brand">
-                Area Layanan
+                Cakupan Layanan
               </p>
               <h2 class="text-[1.4rem] font-extrabold tracking-tight
                          text-ink-primary">
@@ -150,19 +116,17 @@ const icons = {
               class="whitespace-nowrap rounded-full bg-brand-muted
                          px-2.5 py-1 text-[11px] font-bold text-brand"
             >
-              {page.areas.length} Wilayah
+              Bekasi
             </span>
           </div>
 
-          <!-- Area grid — auto-fit supaya tidak ada empty space -->
-          <div class="grid grid-cols-2 gap-[9px]">
+          <div class="grid gap-3 sm:grid-cols-2">
             {
               page.areas.slice(0, 8).map((area) => (
                 <div
-                  class="flex items-center gap-[7px] rounded-[11px]
+                  class="flex items-center gap-3 rounded-xl
                        border border-surface-border bg-surface-card
-                       px-3 py-2.5 text-[13px] font-medium
-                       text-ink-secondary"
+                       px-4 py-4 text-sm font-semibold text-ink-secondary"
                 >
                   <svg
                     width="13"
@@ -201,7 +165,7 @@ const icons = {
               set:html={icons.pin}
             />
             <p class="text-[12.5px] leading-relaxed text-brand">
-              Melayani seluruh wilayah {page.city} dan sekitarnya.
+              Diskusi dan koordinasi proyek dapat dilakukan secara online.
             </p>
           </div>
         </div>

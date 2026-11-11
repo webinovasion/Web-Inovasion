@@ -76,7 +76,7 @@ export const footerMenus = {
       },
       {
         href: "#benefits",
-        label: "SEO Friendly",
+        label: "SEO teknis dasar",
       },
     ],
 

@@ -1,8 +1,9 @@
 
 ---
 import pricing from '../data/Pricing.json';
+import { siteConfig } from '../config/Site';
 
-const whatsappNumber = '6285881582774';
+const whatsappNumber = siteConfig.phone.replace('+', '');
 
 const sharedBenefits = [
   {
@@ -52,13 +53,11 @@ const sharedBenefits = [
       class="mb-3 text-3xl font-extrabold leading-tight tracking-tight
              text-ink-primary lg:text-4xl"
     >
-      Pilih Paket Sesuai Kebutuhan
+      Paket dan Harga Website
     </h2>
 
     <p class="mb-10 max-w-2xl text-base leading-relaxed text-ink-secondary lg:mb-14">
-      Mulai dari portfolio pribadi hingga website profesional untuk bisnis.
-      Konsultasi gratis untuk membantu menentukan solusi yang sesuai dengan
-      kebutuhan dan anggaran Anda.
+      Bandingkan paket website UMKM, landing page, company profile, dan portfolio. Untuk website custom, harga mengikuti halaman dan fitur yang disepakati.
     </p>
 
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
@@ -95,7 +94,7 @@ const sharedBenefits = [
                          whitespace-nowrap rounded-full bg-ink-primary
                          px-4 py-1.5 text-[10px] font-bold tracking-wide text-white"
                 >
-                  Paling Direkomendasikan
+                  Untuk Website Bisnis
                 </span>
               )}
 

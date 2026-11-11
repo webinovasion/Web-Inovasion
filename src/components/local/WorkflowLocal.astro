@@ -25,23 +25,20 @@ const { page } = Astro.props;
                text-sm font-semibold
                text-brand"
       >
-        ⚙️ Cara Kerja Kami
+        Langkah Pengerjaan
       </span>
 
       <h2
         class="mt-5 text-3xl font-extrabold md:text-5xl"
       >
-        Proses Pembuatan Website
-        <span class="text-brand">
-          yang Mudah & Transparan
-        </span>
+        Dari brief sampai website
+        <span class="text-brand"> siap dipublikasikan </span>
       </h2>
 
       <p
         class="mt-5 text-lg leading-relaxed text-ink-secondary"
       >
-        Kami menerapkan proses kerja yang jelas agar setiap proyek berjalan
-        terstruktur, tepat waktu, dan sesuai kebutuhan bisnis Anda.
+        Anda mengetahui halaman, fitur, biaya, dan jadwal yang disepakati sebelum pengerjaan dimulai.
       </p>
 
     </div>
@@ -61,22 +58,12 @@ const { page } = Astro.props;
                    bg-surface-base
                    p-8
                    transition-all duration-300
-                   hover:-translate-y-2
-                   hover:border-brand/30
-                   hover:shadow-xl"
+                    hover:-translate-y-1
+                    hover:border-brand/30
+                    hover:shadow-card"
           >
 
-            <!-- Background Number -->
-            <span
-              class="absolute right-5 top-3
-                     text-6xl font-black
-                     text-brand/10
-                     select-none"
-            >
-              {item.step}
-            </span>
-
-            <!-- Badge -->
+            <!-- Step number -->
             <div
               class="mb-6 flex h-12 w-12 items-center justify-center
                      rounded-xl bg-brand text-lg font-bold text-white"

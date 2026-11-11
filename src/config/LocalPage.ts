@@ -32,11 +32,6 @@ export interface LocalPage {
       };
   };
 
-  stats: readonly {
-      value:string;
-      label:string;
-  }[];
-
   areas: readonly string[];
 
   benefits: readonly {
@@ -82,10 +77,10 @@ export const localPages = {
       "Jasa Pembuatan Website Bekasi | Web Inovasion",
 
     description:
-      "Layanan pembuatan website profesional untuk UMKM, bisnis, startup, dan perusahaan di Bekasi.",
+      "Pembuatan website company profile, landing page, dan website UMKM untuk bisnis di Kota dan Kabupaten Bekasi. Konsultasi online via WhatsApp.",
 
     badge:
-      "Melayani Bekasi & Sekitarnya",
+      "Kota dan Kabupaten Bekasi",
 
     hero: {
 
@@ -93,7 +88,7 @@ export const localPages = {
             "Jasa Pembuatan Website Bekasi",
 
         subtitle:
-            "Website profesional untuk UMKM, bisnis, startup, dan perusahaan di Bekasi."
+            "Butuh website company profile, landing page, atau toko online? Kami membantu bisnis di Kota dan Kabupaten Bekasi menentukan halaman, fitur, dan biaya sebelum pengerjaan dimulai."
 
     },
 
@@ -105,7 +100,7 @@ export const localPages = {
 
         primary:{
 
-            text:"Konsultasi Gratis",
+            text:"Bahas Kebutuhan Website",
 
             href:"#contact"
 
@@ -113,7 +108,7 @@ export const localPages = {
 
         secondary:{
 
-            text:"Lihat Portfolio",
+            text:"Lihat Contoh Proyek",
 
             href:"#portfolio"
 
@@ -121,51 +116,9 @@ export const localPages = {
 
     },
 
-    stats:[
-
-        {
-
-            value:"SEO",
-
-            label:"Friendly"
-
-        },
-
-        {
-
-            value:"Fast",
-
-            label:"Loading"
-
-        },
-
-        {
-
-            value:"24/7",
-
-            label:"Support"
-
-        }
-
-    ],
-
     areas:[
-
-        "Bekasi Barat",
-        "Bekasi Timur",
-        "Bekasi Selatan",
-        "Bekasi Utara",
-        "Jatiasih",
-        "Jatisampurna",
-        "Rawalumbu",
-        "Mustika Jaya",
-        "Pondok Gede",
-        "Medan Satria",
-        "Bantargebang",
-        "Tambun",
-        "Cibitung",
-        "Cikarang"
-
+        "Kota Bekasi",
+        "Kabupaten Bekasi"
     ],
 
     benefits:[
@@ -174,9 +127,9 @@ export const localPages = {
 
             icon:"rocket",
 
-            title:"SEO Friendly",
+            title:"SEO teknis dasar",
 
-            description:"Website dioptimalkan agar lebih mudah ditemukan di Google."
+            description:"Halaman memakai judul, deskripsi, heading, canonical, dan sitemap yang bisa dibaca mesin pencari. Ini fondasi teknis, bukan jaminan peringkat."
 
         },
 
@@ -184,9 +137,9 @@ export const localPages = {
 
             icon:"search",
 
-            title:"Loading Cepat",
+            title:"Struktur halaman terarah",
 
-            description:"Dibangun menggunakan Astro sehingga ringan dan cepat."
+            description:"Susun informasi layanan, produk, dan kontak agar calon pelanggan tahu langkah berikutnya."
 
         },
 
@@ -194,9 +147,9 @@ export const localPages = {
 
             icon:"smartphone",
 
-            title:"Mobile Responsive",
+            title:"Nyaman dibuka di ponsel",
 
-            description:"Tampilan optimal di desktop, tablet, maupun smartphone."
+            description:"Tampilan menyesuaikan layar ponsel dan desktop, termasuk tombol kontak yang mudah ditemukan."
 
         },
 
@@ -204,9 +157,9 @@ export const localPages = {
 
             icon:"shield",
 
-            title:"Desain Modern",
+            title:"Biaya dan fitur dibahas di awal",
 
-            description:"UI/UX profesional yang meningkatkan kepercayaan calon pelanggan."
+            description:"Pilih paket yang tersedia atau diskusikan website custom. Ruang lingkup mengikuti fitur yang disepakati."
 
         },
 
@@ -214,9 +167,9 @@ export const localPages = {
 
             icon:"code",
 
-            title:"Mudah Dikelola",
+            title:"Kontak langsung ke WhatsApp",
 
-            description:"Website mudah diperbarui sesuai kebutuhan bisnis."
+            description:"Pengunjung dapat menghubungi bisnis melalui tombol WhatsApp atau formulir pada website."
 
         },
 
@@ -224,9 +177,9 @@ export const localPages = {
 
             icon:"headset",
 
-            title:"Support Berkelanjutan",
+            title:"Dukungan mengikuti paket",
 
-            description:"Tetap mendapatkan bantuan setelah website selesai."
+            description:"Revisi, garansi, dan pemeliharaan dijelaskan pada paket atau kesepakatan proyek."
 
         }
 
@@ -237,43 +190,25 @@ export const localPages = {
     icon: "🏢",
     title: "Website Company Profile",
     description:
-      "Website profesional untuk perusahaan agar meningkatkan kredibilitas bisnis."
+      "Tampilkan profil, layanan, galeri, dan kontak perusahaan dalam satu website yang mudah dibagikan."
   },
   {
     icon: "🛒",
-    title: "Website UMKM",
+    title: "Website UMKM dan Toko Online",
     description:
-      "Membantu UMKM memperluas jangkauan pasar dan meningkatkan penjualan."
+      "Tampilkan katalog produk dan cara pemesanan agar pelanggan tahu apa yang dijual dan bagaimana menghubungi Anda."
   },
   {
     icon: "🚀",
     title: "Landing Page",
     description:
-      "Landing page fokus konversi untuk promosi produk, jasa, maupun iklan digital."
+      "Satu halaman terfokus untuk menjelaskan penawaran, menjawab pertanyaan utama, dan mengarahkan pengunjung ke WhatsApp."
   },
   {
-    icon: "🎓",
-    title: "Website Sekolah",
+    icon: "🗂️",
+    title: "Portfolio Pribadi",
     description:
-      "Website informasi sekolah, PPDB online, hingga portal akademik."
-  },
-  {
-    icon: "🏥",
-    title: "Website Klinik",
-    description:
-      "Website klinik lengkap dengan profil, layanan, dan informasi jadwal praktik."
-  },
-  {
-    icon: "🍽️",
-    title: "Website Restoran",
-    description:
-      "Tampilkan menu, reservasi, lokasi, dan promo restoran secara profesional."
-  },
-  {
-    icon: "🏠",
-    title: "Website Properti",
-    description:
-      "Website untuk agen properti maupun developer agar listing lebih mudah ditemukan."
+      "Susun proyek, pengalaman, dan informasi kontak untuk membantu calon klien melihat hasil kerja Anda."
   },
   {
     icon: "💻",
@@ -286,80 +221,74 @@ export const localPages = {
 workflow: [
   {
     step: "01",
-    title: "Konsultasi",
+    title: "Diskusikan kebutuhan",
     description:
-      "Diskusikan kebutuhan website, target bisnis, fitur, dan referensi desain yang diinginkan."
+      "Ceritakan jenis usaha, tujuan website, materi yang sudah tersedia, dan fitur yang dibutuhkan."
   },
   {
     step: "02",
-    title: "Perencanaan",
+    title: "Sepakati ruang lingkup",
     description:
-      "Kami menyusun struktur website, sitemap, dan timeline pengerjaan agar proyek berjalan terarah."
+      "Tentukan halaman, fitur, materi, paket atau biaya custom, serta jadwal pengerjaan sebelum proyek dimulai."
   },
   {
     step: "03",
-    title: "Development",
+    title: "Rancang dan bangun",
     description:
-      "Website mulai dikembangkan menggunakan teknologi modern dengan fokus pada performa dan SEO."
+      "Desain dan halaman dibuat berdasarkan ruang lingkup yang telah disepakati."
   },
   {
     step: "04",
-    title: "Review & Revisi",
+    title: "Tinjau hasilnya",
     description:
-      "Anda dapat melakukan pengecekan dan mengajukan revisi sesuai kesepakatan."
+      "Periksa isi dan tampilan website, lalu sampaikan revisi sesuai ketentuan paket."
   },
   {
     step: "05",
-    title: "Launch",
+    title: "Terbitkan website",
     description:
-      "Website dipublikasikan ke domain dan hosting sehingga siap digunakan oleh pelanggan."
-  },
-  {
-    step: "06",
-    title: "Support",
-    description:
-      "Kami tetap memberikan bantuan teknis dan pendampingan setelah website selesai."
+      "Setelah persetujuan akhir dan kebutuhan domain/hosting siap, website dipublikasikan."
   }
 ],
 
 faq: [
   {
-    question: "Apakah Web Inovasion melayani seluruh wilayah Bekasi?",
+    question: "Apakah melayani Kota dan Kabupaten Bekasi?",
     answer:
-      "Ya. Kami melayani Kota Bekasi maupun Kabupaten Bekasi seperti Bekasi Barat, Bekasi Timur, Tambun, Cibitung, Cikarang, dan sekitarnya."
+      "Ya. Web Inovasion melayani bisnis di Kota Bekasi dan Kabupaten Bekasi. Konsultasi awal dapat dilakukan secara online melalui WhatsApp atau Google Meet."
   },
   {
-    question: "Apakah bisa konsultasi secara online?",
+    question: "Berapa biaya pembuatan website di Bekasi?",
     answer:
-      "Bisa. Konsultasi dapat dilakukan melalui WhatsApp, Google Meet, atau platform lainnya sehingga lebih praktis."
+      "Harga paket yang tersedia tercantum pada halaman ini. Website custom dihitung berdasarkan halaman dan fitur yang dibutuhkan; kami bahas ruang lingkupnya sebelum memberi penawaran."
   },
   {
-    question: "Berapa lama proses pembuatan website?",
+    question: "Berapa lama proses pengerjaan website?",
     answer:
-      "Durasi pengerjaan tergantung kompleksitas website. Rata-rata website company profile selesai dalam 7–14 hari kerja."
+      "Waktunya mengikuti jumlah halaman, fitur, dan kelengkapan materi. Jadwal dibicarakan sebelum pengerjaan dimulai."
   },
   {
-    question: "Apakah website sudah SEO Friendly?",
+    question: "Apakah website bisa ditemukan di Google?",
     answer:
-      "Ya. Website dibuat dengan struktur SEO Friendly, mobile responsive, dan memiliki performa yang baik."
+      "Kami menyiapkan dasar SEO teknis seperti title, deskripsi, struktur heading, canonical, dan sitemap. Posisi di Google juga dipengaruhi persaingan, kualitas konten, dan faktor di luar website."
   },
   {
-    question: "Apakah mendapatkan domain dan hosting?",
+    question: "Apakah domain dan hosting sudah termasuk?",
     answer:
-      "Ya. Kami dapat membantu penyediaan domain dan hosting sesuai kebutuhan proyek Anda."
+      "Domain dan hosting termasuk pada beberapa paket yang ditampilkan. Untuk paket custom, detailnya mengikuti penawaran dan ruang lingkup proyek."
   },
   {
-    question: "Apakah ada revisi setelah website selesai?",
+    question: "Bisakah saya meminta perubahan setelah website selesai?",
     answer:
-      "Tentu. Kami menyediakan revisi sesuai kesepakatan serta support setelah website dipublikasikan."
+      "Bisa. Jumlah revisi, garansi, dan pemeliharaan mengikuti paket atau kesepakatan proyek yang dipilih."
   }
 ],
 
 faqSection:{
-title:"Pertanyaan Umum Seputar Jasa Pembuatan Website di Bekasi",
+title:"Sebelum membuat website di Bekasi",
 
 description:
-"Temukan jawaban mengenai layanan pembuatan website di Bekasi mulai dari proses pengerjaan hingga support setelah website selesai.",
+"Jawaban tentang biaya, waktu pengerjaan, SEO dasar, dan area layanan Web Inovasion.",
 
 cta:"Masih ada pertanyaan?"
 }

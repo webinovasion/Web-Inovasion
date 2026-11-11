@@ -64,23 +64,23 @@ export function createSchema({
         email: siteConfig.email,
 
         description:
-          "Jasa pembuatan website profesional untuk bisnis, UMKM, dan perusahaan.",
-
-        priceRange: "Rp100.000 - Rp10.000.000",
+          "Pembuatan website company profile, landing page, website UMKM, dan website custom.",
 
         address: {
 
           "@type": "PostalAddress",
 
-          addressLocality: "Bekasi",
+          streetAddress: siteConfig.address.streetAddress,
 
-          addressRegion: "Jawa Barat",
+          addressLocality: siteConfig.address.addressLocality,
 
-          addressCountry: "ID",
+          addressRegion: siteConfig.address.addressRegion,
+
+          postalCode: siteConfig.address.postalCode,
+
+          addressCountry: siteConfig.address.addressCountry,
 
         },
-
-        openingHours: "Mo-Sa 08:00-17:00",
 
         areaServed: {
 
