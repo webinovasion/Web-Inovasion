@@ -77,7 +77,7 @@ export const localPages = {
       "Jasa Pembuatan Website Bekasi | Web Inovasion",
 
     description:
-      "Pembuatan website company profile, landing page, dan website UMKM untuk bisnis di Kota dan Kabupaten Bekasi. Konsultasi online via WhatsApp.",
+      "Website profil bisnis, company profile, landing page, dan katalog admin untuk UMKM dan perusahaan di Kota maupun Kabupaten Bekasi.",
 
     badge:
       "Kota dan Kabupaten Bekasi",
@@ -88,7 +88,7 @@ export const localPages = {
             "Jasa Pembuatan Website Bekasi",
 
         subtitle:
-            "Butuh website company profile, landing page, atau toko online? Kami membantu bisnis di Kota dan Kabupaten Bekasi menentukan halaman, fitur, dan biaya sebelum pengerjaan dimulai."
+            "Butuh website profil bisnis, company profile, atau katalog produk? Web Inovasion membantu bisnis di Kota dan Kabupaten Bekasi menentukan halaman, fitur, dan biaya sebelum pengerjaan dimulai."
 
     },
 
@@ -206,15 +206,15 @@ export const localPages = {
   },
   {
     icon: "🗂️",
-    title: "Portfolio Pribadi",
+    title: "Katalog dengan Dashboard",
     description:
-      "Susun proyek, pengalaman, dan informasi kontak untuk membantu calon klien melihat hasil kerja Anda."
+      "Kelola data produk atau proyek melalui dashboard admin dengan lingkup dan struktur yang disepakati sebelum pengerjaan."
   },
   {
     icon: "💻",
-    title: "Website Custom",
+    title: "Sistem Khusus",
     description:
-      "Pengembangan website sesuai kebutuhan bisnis maupun sistem internal perusahaan."
+      "Fitur, integrasi, dan alur kerja khusus dibahas sebagai penawaran terpisah berdasarkan kebutuhan bisnis."
   }
 ],
 
@@ -260,12 +260,12 @@ faq: [
   {
     question: "Berapa biaya pembuatan website di Bekasi?",
     answer:
-      "Harga paket yang tersedia tercantum pada halaman ini. Website custom dihitung berdasarkan halaman dan fitur yang dibutuhkan; kami bahas ruang lingkupnya sebelum memberi penawaran."
+      "Profil Bisnis mulai Rp2.500.000, Company Profile Rp4.500.000, dan Company Profile dengan Katalog Admin mulai Rp8.500.000. Landing page mulai Rp2.000.000; sistem khusus dihitung setelah kebutuhan dibahas."
   },
   {
     question: "Berapa lama proses pengerjaan website?",
     answer:
-      "Waktunya mengikuti jumlah halaman, fitur, dan kelengkapan materi. Jadwal dibicarakan sebelum pengerjaan dimulai."
+      "Estimasi mulai 7 hari kerja setelah materi lengkap dan lingkup disepakati. Fitur dan kecepatan persetujuan revisi dapat memengaruhi durasi; jadwal dikonfirmasi sebelum mulai."
   },
   {
     question: "Apakah website bisa ditemukan di Google?",
@@ -275,7 +275,7 @@ faq: [
   {
     question: "Apakah domain dan hosting sudah termasuk?",
     answer:
-      "Domain dan hosting termasuk pada beberapa paket yang ditampilkan. Untuk paket custom, detailnya mengikuti penawaran dan ruang lingkup proyek."
+      "Domain dan shared hosting termasuk untuk tahun pertama. Perpanjangan diperkirakan sekitar Rp1.500.000 per tahun dan dikonfirmasi sebelum waktunya. Domain didaftarkan atas nama klien; hosting bersama dikelola Web Inovasion tanpa membagikan akses cPanel utama."
   },
   {
     question: "Bisakah saya meminta perubahan setelah website selesai?",

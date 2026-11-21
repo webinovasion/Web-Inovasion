@@ -1,8 +1,8 @@
 [
   {
     "id": "company-profile",
-    "title": "Company Profile",
-    "description": "Tampilkan profil, layanan, proyek, dan kontak agar calon pelanggan mendapat gambaran bisnis sebelum menghubungi Anda.",
+    "title": "Profil Bisnis untuk UMKM",
+    "description": "Perkenalkan usaha, layanan, produk, dan kontak dalam website yang ringkas untuk UMKM dan bisnis jasa.",
     "tags": ["Profil dan layanan", "Galeri proyek", "Kontak bisnis"],
     "icon": "monitor"
   },
@@ -15,23 +15,16 @@
   },
   {
     "id": "umkm",
-    "title": "Website UMKM / Toko Online",
-    "description": "Tampilkan katalog dan informasi usaha, lalu arahkan calon pembeli untuk memesan atau bertanya melalui WhatsApp.",
-    "tags": ["Katalog produk", "Pesan via WhatsApp", "Tampilan responsif"],
+    "title": "Company Profile",
+    "description": "Jelaskan layanan, kapabilitas, produk, dan proyek agar calon klien mendapat gambaran perusahaan sebelum menghubungi Anda.",
+    "tags": ["Profil dan layanan", "Galeri proyek", "Form permintaan penawaran"],
     "icon": "cart"
   },
   {
     "id": "custom",
-    "title": "Website Custom",
-    "description": "Fitur dan alur kerja khusus dibahas berdasarkan kebutuhan bisnis serta ruang lingkup yang disepakati.",
-    "tags": ["Fitur sesuai scope", "Dashboard opsional", "Integrasi sesuai kebutuhan"],
-    "icon": "code"
-  },
-  {
-    "id": "portfolio",
-    "title": "Portfolio Pribadi",
-    "description": "Susun proyek, pengalaman, dan informasi kontak dalam satu halaman portfolio yang mudah dibagikan.",
-    "tags": ["Proyek", "Skill dan pengalaman", "Informasi kontak"],
-    "icon": "grid"
+    "title": "Katalog dengan Dashboard",
+    "description": "Kelola produk atau proyek melalui dashboard admin dengan fitur dan struktur data yang disepakati sebelum pengerjaan.",
+    "tags": ["Katalog dikelola sendiri", "Akun admin", "Inquiry WhatsApp"],
+    "icon": "cart"
   }
 ]

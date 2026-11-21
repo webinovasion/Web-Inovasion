@@ -18,6 +18,10 @@ export const navigation = {
       label: "Portfolio",
     },
     {
+      href: "/tentang",
+      label: "Tentang",
+    },
+    {
       href: "#faq",
       label: "FAQ",
     },
@@ -48,6 +52,14 @@ export const navigation = {
       href: "#contact",
       label: "Kontak",
     },
+  ],
+
+  about: [
+    { href: "/#services", label: "Layanan" },
+    { href: "/#harga", label: "Harga" },
+    { href: "/#portfolio", label: "Proyek" },
+    { href: "/tentang", label: "Tentang" },
+    { href: "/#contact", label: "Kontak" },
   ],
 } as const;
 

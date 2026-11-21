@@ -15,7 +15,7 @@ export const footerMenus = {
     services: [
       {
         href: "#services",
-        label: "Company Profile",
+        label: "Profil Bisnis",
       },
       {
         href: "#services",
@@ -31,7 +31,7 @@ export const footerMenus = {
       },
       {
         href: "#services",
-        label: "Portfolio Pribadi",
+        label: "Katalog dengan Admin",
       },
     ],
 
@@ -43,6 +43,10 @@ export const footerMenus = {
       {
         href: "#faq",
         label: "FAQ",
+      },
+      {
+        href: "/tentang",
+        label: "Tentang Web Inovasion",
       },
       {
         href: "#contact",
@@ -97,6 +101,22 @@ export const footerMenus = {
         href: "#contact",
         label: "Konsultasi Gratis",
       },
+    ],
+  },
+
+  about: {
+    heading: "Layanan",
+    services: [
+      { href: "/#services", label: "Profil Bisnis" },
+      { href: "/#services", label: "Company Profile" },
+      { href: "/#services", label: "Landing Page" },
+      { href: "/#services", label: "Katalog dengan Admin" },
+    ],
+    quickLinks: [
+      { href: "/#portfolio", label: "Contoh Proyek" },
+      { href: "/tentang", label: "Tentang Web Inovasion" },
+      { href: "/#faq", label: "FAQ" },
+      { href: "/#contact", label: "Kontak" },
     ],
   },
 } as const;

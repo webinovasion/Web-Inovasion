@@ -1,87 +1,55 @@
 
 [
   {
-    "name": "Website UMKM",
-    "price": "Rp989.000",
-    "priceNote": "Paket website untuk usaha kecil",
+    "name": "Profil Bisnis",
+    "price": "Rp2.500.000",
+    "priceNote": "Untuk UMKM yang butuh situs ringkas",
     "popular": false,
     "features": [
-      "Katalog hingga 15 produk",
-      "Tombol WhatsApp untuk calon pembeli",
-      "Profil usaha, galeri, dan kontak",
-      "Integrasi Google Maps",
-      "Domain .com atau .id + hosting 1 tahun",
+      "Hingga 3 halaman",
+      "Profil usaha, layanan atau produk, dan kontak",
+      "Tombol WhatsApp dan formulir kontak",
       "Desain responsif untuk HP dan desktop",
-      "2 kali revisi",
-      "Garansi perbaikan bug 1 bulan"
+      "Pengaturan SEO teknis dasar",
+      "2 putaran revisi",
+      "Klien menyiapkan materi bisnis dan foto",
+      "Domain dan shared hosting tahun pertama termasuk"
     ],
-    "cta": "Pilih Website UMKM"
-  },
-  {
-    "name": "Landing Page",
-    "price": "Rp1.489.000",
-    "priceNote": "Fokus promosi dan konversi",
-    "popular": false,
-    "features": [
-      "1 halaman panjang berorientasi konversi",
-      "Struktur konten untuk promosi produk atau jasa",
-      "Tombol WhatsApp dengan pesan pesanan",
-      "Formulir calon pelanggan",
-      "Integrasi GA4 dan Meta Pixel sesuai akses akun",
-      "Domain .com + hosting 1 tahun",
-      "2 kali revisi",
-      "Garansi bug 3 bulan"
-    ],
-    "cta": "Pilih Landing Page"
+    "cta": "Pilih Profil Bisnis"
   },
   {
     "name": "Company Profile",
-    "price": "Rp2.890.000",
-    "priceNote": "Website profesional untuk bisnis",
+    "price": "Rp4.500.000",
+    "priceNote": "Untuk bisnis dengan layanan dan proyek yang perlu dijelaskan",
     "popular": true,
     "features": [
-      "Hingga 5–7 halaman",
-      "Desain eksklusif sesuai identitas bisnis",
-      "Domain .com + hosting 1 tahun",
-      "Email bisnis sesuai dukungan layanan hosting",
-      "SEO on-page dasar + Google Search Console",
-      "Integrasi Google Maps dan WhatsApp",
-      "Schema.org sesuai jenis bisnis",
-      "3 kali revisi",
-      "Pemeliharaan gratis 3 bulan"
+      "Hingga 6 halaman",
+      "Profil, layanan, produk atau keahlian, proyek, dan kontak",
+      "Galeri proyek atau produk",
+      "Formulir permintaan penawaran",
+      "Integrasi WhatsApp dan Google Maps bila dibutuhkan",
+      "Pengaturan SEO on-page dasar",
+      "Bantuan menyusun kerangka konten dari materi klien",
+      "3 putaran revisi",
+      "Domain dan shared hosting tahun pertama termasuk"
     ],
     "cta": "Pilih Company Profile"
   },
   {
-    "name": "Portfolio Pribadi",
-    "price": "Rp189.000",
-    "priceNote": "Untuk CV dan personal branding",
+    "name": "Company Profile + Katalog Admin",
+    "price": "Mulai Rp8.500.000",
+    "priceNote": "Untuk bisnis yang ingin mengelola katalog sendiri",
     "popular": false,
     "features": [
-      "1 halaman CV dan portfolio",
-      "Domain .my.id selama 1 tahun",
-      "Bagian proyek, skill, dan pengalaman",
-      "Tautan WhatsApp dan media sosial",
-      "Tampilan responsif untuk HP",
-      "Estimasi pengerjaan 2–3 hari",
-      "Revisi sesuai kesepakatan sebelum pengerjaan"
+      "Hingga 6 halaman publik",
+      "Satu jenis katalog yang dikelola melalui dashboard",
+      "Satu jenis akun admin",
+      "Tombol WhatsApp atau formulir pada item katalog",
+      "Kolom katalog ditentukan sebelum pengerjaan",
+      "Panduan penggunaan dashboard",
+      "3 putaran revisi",
+      "Domain dan shared hosting tahun pertama termasuk"
     ],
-    "cta": "Pilih Portfolio Pribadi"
-  },
-  {
-    "name": "Website Custom",
-    "price": "Rp4.850.000",
-    "priceNote": "Harga awal, menyesuaikan kompleksitas",
-    "popular": false,
-    "features": [
-      "Arsitektur dan fitur sesuai kebutuhan",
-      "Dashboard admin sesuai ruang lingkup",
-      "Login, database, dan hak akses jika diperlukan",
-      "Integrasi API pihak ketiga sesuai kebutuhan",
-      "Perencanaan dan wireframe sebelum pengerjaan",
-      "Dokumentasi dan panduan penggunaan",
-      "Dukungan setelah peluncuran sesuai kesepakatan"
-    ],
-    "cta": "Diskusikan Website Custom"
+    "cta": "Diskusikan Kebutuhan"
   }
 ]

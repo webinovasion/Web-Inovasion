@@ -18,9 +18,29 @@ import Footer from "../components/Footer.astro";
 
   <main>
     <Hero />
+    <Portfolio />
     <Services />
     <Pricing />
-    <Portfolio />
+    <section class="bg-surface-raised py-16 lg:py-20" aria-labelledby="workflow-heading">
+      <div class="container-custom">
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest text-brand">Cara kerja</p>
+        <h2 id="workflow-heading" class="mb-8 text-3xl font-extrabold tracking-tight text-ink-primary">Dari kebutuhan hingga website tayang</h2>
+        <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ['1', 'Diskusi kebutuhan', 'Ceritakan bisnis, tujuan, dan fitur yang dibutuhkan.'],
+            ['2', 'Sepakati lingkup', 'Pilih paket dan sepakati isi, biaya, serta jadwal proyek.'],
+            ['3', 'Pengerjaan dan revisi', 'Website dibuat setelah materi lengkap, lalu ditinjau sesuai jumlah revisi paket.'],
+            ['4', 'Peluncuran', 'Website ditayangkan dan panduan diberikan sesuai fitur yang dibuat.'],
+          ].map(([number, title, description]) => (
+            <li class="rounded-2xl border border-surface-border bg-surface-base p-5">
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-muted text-sm font-bold text-brand">{number}</span>
+              <h3 class="mb-2 font-bold text-ink-primary">{title}</h3>
+              <p class="text-sm leading-relaxed text-ink-secondary">{description}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
     <FAQ />        
     <CTA />
 		<Contact />

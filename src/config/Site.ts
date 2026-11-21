@@ -8,25 +8,22 @@ export const siteConfig = {
   phone: "+6285881582774",
 
   address: {
-    streetAddress: "Jl. Sunan Bonang III No.63 Blok H5, RT.1/11/RW.35",
-    addressLocality: "Bahagia, Babelan, Kabupaten Bekasi",
+    addressLocality: "Babelan, Kabupaten Bekasi",
     addressRegion: "Jawa Barat",
-    postalCode: "17610",
     addressCountry: "ID",
-    display:
-      "Jl. Sunan Bonang III No.63 Blok H5, RT.1/11/RW.35, Bahagia, Kec. Babelan, Kabupaten Bekasi, Jawa Barat 17610",
+    display: "Babelan, Kabupaten Bekasi, Jawa Barat",
   },
 
   logo: "/assets/images/logo/logo_web_inovasion.png",
 
   defaultTitle:
-    "Jasa Pembuatan Website untuk UMKM & Bisnis | Web Inovasion",
+    "Website untuk UMKM dan Bisnis | Web Inovasion",
 
   defaultDescription:
-    "Pembuatan website company profile, landing page, dan website UMKM. Lihat paket, fitur, dan contoh proyek Web Inovasion.",
+    "Website profil bisnis, company profile, landing page, dan katalog admin untuk UMKM serta perusahaan. Lihat paket dan contoh proyek Web Inovasion.",
 
   defaultOgImage:
-    "/assets/images/logo/logo_web_inovasion.png", // baru
+    "/assets/images/og-webinovasion.png",
 
   instagram: "https://instagram.com/webinovasion",
 

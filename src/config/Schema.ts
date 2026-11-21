@@ -36,7 +36,7 @@ export function createSchema({
 
         url: siteConfig.url,
 
-        logo: fullImage,
+        logo: `${siteConfig.url}${siteConfig.logo}`,
 
         image: fullImage,
 
@@ -64,19 +64,15 @@ export function createSchema({
         email: siteConfig.email,
 
         description:
-          "Pembuatan website company profile, landing page, website UMKM, dan website custom.",
+          "Website profil bisnis, company profile, landing page, dan katalog admin untuk UMKM serta perusahaan.",
 
         address: {
 
           "@type": "PostalAddress",
 
-          streetAddress: siteConfig.address.streetAddress,
-
           addressLocality: siteConfig.address.addressLocality,
 
           addressRegion: siteConfig.address.addressRegion,
-
-          postalCode: siteConfig.address.postalCode,
 
           addressCountry: siteConfig.address.addressCountry,
 
@@ -250,7 +246,7 @@ export function createSchema({
 
                 "@type":"Service",
 
-                name:"Portfolio Pribadi"
+                name:"Katalog Produk dengan Dashboard Admin"
 
               }
 

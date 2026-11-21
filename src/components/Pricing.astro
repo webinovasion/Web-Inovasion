@@ -23,12 +23,12 @@ const sharedBenefits = [
     description: 'Jumlah dan cakupan revisi mengikuti ketentuan paket yang dipilih.',
   },
   {
-    title: 'Panduan Penggunaan',
-    description: 'Informasi pengelolaan website diberikan sesuai jenis paket dan fiturnya.',
+    title: 'Domain dan Hosting Tahun Pertama',
+    description: 'Domain dan shared hosting termasuk di harga paket untuk periode tahun pertama.',
   },
   {
-    title: 'Dukungan Teknis',
-    description: 'Dukungan setelah pengerjaan mengikuti masa garansi atau pemeliharaan paket.',
+    title: 'Estimasi Mulai 7 Hari Kerja',
+    description: 'Dihitung setelah materi lengkap; fitur dan revisi dapat memengaruhi durasi.',
   },
 ];
 ---
@@ -57,12 +57,12 @@ const sharedBenefits = [
     </h2>
 
     <p class="mb-10 max-w-2xl text-base leading-relaxed text-ink-secondary lg:mb-14">
-      Bandingkan paket website UMKM, landing page, company profile, dan portfolio. Untuk website custom, harga mengikuti halaman dan fitur yang disepakati.
+      Pilih paket berdasarkan informasi dan fitur yang dibutuhkan. Landing page dan sistem khusus dapat dibahas sebagai lingkup terpisah.
     </p>
 
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-6">
       {
-        pricing.map((tier, index) => {
+        pricing.map((tier) => {
           const message = [
             'Halo Web Inovasion, saya tertarik dengan paket website berikut.',
             '',
@@ -82,7 +82,6 @@ const sharedBenefits = [
                 'relative flex h-full flex-col rounded-2xl border p-6',
                 'transition-all duration-300 hover:-translate-y-1',
                 'lg:p-7',
-                index >= 3 ? 'lg:col-span-3' : 'lg:col-span-2',
                 tier.popular
                   ? 'border-brand bg-brand shadow-glow-sm'
                   : 'border-surface-border bg-surface-base hover:shadow-card',
@@ -94,7 +93,7 @@ const sharedBenefits = [
                          whitespace-nowrap rounded-full bg-ink-primary
                          px-4 py-1.5 text-[10px] font-bold tracking-wide text-white"
                 >
-                  Untuk Website Bisnis
+                  Company profile lengkap
                 </span>
               )}
 
@@ -183,20 +182,26 @@ const sharedBenefits = [
       }
     </div>
 
+    <div class="mt-6 rounded-2xl border border-brand-border bg-brand-muted/50 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
+      <div>
+        <h3 class="font-bold text-ink-primary">Butuh landing page atau fitur khusus?</h3>
+        <p class="mt-1 text-sm leading-relaxed text-ink-secondary">Landing page mulai Rp2.000.000. Sistem dan integrasi khusus dihitung setelah kebutuhan dibahas.</p>
+      </div>
+      <a href="#contact" class="mt-4 inline-flex shrink-0 rounded-lg border border-brand px-4 py-2.5 text-sm font-semibold text-brand transition hover:bg-brand hover:text-white sm:mt-0">Diskusikan kebutuhan</a>
+    </div>
+
     <div class="mt-14">
       <div class="mb-6 max-w-2xl">
         <p class="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
-          Standar Pengerjaan
+          Termasuk dalam Paket
         </p>
 
         <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-ink-primary">
-          Dukungan untuk Website Anda
+          Hal yang Sudah Diperhitungkan
         </h3>
 
         <p class="text-sm leading-relaxed text-ink-secondary">
-          Setiap proyek memiliki ruang lingkup berbeda. Berikut standar
-          pengerjaan yang menjadi perhatian kami, dengan detail mengikuti
-          paket dan kesepakatan proyek.
+          Setiap paket mencantumkan lingkup yang jelas. Detail halaman dan fitur disepakati sebelum pengerjaan dimulai.
         </p>
       </div>
 
@@ -261,17 +266,16 @@ const sharedBenefits = [
 
       <div>
         <h4 class="mb-1 text-sm font-bold text-ink-primary">
-          Informasi Harga dan Pemeliharaan
+          Informasi Harga dan Perpanjangan
         </h4>
 
         <p class="text-sm leading-relaxed text-ink-secondary">
-          Harga paket merupakan harga awal sesuai ruang lingkup yang tercantum.
-          Penambahan halaman, fitur, integrasi, atau perubahan kebutuhan dapat
-          memengaruhi harga. Domain dan hosting yang termasuk dalam paket
-          berlaku sesuai periode yang disebutkan; biaya perpanjangan tahun
-          berikutnya akan dikonfirmasikan sebelum layanan diperpanjang.
-          Garansi bug dan pemeliharaan hanya berlaku sesuai durasi serta
-          cakupan paket yang disepakati.
+          Domain didaftarkan atas nama klien dan shared hosting dikelola Web Inovasion. Keduanya termasuk untuk tahun pertama.
+          Perpanjangan tahun berikutnya diperkirakan sekitar
+          Rp1.500.000 per tahun, termasuk domain dan pengelolaan hosting; biaya dikonfirmasi sebelum perpanjangan sesuai harga provider.
+          Hosting bersama dikelola Web Inovasion dan akses cPanel utama tidak dibagikan. Jika Anda memerlukan hosting dengan
+          kendali sendiri, migrasi ke akun milik Anda dapat dibicarakan. Penambahan halaman atau fitur di luar lingkup paket
+          akan ditawarkan dan disetujui sebelum dikerjakan.
         </p>
       </div>
     </div>
