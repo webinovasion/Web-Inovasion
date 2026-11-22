@@ -124,6 +124,12 @@ export const siteData = {
     { href: "/#faq", label: "FAQ" },
     { href: "/#contact", label: "Kontak" },
   ],
+  primaryNavigation: [
+    { href: "/#services", label: "Layanan" },
+    { href: "/#harga", label: "Harga" },
+    { href: "/#portfolio", label: "Proyek" },
+    { href: "/tentang", label: "Tentang" },
+  ],
 } as const;
 
 export type OfficialServiceName = (typeof siteData.services)[number]["name"];
