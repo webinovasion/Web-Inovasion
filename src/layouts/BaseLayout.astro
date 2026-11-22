@@ -27,7 +27,8 @@ const {
 
 const site = Astro.site ?? new URL(siteData.url);
 
-const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
+const canonicalURL = new URL(canonical ?? Astro.url.pathname, site);
+if (!canonicalURL.pathname.endsWith('/')) canonicalURL.pathname += '/';
 
 const ogImageURL = new URL(ogImage, site);
 
@@ -134,17 +135,31 @@ const schema = createSchema({
 
     <SpeedInsights />
 
-    <script is:inline define:vars={{ ga: siteData.analyticsId }}>
-      document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"]');
+    <script>
+      type EventData = Record<string, string | number>;
 
-        if (!link) return;
+      function trackEvent(name: string, data: EventData = {}) {
+        // TODO: kirim ke provider analitik yang dipilih setelah konfirmasi.
+        window.dispatchEvent(new CustomEvent('webinovasion:track', { detail: { name, data } }));
+      }
 
-        if (typeof gtag === 'function') {
-          gtag('event', 'whatsapp_click', {
-            link_url: link.href,
-          });
-        }
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const link = target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (link instanceof HTMLAnchorElement) trackEvent('whatsapp_click', { link_url: link.href });
+      });
+
+      document.addEventListener('submit', (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement) || form.id !== 'contactForm') return;
+
+        const formData = new FormData(form);
+        trackEvent('contact_form_submit', {
+          service: String(formData.get('service') ?? ''),
+          budget: String(formData.get('budget') ?? '') || 'Belum ditentukan',
+        });
       });
     </script>
   </body>

@@ -26,8 +26,7 @@ export const siteData = {
   renewal: {
     annualAmount: 1_500_000,
     annualDisplay: "Rp1.500.000 per tahun",
-    /** TODO: konfirmasi komponen layanan apa saja yang termasuk biaya perpanjangan. */
-    includedItems: [] as string[],
+    includedItems: ["Perpanjangan domain .com", "Perpanjangan shared hosting"],
   },
   services: [
     {
@@ -58,12 +57,9 @@ export const siteData = {
   /** TODO: saya akan memutuskan angka harga Landing Page. Nilai saat ini dipertahankan. */
   landingPagePrice: "Mulai Rp2.000.000",
   profile: {
-    /** TODO: isi nama sesuai nama yang ingin ditampilkan. */
-    name: "",
-    /** TODO: tambahkan foto profil setelah foto yang disetujui tersedia. */
-    photo: "",
-    /** TODO: lengkapi latar belakang pribadi. */
-    background: "",
+    name: "Rayhan Nurahman",
+    photo: "/assets/images/profile/foto-rayhan.webp",
+    background: "Saya adalah web developer di balik Web Inovasion, dengan fokus pada pengembangan website yang profesional, fungsional, dan berorientasi pada kebutuhan bisnis. Saya percaya bahwa website yang baik bukan hanya tentang tampilan, tetapi juga tentang bagaimana teknologi dapat membantu bisnis membangun kepercayaan, menjangkau pelanggan, dan berkembang secara berkelanjutan.",
   },
   packages: [
     {

@@ -302,14 +302,6 @@ const contactSchema = {
       return;
     }
 
-    // Kirim event ke GA4
-    if (typeof gtag === 'function') {
-      gtag('event', 'contact_form_submit', {
-        service,
-        budget,
-      });
-    }
-
     const text = [
       `Halo Web Inovasion! Saya tertarik dengan layanan Anda. 🙏`,
       ``,
