@@ -266,17 +266,16 @@ const sharedBenefits = [
 
       <div>
         <h4 class="mb-1 text-sm font-bold text-ink-primary">
-          Informasi Harga dan Perpanjangan
+          Biaya Perpanjangan
         </h4>
 
         <p class="text-sm leading-relaxed text-ink-secondary">
-          Domain didaftarkan atas nama klien dan shared hosting dikelola Web Inovasion. Keduanya termasuk untuk tahun pertama.
-          Perpanjangan tahun berikutnya diperkirakan sekitar
-          {siteData.renewal.annualDisplay}, dengan rincian yang akan dikonfirmasi sebelum perpanjangan sesuai harga provider.
-          Hosting bersama dikelola Web Inovasion dan akses cPanel utama tidak dibagikan. Jika Anda memerlukan hosting dengan
-          kendali sendiri, migrasi ke akun milik Anda dapat dibicarakan. Penambahan halaman atau fitur di luar lingkup paket
-          akan ditawarkan dan disetujui sebelum dikerjakan.
+          Perkiraan biaya tahun berikutnya adalah {siteData.renewal.annualDisplay}. Daftar komponen yang termasuk belum saya konfirmasi dan akan saya lengkapi sebelum publikasi final.
         </p>
+        <h5 class="mb-2 mt-3 text-sm font-bold text-ink-primary">Apa yang termasuk</h5>
+        <ul class="list-disc space-y-1 pl-5 text-sm text-ink-secondary">
+          {siteData.renewal.includedItems.length ? siteData.renewal.includedItems.map((item) => <li>{item}</li>) : <li>TODO: saya konfirmasi item yang termasuk dalam biaya perpanjangan.</li>}
+        </ul>
       </div>
     </div>
   </div>

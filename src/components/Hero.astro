@@ -1,7 +1,9 @@
 ---
-import projects from '../data/Projects.json';
+import projects from '../data/projects';
 
 const featuredProject = projects[0];
+// Alternatif headline 1: "Website perusahaan teknik yang membuat kapabilitas Anda mudah dipahami calon mitra."
+// Alternatif headline 2: "Tampilkan layanan dan proyek industri dengan website yang meyakinkan calon klien."
 ---
 
 <section id="hero" aria-labelledby="hero-heading" class="relative py-20 lg:py-28 bg-hero overflow-hidden">
@@ -38,7 +40,7 @@ const featuredProject = projects[0];
         >
           <span class="block h-1.5 w-1.5 rounded-full bg-brand animate-pulse-slow" aria-hidden="true"></span>
 
-          <span class="text-xs font-semibold text-brand tracking-wide"> Website untuk UMKM dan perusahaan </span>
+          <span class="text-xs font-semibold text-brand tracking-wide"> Spesialisasi perusahaan teknik dan industri </span>
         </div>
 
         <!-- H1 — satu per halaman, keyword di depan -->
@@ -48,12 +50,12 @@ const featuredProject = projects[0];
          font-extrabold leading-[1.1] tracking-tight
          text-ink-primary"
         >
-          Website bisnis yang membuat usaha Anda tampil lebih meyakinkan
+          Website yang meyakinkan untuk perusahaan teknik dan industri
         </h1>
 
         <p class="mt-5 text-base leading-relaxed text-ink-secondary max-w-lg">
-          Untuk UMKM, perusahaan jasa, kontraktor, dan supplier yang ingin menjelaskan layanan, produk, serta proyeknya
-          dengan lebih jelas. Web Inovasion membuat website responsif dengan jalur kontak yang mudah ditemukan.
+          Tampilkan kapabilitas, layanan, produk, dan proyek dengan lebih jelas agar calon klien dan mitra mudah memahami
+          bisnis Anda dan menghubungi Anda. Saya membantu kontraktor, supplier, dan perusahaan industri membangun company profile yang profesional.
         </p>
 
         <!-- CTA buttons -->
@@ -110,7 +112,7 @@ const featuredProject = projects[0];
         <!-- Trust signal -->
         <div class="mt-10 flex items-center gap-3.5">
           <div class="text-xs text-ink-secondary leading-relaxed">
-            <span><strong class="font-semibold text-ink-primary">Berpengalaman membangun website untuk perusahaan teknik dan industri.</strong> UMKM berbagai bidang juga saya layani.</span>
+            <span><strong class="font-semibold text-ink-primary">Pengalaman proyek di bidang teknik dan industri.</strong> Lihat contoh hasil pekerjaan saya.</span>
           </div>
         </div>
       </div>
@@ -118,10 +120,10 @@ const featuredProject = projects[0];
       <!-- Featured portfolio project -->
       <div class="hidden lg:block animate-fade-in">
         <article class="overflow-hidden rounded-3xl border border-surface-border bg-surface-raised shadow-card">
-          <a href={featuredProject.url} target="_blank" rel="noopener noreferrer" aria-label={`Kunjungi website ${featuredProject.title}`}>
+          <a href={featuredProject.url} target="_blank" rel="noopener noreferrer" aria-label={`Kunjungi website ${featuredProject.nama}`}>
             <img
-              src={featuredProject.image}
-              alt={`Tampilan website ${featuredProject.title}`}
+              src={featuredProject.gambar}
+              alt={`Tampilan website ${featuredProject.nama}`}
               width="640"
               height="360"
               fetchpriority="high"
@@ -132,8 +134,8 @@ const featuredProject = projects[0];
           <div class="flex items-end justify-between gap-6 p-6">
             <div>
               <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-brand">Contoh proyek</p>
-              <h2 class="text-xl font-bold text-ink-primary">{featuredProject.title}</h2>
-              <p class="mt-2 max-w-sm text-sm leading-relaxed text-ink-secondary">{featuredProject.description}</p>
+              <h2 class="text-xl font-bold text-ink-primary">{featuredProject.nama}</h2>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-ink-secondary">{featuredProject.solusi}</p>
             </div>
             <a
               href="#portfolio"

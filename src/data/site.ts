@@ -16,7 +16,7 @@ export const siteData = {
     linkedin: "https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/",
   },
   logo: "/assets/images/logo/logo_web_inovasion.png",
-  defaultTitle: "Website Company Profile untuk Perusahaan Teknik | Web Inovasion",
+  defaultTitle: "Jasa Website untuk Perusahaan Teknik dan Industri | Web Inovasion",
   defaultDescription:
     "Website company profile untuk perusahaan teknik, industri, kontraktor, dan supplier. Lihat layanan dan proyek Web Inovasion.",
   defaultOgImage: "/assets/images/og-webinovasion.png",
@@ -57,6 +57,14 @@ export const siteData = {
   ],
   /** TODO: saya akan memutuskan angka harga Landing Page. Nilai saat ini dipertahankan. */
   landingPagePrice: "Mulai Rp2.000.000",
+  profile: {
+    /** TODO: isi nama sesuai nama yang ingin ditampilkan. */
+    name: "",
+    /** TODO: tambahkan foto profil setelah foto yang disetujui tersedia. */
+    photo: "",
+    /** TODO: lengkapi latar belakang pribadi. */
+    background: "",
+  },
   packages: [
     {
       name: "Profil Bisnis",
