@@ -5,7 +5,7 @@ export interface SchemaOptions {
   description: string;
   url: string;
   image?: string;
-  areaServed?: string;
+  areaServed?: string | readonly string[];
 }
 
 const DEFAULT_IMAGE = siteData.logo;
@@ -17,6 +17,8 @@ export function createSchema({
   image = DEFAULT_IMAGE,
   areaServed = "Indonesia",
 }: SchemaOptions) {
+  const servedAreas = Array.isArray(areaServed) ? [...areaServed] : [areaServed as string];
+  const isLocalServicePage = servedAreas.length > 1;
   const fullImage = `${siteData.url}${image}`;
   const organizationId = `${siteData.url}/#organization`;
   const businessId = `${siteData.url}/#business`;
@@ -35,7 +37,7 @@ export function createSchema({
         sameAs: [siteData.social.instagram, siteData.social.linkedin],
       },
       {
-        "@type": "LocalBusiness",
+        "@type": isLocalServicePage ? "ProfessionalService" : "LocalBusiness",
         "@id": businessId,
         name: siteData.name,
         image: fullImage,
@@ -43,13 +45,15 @@ export function createSchema({
         telephone: siteData.contact.phone,
         email: siteData.contact.email,
         description: siteData.defaultDescription,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: siteData.contact.addressLocality,
-          addressRegion: siteData.contact.addressRegion,
-          addressCountry: siteData.contact.addressCountry,
-        },
-        areaServed: { "@type": "Place", name: areaServed },
+        ...(isLocalServicePage ? {} : {
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: siteData.contact.addressLocality,
+            addressRegion: siteData.contact.addressRegion,
+            addressCountry: siteData.contact.addressCountry,
+          },
+        }),
+        areaServed: servedAreas.map((name) => ({ "@type": "Place", name })),
         sameAs: [siteData.social.instagram, siteData.social.linkedin],
       },
       {
@@ -76,7 +80,7 @@ export function createSchema({
         name: title,
         serviceType: "Website Development",
         provider: { "@id": businessId },
-        areaServed: { "@type": "Place", name: areaServed },
+        areaServed: servedAreas.map((name) => ({ "@type": "Place", name })),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: `Layanan ${siteData.name}`,

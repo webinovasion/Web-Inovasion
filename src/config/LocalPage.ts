@@ -30,7 +30,11 @@ export interface LocalPage {
       };
   };
 
-  areas: readonly string[];
+  areas: readonly {
+    heading: string;
+    context: string;
+    places: readonly string[];
+  }[];
 
   benefits: readonly {
       title:string;
@@ -75,7 +79,7 @@ export const localPages = {
       "Jasa Pembuatan Website Bekasi | Web Inovasion",
 
     description:
-      "Website profil bisnis, company profile, landing page, dan katalog admin untuk UMKM dan perusahaan di Kota maupun Kabupaten Bekasi.",
+      "Jasa website untuk perusahaan teknik, industri, kontraktor, dan supplier di Kota serta Kabupaten Bekasi. UMKM juga dapat memilih layanan Profil Bisnis.",
 
     badge:
       "Kota dan Kabupaten Bekasi",
@@ -86,7 +90,7 @@ export const localPages = {
             "Jasa Pembuatan Website Bekasi",
 
         subtitle:
-            "Butuh website profil bisnis, company profile, atau katalog produk? Web Inovasion membantu bisnis di Kota dan Kabupaten Bekasi menentukan halaman, fitur, dan biaya sebelum pengerjaan dimulai."
+            "Perusahaan teknik, kontraktor, dan supplier di Kota atau Kabupaten Bekasi dapat menampilkan layanan, kapabilitas, dan proyek melalui website. Saya juga melayani UMKM dengan paket Profil Bisnis."
 
     },
 
@@ -102,17 +106,30 @@ export const localPages = {
 
         secondary:{
 
-            text:"Lihat Contoh Proyek",
+            text:"Lihat Area Layanan",
 
-            href:"#portfolio"
+            href:"#areas"
 
         }
 
     },
 
-    areas:[
-        "Kota Bekasi",
-        "Kabupaten Bekasi"
+    areas: [
+      {
+        heading: "Kota Bekasi",
+        context: "Untuk kontraktor, distributor, dan perusahaan jasa di Kota Bekasi, website dapat merangkum layanan, area kerja, dan kontak bisnis dalam satu tempat.",
+        places: ["Pondok Gede", "Jatisampurna", "Pondok Melati", "Jatiasih", "Bantargebang", "Mustika Jaya", "Bekasi Timur", "Rawalumbu", "Bekasi Selatan", "Bekasi Barat", "Medan Satria", "Bekasi Utara"],
+      },
+      {
+        heading: "Kabupaten Bekasi",
+        context: "Perusahaan industri, kontraktor, dan supplier di Kabupaten Bekasi dapat memakai company profile untuk menjelaskan kapabilitas serta proyek kepada calon mitra.",
+        places: ["Babelan", "Bojongmangu", "Cabangbungin", "Cibarusah", "Cibitung", "Cikarang Barat", "Cikarang Pusat", "Cikarang Selatan", "Cikarang Timur", "Cikarang Utara", "Karangbahagia", "Kedungwaringin", "Muaragembong", "Pebayuran", "Serang Baru", "Setu", "Sukakarya", "Sukatani", "Sukawangi", "Tambelang", "Tambun Selatan", "Tambun Utara", "Tarumajaya"],
+      },
+      {
+        heading: "Kawasan industri",
+        context: "Supplier dan penyedia jasa di kawasan industri dapat menampilkan spesialisasi, sertifikasi, produk, dan proyek agar calon mitra lebih mudah menilai kecocokan.",
+        places: ["Jababeka", "Delta Silicon", "Kawasan Hyundai", "Lippo Cikarang", "EJIP", "MM2100"],
+      },
     ],
 
     benefits:[
@@ -153,7 +170,7 @@ export const localPages = {
 
             title:"Biaya dan fitur dibahas di awal",
 
-            description:"Pilih paket yang tersedia atau diskusikan website custom. Ruang lingkup mengikuti fitur yang disepakati."
+            description:"Pilih salah satu paket utama atau diskusikan kebutuhan di luar lingkup paket. Fitur ditetapkan sebelum pengerjaan."
 
         },
 
@@ -181,35 +198,29 @@ export const localPages = {
 
     websiteTypes: [
   {
-    icon: "🏢",
+    icon: "monitor",
     title: "Company Profile",
     description:
       "Tampilkan profil, layanan, galeri, dan kontak perusahaan dalam satu website yang mudah dibagikan."
   },
   {
-    icon: "🛒",
+    icon: "briefcase",
     title: "Profil Bisnis",
     description:
       "Tampilkan katalog produk dan cara pemesanan agar pelanggan tahu apa yang dijual dan bagaimana menghubungi Anda."
   },
   {
-    icon: "🚀",
+    icon: "zap",
     title: "Landing Page",
     description:
       "Satu halaman terfokus untuk menjelaskan penawaran, menjawab pertanyaan utama, dan mengarahkan pengunjung ke WhatsApp."
   },
   {
-    icon: "🗂️",
+    icon: "catalog",
     title: "Katalog dengan Dashboard",
     description:
       "Kelola data produk atau proyek melalui dashboard admin dengan lingkup dan struktur yang disepakati sebelum pengerjaan."
   },
-  {
-    icon: "💻",
-    title: "Sistem Khusus",
-    description:
-      "Fitur, integrasi, dan alur kerja khusus dibahas sebagai penawaran terpisah berdasarkan kebutuhan bisnis."
-  }
 ],
 
 workflow: [

@@ -83,7 +83,7 @@ const icons = {
             />
           </a>
           <a
-            href="#portfolio"
+            href={page.cta.secondary.href}
             class="inline-flex items-center gap-[7px] rounded-[11px] border border-surface-border
         bg-surface-raised px-[22px] py-3 text-sm font-semibold text-ink-primary transition-colors hover:bg-surface-card"
           >
@@ -92,7 +92,7 @@ const icons = {
         </div>
 
         <p class="mt-6 text-sm leading-relaxed text-ink-muted">
-          Konsultasi awal dapat dilakukan melalui WhatsApp atau Google Meet.
+          Konsultasi awal singkat melalui WhatsApp.
         </p>
       </div>
 
@@ -122,7 +122,7 @@ const icons = {
 
           <div class="grid gap-3 sm:grid-cols-2">
             {
-              page.areas.slice(0, 8).map((area) => (
+              page.areas.map(({ heading }) => (
                 <div
                   class="flex items-center gap-3 rounded-xl
                        border border-surface-border bg-surface-card
@@ -141,7 +141,7 @@ const icons = {
                     aria-hidden="true"
                     set:html={icons.check}
                   />
-                  {area}
+                  {heading}
                 </div>
               ))
             }

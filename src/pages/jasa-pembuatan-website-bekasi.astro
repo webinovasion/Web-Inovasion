@@ -7,12 +7,7 @@ import Footer from '../components/Footer.astro';
 import HeroLocal from '../components/local/HeroLocal.astro';
 import BenefitsLocal from '../components/local/BenefitsLocal.astro';
 import WebsiteTypesLocal from '../components/local/WebsiteTypesLocal.astro';
-import WorkflowLocal from "../components/local/WorkflowLocal.astro";
 import CoverageArea from '../components/local/CoverageArea.astro';
-import FAQLocal from '../components/local/LocalFAQ.astro';
-
-import Pricing from '../components/Pricing.astro';
-import Portfolio from '../components/ProjectCard.astro';
 import CTA from '../components/CTA.astro';
 import Contact from '../components/Contact.astro';
 
@@ -21,7 +16,7 @@ import { localPages } from '../config/LocalPage';
 const page = localPages.bekasi;
 ---
 
-<BaseLayout title={page.title} description={page.description} areaServed={page.city}>
+<BaseLayout title={page.title} description={page.description} areaServed={["Kota Bekasi", "Kabupaten Bekasi"]}>
   <Header />
 
   <main>
@@ -33,13 +28,16 @@ const page = localPages.bekasi;
 
     <CoverageArea page={page} />
 
-    <WorkflowLocal page={page} />
-    
-    <FAQLocal page={page} />
-
-    <Pricing />
-
-    <Portfolio />
+    <section class="bg-surface-raised py-14 lg:py-16" aria-labelledby="local-offer-heading">
+      <div class="container-custom flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        <div>
+          <p class="mb-2 text-xs font-bold uppercase tracking-widest text-brand">Paket dan proses</p>
+          <h2 id="local-offer-heading" class="text-2xl font-extrabold text-ink-primary">Lihat rincian layanan di halaman utama</h2>
+          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-secondary">Saya menyediakan Profil Bisnis, Company Profile, Katalog dengan Dashboard, dan Landing Page. Rincian harga, proses kerja, dan jawaban pertanyaan umum tersedia di homepage.</p>
+        </div>
+        <a href="/#harga" class="inline-flex shrink-0 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-hover">Lihat paket dan harga</a>
+      </div>
+    </section>
 
     <CTA />
 

@@ -18,7 +18,7 @@ export const siteData = {
   logo: "/assets/images/logo/logo_web_inovasion.png",
   defaultTitle: "Jasa Website untuk Perusahaan Teknik dan Industri | Web Inovasion",
   defaultDescription:
-    "Website company profile untuk perusahaan teknik, industri, kontraktor, dan supplier. Lihat layanan dan proyek Web Inovasion.",
+    "Website untuk perusahaan teknik, industri, kontraktor, dan supplier. Lihat layanan Profil Bisnis, Company Profile, Katalog dengan Dashboard, dan Landing Page.",
   defaultOgImage: "/assets/images/og-webinovasion.png",
   analyticsId: "G-R1D3PJ8FHK",
   locale: "id-ID",
