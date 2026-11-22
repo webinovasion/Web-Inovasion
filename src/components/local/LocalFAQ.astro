@@ -1,18 +1,18 @@
 ---
 import type { LocalPage } from '../../config/LocalPage';
-import { siteConfig } from '../../config/Site';
+import { siteData } from '../../data/site';
 
 interface Props {
   page: LocalPage;
 }
 
-const WA_NUMBER = siteConfig.phone.replace('+', '');
+const WA_NUMBER = siteData.contact.phone.replace('+', '');
 const { page } = Astro.props;
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': `${siteConfig.url}/${page.slug}/#faq`,
+  '@id': `${siteData.url}/${page.slug}/#faq`,
   mainEntity: page.faq.map((item) => ({
     '@type': 'Question',
     name: item.question,

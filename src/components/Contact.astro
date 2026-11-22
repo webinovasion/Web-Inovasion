@@ -1,15 +1,8 @@
 ---
-import { siteConfig } from '../config/Site';
+import { siteData } from '../data/site';
 
-const WA_NUMBER = siteConfig.phone.replace('+', '');
-const services = [
-  'Profil Bisnis',
-  'Landing Page',
-  'Company Profile',
-  'Katalog dengan Dashboard',
-  'Website atau integrasi khusus',
-  'Lainnya',
-];
+const WA_NUMBER = siteData.contact.phone.replace('+', '');
+const services = siteData.services.map(({ name }) => name);
 const budgets = [
   'Rp 2,5 – 4,5 juta',
   'Rp 4,5 – 8,5 juta',
@@ -21,8 +14,8 @@ const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPoint',
   contactType: 'customer support',
-  telephone: siteConfig.phone,
-  email: siteConfig.email,
+  telephone: siteData.contact.phone,
+  email: siteData.contact.email,
   areaServed: 'ID',
   availableLanguage: 'Indonesian',
 };
@@ -59,19 +52,19 @@ const contactSchema = {
             {
               icon: `<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>`,
               label: 'WhatsApp',
-              value: siteConfig.phone.replace('+62', '+62 ').replace(/(\d{4})(\d{4})$/, '$1-$2'),
+              value: siteData.contact.phone.replace('+62', '+62 ').replace(/(\d{4})(\d{4})$/, '$1-$2'),
               sub: 'Buka chat WhatsApp',
             },
             {
               icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
               label: 'Email',
-              value: siteConfig.email,
+              value: siteData.contact.email,
               sub: 'Untuk brief & dokumen',
             },
             {
               icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
               label: 'Lokasi',
-              value: siteConfig.address.display,
+              value: siteData.contact.location,
               sub: 'Konsultasi online tersedia di seluruh Indonesia',
             },
           ].map(({ icon, label, value, sub }) => (
@@ -127,7 +120,7 @@ const contactSchema = {
           </svg>
           <div class="text-sm text-brand leading-relaxed">
             <strong class="font-bold block mb-0.5">Konsultasi 100% Gratis</strong>
-            Tidak ada biaya untuk diskusi awal. Kami bantu analisis kebutuhan dan estimasi budget tanpa komitmen.
+            Tidak ada biaya untuk diskusi awal. Saya bantu menganalisis kebutuhan dan perkiraan biaya tanpa komitmen.
           </div>
         </div>
       </div>

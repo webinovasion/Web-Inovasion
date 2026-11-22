@@ -1,25 +1,17 @@
 ---
-import {
-  navigation,
-  type NavigationPage,
-} from "../config/Navigation";
+import { siteData } from "../data/site";
 
 interface Props {
-  page?: NavigationPage;
-
   ctaText?: string;
   ctaHref?: string;
 }
 
 const {
-  page = "home",
-
-  ctaText = "Konsultasi Gratis",
-
-  ctaHref = "#contact",
+  ctaText = "Konsultasi via WhatsApp",
+  ctaHref = "/#contact",
 } = Astro.props;
 
-const navLinks = navigation[page];
+const navLinks = siteData.navigation;
 ---
 
 <header class="sticky top-0 z-50 border-b border-surface-border bg-surface-overlay backdrop-blur-md">
@@ -32,7 +24,7 @@ const navLinks = navigation[page];
 
       <a
         href="/"
-        aria-label="Web Inovasion"
+        aria-label={siteData.name}
         class="flex items-center gap-2 text-lg font-extrabold tracking-tight text-brand"
       >
         <span
@@ -40,7 +32,7 @@ const navLinks = navigation[page];
           aria-hidden="true"
         ></span>
 
-        Web Inovasion
+        {siteData.name}
 
       </a>
 

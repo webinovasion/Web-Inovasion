@@ -1,4 +1,4 @@
-import { siteConfig } from "./Site";
+import { siteData } from "../data/site";
 
 export interface SchemaOptions {
   title: string;
@@ -8,8 +8,7 @@ export interface SchemaOptions {
   areaServed?: string;
 }
 
-const DEFAULT_IMAGE =
-  "/assets/images/logo/logo_web_inovasion.png";
+const DEFAULT_IMAGE = siteData.logo;
 
 export function createSchema({
   title,
@@ -18,247 +17,75 @@ export function createSchema({
   image = DEFAULT_IMAGE,
   areaServed = "Indonesia",
 }: SchemaOptions) {
-  const fullImage = `${siteConfig.url}${image}`;
+  const fullImage = `${siteData.url}${image}`;
+  const organizationId = `${siteData.url}/#organization`;
+  const businessId = `${siteData.url}/#business`;
+  const websiteId = `${siteData.url}/#website`;
 
   return {
     "@context": "https://schema.org",
-
     "@graph": [
-
-      // Organization
-
       {
         "@type": "Organization",
-
-        "@id": `${siteConfig.url}/#organization`,
-
-        name: siteConfig.name,
-
-        url: siteConfig.url,
-
-        logo: `${siteConfig.url}${siteConfig.logo}`,
-
+        "@id": organizationId,
+        name: siteData.name,
+        url: siteData.url,
+        logo: `${siteData.url}${siteData.logo}`,
         image: fullImage,
-
-        sameAs: [
-          siteConfig.instagram,
-          siteConfig.linkedin,
-        ],
+        sameAs: [siteData.social.instagram, siteData.social.linkedin],
       },
-
-      // Local Business
-
       {
         "@type": "LocalBusiness",
-
-        "@id": `${siteConfig.url}/#business`,
-
-        name: siteConfig.name,
-
+        "@id": businessId,
+        name: siteData.name,
         image: fullImage,
-
-        url: siteConfig.url,
-
-        telephone: siteConfig.phone,
-
-        email: siteConfig.email,
-
-        description:
-          "Website profil bisnis, company profile, landing page, dan katalog admin untuk UMKM serta perusahaan.",
-
+        url: siteData.url,
+        telephone: siteData.contact.phone,
+        email: siteData.contact.email,
+        description: siteData.defaultDescription,
         address: {
-
           "@type": "PostalAddress",
-
-          addressLocality: siteConfig.address.addressLocality,
-
-          addressRegion: siteConfig.address.addressRegion,
-
-          addressCountry: siteConfig.address.addressCountry,
-
+          addressLocality: siteData.contact.addressLocality,
+          addressRegion: siteData.contact.addressRegion,
+          addressCountry: siteData.contact.addressCountry,
         },
-
-        areaServed: {
-
-          "@type": "Place",
-
-          name: areaServed,
-
-        },
-
-        sameAs: [
-
-          siteConfig.instagram,
-
-          siteConfig.linkedin,
-
-        ],
-
+        areaServed: { "@type": "Place", name: areaServed },
+        sameAs: [siteData.social.instagram, siteData.social.linkedin],
       },
-
-      // Website
-
       {
-
-        "@type":"WebSite",
-
-        "@id":`${siteConfig.url}/#website`,
-
-        url:siteConfig.url,
-
-        name:siteConfig.name,
-
-        description,
-
-        inLanguage:"id-ID",
-
-        publisher:{
-
-          "@id":`${siteConfig.url}/#organization`
-
-        }
-
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: siteData.url,
+        name: siteData.name,
+        description: siteData.defaultDescription,
+        inLanguage: "id-ID",
+        publisher: { "@id": organizationId },
       },
-
-      // WebPage
-
       {
-
-        "@type":"WebPage",
-
-        "@id":`${url}#webpage`,
-
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
         url,
-
-        name:title,
-
+        name: title,
         description,
-
-        isPartOf:{
-
-          "@id":`${siteConfig.url}/#website`
-
-        },
-
-        about:{
-
-          "@id":`${siteConfig.url}/#business`
-
-        },
-
-        primaryImageOfPage:fullImage
-
+        isPartOf: { "@id": websiteId },
+        about: { "@id": businessId },
+        primaryImageOfPage: fullImage,
       },
-
-      // Service
-
       {
-
-        "@type":"Service",
-
-        name:title,
-
-        serviceType:"Website Development",
-
-        provider:{
-
-          "@id":`${siteConfig.url}/#business`
-
+        "@type": "Service",
+        name: title,
+        serviceType: "Website Development",
+        provider: { "@id": businessId },
+        areaServed: { "@type": "Place", name: areaServed },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `Layanan ${siteData.name}`,
+          itemListElement: siteData.services.map((service) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: service.name },
+          })),
         },
-
-        areaServed:{
-
-          "@type":"Place",
-
-          name:areaServed
-
-        },
-
-        hasOfferCatalog:{
-
-          "@type":"OfferCatalog",
-
-          name:"Layanan Web Inovasion",
-
-          itemListElement:[
-
-            {
-
-              "@type":"Offer",
-
-              itemOffered:{
-
-                "@type":"Service",
-
-                name:"Website Company Profile"
-
-              }
-
-            },
-
-            {
-
-              "@type":"Offer",
-
-              itemOffered:{
-
-                "@type":"Service",
-
-                name:"Landing Page"
-
-              }
-
-            },
-
-            {
-
-              "@type":"Offer",
-
-              itemOffered:{
-
-                "@type":"Service",
-
-                name:"Website UMKM"
-
-              }
-
-            },
-
-            {
-
-              "@type":"Offer",
-
-              itemOffered:{
-
-                "@type":"Service",
-
-                name:"Website Custom"
-
-              }
-
-            },
-
-            {
-
-              "@type":"Offer",
-
-              itemOffered:{
-
-                "@type":"Service",
-
-                name:"Katalog Produk dengan Dashboard Admin"
-
-              }
-
-            }
-
-          ]
-
-        }
-
-      }
-
-    ]
-
+      },
+    ],
   };
 }

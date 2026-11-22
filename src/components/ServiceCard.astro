@@ -1,5 +1,5 @@
 ---
-import services from '../data/Service.json';
+import { siteData } from '../data/site';
 
 // SVG icons map — tambah sesuai kebutuhan
 const icons: Record<string, string> = {
@@ -9,6 +9,8 @@ const icons: Record<string, string> = {
   code: `<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>`,
   grid: `<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>`,
 };
+
+const services = siteData.services;
 ---
 
 <section id="services" aria-labelledby="services-heading" class="py-20 lg:py-28 bg-surface-raised">
@@ -19,7 +21,7 @@ const icons: Record<string, string> = {
          px-3 py-1 mb-4"
     >
       <span class="text-[11px] font-bold tracking-widest
-           text-brand uppercase"> Layanan Kami </span>
+           text-brand uppercase"> Layanan </span>
     </div>
 
     <h2
@@ -73,7 +75,7 @@ const icons: Record<string, string> = {
             </div>
 
             <div class="relative">
-              <h3 class="mb-2 text-base font-bold text-ink-primary">{service.title}</h3>
+              <h3 class="mb-2 text-base font-bold text-ink-primary">{service.name}</h3>
               <p class="mb-5 text-sm leading-relaxed text-ink-secondary">{service.description}</p>
 
               <div class="mb-5 flex flex-wrap gap-1.5">

@@ -1,9 +1,9 @@
 
 ---
-import pricing from '../data/Pricing.json';
-import { siteConfig } from '../config/Site';
+import { siteData } from '../data/site';
 
-const whatsappNumber = siteConfig.phone.replace('+', '');
+const whatsappNumber = siteData.contact.phone.replace('+', '');
+const packages = siteData.packages;
 
 const sharedBenefits = [
   {
@@ -62,7 +62,7 @@ const sharedBenefits = [
 
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-6">
       {
-        pricing.map((tier) => {
+        packages.map((tier) => {
           const message = [
             'Halo Web Inovasion, saya tertarik dengan paket website berikut.',
             '',
@@ -185,7 +185,7 @@ const sharedBenefits = [
     <div class="mt-6 rounded-2xl border border-brand-border bg-brand-muted/50 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
       <div>
         <h3 class="font-bold text-ink-primary">Butuh landing page atau fitur khusus?</h3>
-        <p class="mt-1 text-sm leading-relaxed text-ink-secondary">Landing page mulai Rp2.000.000. Sistem dan integrasi khusus dihitung setelah kebutuhan dibahas.</p>
+        <p class="mt-1 text-sm leading-relaxed text-ink-secondary">{siteData.services.find(({ name }) => name === 'Landing Page')?.name} {siteData.landingPagePrice}. Sistem dan integrasi khusus dihitung setelah kebutuhan dibahas.</p>
       </div>
       <a href="#contact" class="mt-4 inline-flex shrink-0 rounded-lg border border-brand px-4 py-2.5 text-sm font-semibold text-brand transition hover:bg-brand hover:text-white sm:mt-0">Diskusikan kebutuhan</a>
     </div>
@@ -272,7 +272,7 @@ const sharedBenefits = [
         <p class="text-sm leading-relaxed text-ink-secondary">
           Domain didaftarkan atas nama klien dan shared hosting dikelola Web Inovasion. Keduanya termasuk untuk tahun pertama.
           Perpanjangan tahun berikutnya diperkirakan sekitar
-          Rp1.500.000 per tahun, termasuk domain dan pengelolaan hosting; biaya dikonfirmasi sebelum perpanjangan sesuai harga provider.
+          {siteData.renewal.annualDisplay}, dengan rincian yang akan dikonfirmasi sebelum perpanjangan sesuai harga provider.
           Hosting bersama dikelola Web Inovasion dan akses cPanel utama tidak dibagikan. Jika Anda memerlukan hosting dengan
           kendali sendiri, migrasi ke akun milik Anda dapat dibicarakan. Penambahan halaman atau fitur di luar lingkup paket
           akan ditawarkan dan disetujui sebelum dikerjakan.

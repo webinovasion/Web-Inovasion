@@ -1,14 +1,17 @@
 ---
-import { siteConfig } from '../config/Site';
+import { siteData } from '../data/site';
+
+const [profilePackage, companyPackage, catalogPackage] = siteData.packages;
+const officialServices = siteData.services.map(({ name }) => name).join(', ');
 
 const faqs = [
   {
     q: 'Jenis website apa yang bisa dibuat?',
-    a: 'Web Inovasion melayani UMKM dan bisnis dari berbagai bidang melalui website profil bisnis, company profile, landing page, serta katalog dengan dashboard admin. Sistem khusus dibahas sebagai lingkup terpisah.',
+    a: `Saya mengerjakan ${officialServices}. Fitur khusus dibahas berdasarkan kebutuhan dan lingkup proyek.`,
   },
   {
     q: 'Berapa harga pembuatan website?',
-    a: 'Paket Profil Bisnis mulai Rp2.500.000, Company Profile Rp4.500.000, dan Company Profile dengan Katalog Admin mulai Rp8.500.000. Landing page dan fitur khusus ditawarkan terpisah setelah kebutuhan dibahas.',
+    a: `${profilePackage.name} ${profilePackage.price}, ${companyPackage.name} ${companyPackage.price}, dan ${catalogPackage.name} ${catalogPackage.price}. Landing Page ${siteData.landingPagePrice}; fiturnya dibahas sebagai lingkup tersendiri.`,
   },
   {
     q: 'Berapa lama pengerjaannya?',
@@ -16,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Apakah domain dan hosting termasuk?',
-    a: 'Domain dan shared hosting termasuk untuk tahun pertama. Perpanjangan diperkirakan sekitar Rp1.500.000 per tahun dan dikonfirmasi sebelum waktunya mengikuti harga provider. Hosting bersama dikelola Web Inovasion; akses cPanel utama tidak dibagikan.',
+    a: `Domain dan shared hosting termasuk untuk tahun pertama. Perpanjangan diperkirakan ${siteData.renewal.annualDisplay} dan dikonfirmasi sebelum waktunya mengikuti harga provider. Hosting bersama dikelola Web Inovasion; akses cPanel utama tidak dibagikan.`,
   },
   {
     q: 'Bisakah saya mengubah konten sendiri?',
@@ -32,7 +35,7 @@ const faqs = [
   },
 ];
 
-const WA_NUMBER = siteConfig.phone.replace('+', '');
+const WA_NUMBER = siteData.contact.phone.replace('+', '');
 
 const faqSchema = {
   '@context': 'https://schema.org',

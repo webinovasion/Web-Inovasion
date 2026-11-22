@@ -4,7 +4,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
 import '../styles/global.css';
 
-import { siteConfig } from '../config/Site';
+import { siteData } from '../data/site';
 import { createSchema } from '../config/Schema';
 
 interface Props {
@@ -17,15 +17,15 @@ interface Props {
 }
 
 const {
-  title = siteConfig.defaultTitle,
-  description = siteConfig.defaultDescription,
+  title = siteData.defaultTitle,
+  description = siteData.defaultDescription,
   canonical,
-  ogImage = siteConfig.defaultOgImage,
+  ogImage = siteData.defaultOgImage,
   noindex = false,
   areaServed,
 } = Astro.props;
 
-const site = Astro.site ?? new URL(siteConfig.url);
+const site = Astro.site ?? new URL(siteData.url);
 
 const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
 
@@ -51,11 +51,11 @@ const schema = createSchema({
 
     <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
 
-    <meta name="author" content={siteConfig.author} />
+    <meta name="author" content={siteData.author} />
 
     <meta name="generator" content={Astro.generator} />
 
-    <meta name="theme-color" content={siteConfig.themeColor} />
+    <meta name="theme-color" content={siteData.themeColor} />
 
     <meta name="format-detection" content="telephone=no" />
 
@@ -77,11 +77,11 @@ const schema = createSchema({
 
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:image:alt" content={siteConfig.name} />
+    <meta property="og:image:alt" content={siteData.name} />
 
-    <meta property="og:locale" content={siteConfig.locale.replace('-', '_')} />
+    <meta property="og:locale" content={siteData.locale.replace('-', '_')} />
 
-    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:site_name" content={siteData.name} />
 
     <!-- Twitter -->
 
@@ -99,11 +99,11 @@ const schema = createSchema({
 
     <!-- Icons -->
 
-    <link rel="icon" href={siteConfig.logo} />
+    <link rel="icon" href={siteData.logo} />
 
-    <link rel="shortcut icon" href={siteConfig.logo} />
+    <link rel="shortcut icon" href={siteData.logo} />
 
-    <link rel="apple-touch-icon" href={siteConfig.logo} />
+    <link rel="apple-touch-icon" href={siteData.logo} />
 
     <!-- Schema -->
 
@@ -111,9 +111,9 @@ const schema = createSchema({
 
     <!-- Google Analytics -->
 
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.ga}`}></script>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteData.analyticsId}`}></script>
 
-    <script is:inline define:vars={{ ga: siteConfig.ga }}>
+    <script is:inline define:vars={{ ga: siteData.analyticsId }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag(...args) {
@@ -134,7 +134,7 @@ const schema = createSchema({
 
     <SpeedInsights />
 
-    <script is:inline define:vars={{ ga: siteConfig.ga }}>
+    <script is:inline define:vars={{ ga: siteData.analyticsId }}>
       document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"]');
 

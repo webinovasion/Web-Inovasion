@@ -1,3 +1,5 @@
+import { siteData } from "../data/site";
+
 export interface LocalPage {
 
   city:string;
@@ -16,10 +18,6 @@ export interface LocalPage {
       title:string;
       subtitle:string;
   };
-
-  navigation:"home"|"bekasi";
-
-  footer:"home"|"bekasi";
 
   cta:{
       primary:{
@@ -91,10 +89,6 @@ export const localPages = {
             "Butuh website profil bisnis, company profile, atau katalog produk? Web Inovasion membantu bisnis di Kota dan Kabupaten Bekasi menentukan halaman, fitur, dan biaya sebelum pengerjaan dimulai."
 
     },
-
-    navigation:"bekasi",
-
-    footer:"bekasi",
 
     cta:{
 
@@ -188,13 +182,13 @@ export const localPages = {
     websiteTypes: [
   {
     icon: "🏢",
-    title: "Website Company Profile",
+    title: "Company Profile",
     description:
       "Tampilkan profil, layanan, galeri, dan kontak perusahaan dalam satu website yang mudah dibagikan."
   },
   {
     icon: "🛒",
-    title: "Website UMKM dan Toko Online",
+    title: "Profil Bisnis",
     description:
       "Tampilkan katalog produk dan cara pemesanan agar pelanggan tahu apa yang dijual dan bagaimana menghubungi Anda."
   },
@@ -255,12 +249,12 @@ faq: [
   {
     question: "Apakah melayani Kota dan Kabupaten Bekasi?",
     answer:
-      "Ya. Web Inovasion melayani bisnis di Kota Bekasi dan Kabupaten Bekasi. Konsultasi awal dapat dilakukan secara online melalui WhatsApp atau Google Meet."
+      "Ya, saya melayani bisnis di Kota Bekasi dan Kabupaten Bekasi. Konsultasi awal dapat dilakukan secara online melalui WhatsApp."
   },
   {
     question: "Berapa biaya pembuatan website di Bekasi?",
     answer:
-      "Profil Bisnis mulai Rp2.500.000, Company Profile Rp4.500.000, dan Company Profile dengan Katalog Admin mulai Rp8.500.000. Landing page mulai Rp2.000.000; sistem khusus dihitung setelah kebutuhan dibahas."
+      `${siteData.packages[0].name} ${siteData.packages[0].price}, ${siteData.packages[1].name} ${siteData.packages[1].price}, dan ${siteData.packages[2].name} ${siteData.packages[2].price}. Landing Page ${siteData.landingPagePrice}; kebutuhan khusus dibahas sebelum penawaran.`
   },
   {
     question: "Berapa lama proses pengerjaan website?",
@@ -270,12 +264,12 @@ faq: [
   {
     question: "Apakah website bisa ditemukan di Google?",
     answer:
-      "Kami menyiapkan dasar SEO teknis seperti title, deskripsi, struktur heading, canonical, dan sitemap. Posisi di Google juga dipengaruhi persaingan, kualitas konten, dan faktor di luar website."
+      "Saya menyiapkan dasar SEO teknis seperti title, deskripsi, struktur heading, canonical, dan sitemap. Posisi di Google juga dipengaruhi persaingan, kualitas konten, dan faktor di luar website."
   },
   {
     question: "Apakah domain dan hosting sudah termasuk?",
     answer:
-      "Domain dan shared hosting termasuk untuk tahun pertama. Perpanjangan diperkirakan sekitar Rp1.500.000 per tahun dan dikonfirmasi sebelum waktunya. Domain didaftarkan atas nama klien; hosting bersama dikelola Web Inovasion tanpa membagikan akses cPanel utama."
+      `Domain dan shared hosting termasuk untuk tahun pertama. Perpanjangan diperkirakan ${siteData.renewal.annualDisplay} dan dikonfirmasi sebelum waktunya. Domain didaftarkan atas nama klien; hosting bersama dikelola Web Inovasion tanpa membagikan akses cPanel utama.`
   },
   {
     question: "Bisakah saya meminta perubahan setelah website selesai?",
