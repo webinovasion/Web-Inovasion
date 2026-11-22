@@ -6,6 +6,7 @@ import '../styles/global.css';
 
 import { siteData } from '../data/site';
 import { createSchema } from '../config/Schema';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 
 interface Props {
   title?: string;
@@ -130,6 +131,7 @@ const schema = createSchema({
 
   <body class="bg-surface-base font-sans antialiased text-ink-primary">
     <slot />
+    <FloatingWhatsApp />
 
     <Analytics />
 
