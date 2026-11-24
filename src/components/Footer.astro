@@ -21,16 +21,16 @@ const socials = [
   <div class="container-custom pt-14 pb-8">
     <div class="grid grid-cols-1 gap-10 border-b border-white/[0.07] pb-10 md:grid-cols-2 lg:grid-cols-4">
       <section>
-        <a href="/" aria-label={siteData.name} class="mb-4 inline-flex items-center gap-2 text-lg font-extrabold tracking-tight text-white">
-          <span class="h-2 w-2 rounded-full bg-brand-light" aria-hidden="true"></span>
+        <a href="/" aria-label={siteData.name} class="mb-4 inline-flex items-center gap-2 text-lg font-extrabold tracking-tight text-brand-light">
+          
           {siteData.name}
         </a>
-        <p class="mb-4 text-sm leading-relaxed text-ink-muted">
+        <p class="mb-4 text-sm leading-relaxed text-slate-300/80">
           Saya membantu perusahaan teknik, industri, kontraktor, dan supplier menjelaskan bisnisnya melalui website.
         </p>
         <div class="flex gap-2">
           {socials.map(({ label, href, icon }) => (
-            <a href={href} target="_blank" rel="noopener noreferrer me" aria-label={label} class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-ink-muted transition hover:border-brand-light/40 hover:text-brand-light">
+            <a href={href} target="_blank" rel="noopener noreferrer me" aria-label={label} class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-slate-300/80 transition hover:border-brand-light/40 hover:text-brand-light">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icon} />
             </a>
           ))}
@@ -38,31 +38,31 @@ const socials = [
       </section>
 
       <nav aria-label="Layanan">
-        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-white">Layanan</p>
+        <p class="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white">Layanan</p>
         <ul class="space-y-2.5">
           {siteData.services.map(({ name }) => (
-            <li><a href="/#services" class="text-sm text-ink-muted transition-colors hover:text-brand-light">{name}</a></li>
+            <li><a href="/#services" class="text-sm text-slate-300/80 transition-colors hover:text-brand-light">{name}</a></li>
           ))}
         </ul>
       </nav>
 
       <nav aria-label="Navigasi footer">
-        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-white">Jelajahi</p>
+        <p class="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white">Jelajahi</p>
         <ul class="space-y-2.5">
           {siteData.navigation.map(({ href, label }) => (
-            <li><a href={href} class="text-sm text-ink-muted transition-colors hover:text-brand-light">{label}</a></li>
+            <li><a href={href} class="text-sm text-slate-300/80 transition-colors hover:text-brand-light">{label}</a></li>
           ))}
         </ul>
       </nav>
 
       <section>
-        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-white">Kontak</p>
+        <p class="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white">Kontak</p>
         <ul class="mb-6 space-y-2.5">
-          <li><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-ink-muted transition-colors hover:text-brand-light">WhatsApp</a></li>
-          <li><a href={`mailto:${siteData.contact.email}`} class="text-sm text-ink-muted transition-colors hover:text-brand-light">{siteData.contact.email}</a></li>
+          <li><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-slate-300/80 transition-colors hover:text-brand-light">WhatsApp</a></li>
+          <li><a href={`mailto:${siteData.contact.email}`} class="text-sm text-slate-300/80 transition-colors hover:text-brand-light">{siteData.contact.email}</a></li>
         </ul>
         <p class="mb-2 text-xs font-bold uppercase tracking-widest text-white">Lokasi</p>
-        <address class="not-italic text-sm leading-relaxed text-ink-muted">{siteData.contact.location}</address>
+        <address class="not-italic text-sm leading-relaxed text-slate-300/80">{siteData.contact.location}</address>
       </section>
     </div>
 

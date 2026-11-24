@@ -53,17 +53,12 @@ const faqSchema = {
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
-<section id="faq" aria-labelledby="faq-heading" class="py-20 lg:py-28 bg-surface-base">
+<section id="faq" aria-labelledby="faq-heading" class="bg-white py-20 lg:py-28">
   <div class="container-custom">
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 items-start">
       <div class="lg:sticky lg:top-24">
-        <div
-          class="inline-flex items-center gap-1.5 rounded-full
-                    border border-brand-border bg-brand-muted
-                    px-3 py-1 mb-4"
-        >
-          <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> FAQ </span>
+        <div class="mb-4 inline-flex items-center gap-2">
+          <span class="text-xs font-bold tracking-[0.16em] text-brand uppercase"> FAQ </span>
         </div>
 
         <h2
@@ -78,8 +73,7 @@ const faqSchema = {
           Informasi paket, waktu pengerjaan, revisi, dan fitur yang sering ditanyakan sebelum proyek dimulai.
         </p>
 
-        <div class="rounded-xl border border-brand-border
-                    bg-surface-raised p-5">
+        <div class="rounded-xl border border-surface-border bg-surface-base p-5">
           <p class="text-sm text-ink-secondary leading-relaxed mb-3">
             Masih punya pertanyaan tentang layanan atau kebutuhan website bisnis Anda?
           </p>
@@ -111,61 +105,59 @@ const faqSchema = {
       </div>
 
       <div class="flex flex-col gap-2" id="faqList">
-        {
-          faqs.map((faq, i) => (
-            <div
-              class="faq-item group rounded-2xl border border-surface-border
-                   bg-surface-raised overflow-hidden
+        {faqs.map((faq, i) => (
+          <div
+            class="faq-item group overflow-hidden rounded-xl border border-surface-border
+                   bg-white
                    transition-colors duration-250"
-              data-index={i}
-            >
-              <button
-                class="faq-btn flex w-full items-center justify-between
+            data-index={i}
+          >
+            <button
+              class="faq-btn flex w-full items-center justify-between
                      gap-4 px-5 py-[18px] text-left"
-                aria-expanded="false"
-              >
-                <span
-                  class="text-sm font-semibold text-ink-primary
+              aria-expanded="false"
+            >
+              <span
+                class="text-sm font-semibold text-ink-primary
                            leading-snug"
-                >
-                  {faq.q}
-                </span>
-                <div
-                  class="faq-icon flex h-7 w-7 flex-shrink-0
+              >
+                {faq.q}
+              </span>
+              <div
+                class="faq-icon flex h-7 w-7 flex-shrink-0
                           items-center justify-center rounded-lg
                           bg-surface-card transition-all duration-300"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#64748B"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#64748B"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </div>
-              </button>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </button>
 
-              <div
-                class="faq-body max-h-0 overflow-hidden
+            <div
+              class="faq-body max-h-0 overflow-hidden
                         transition-[max-height] duration-[350ms]
                         ease-in-out"
-              >
-                <div
-                  class="border-t border-surface-card px-5 pb-5 pt-3.5
+            >
+              <div
+                class="border-t border-surface-card px-5 pb-5 pt-3.5
                           text-sm leading-[1.8] text-ink-secondary"
-                >
-                  {faq.a}
-                </div>
+              >
+                {faq.a}
               </div>
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
   </div>

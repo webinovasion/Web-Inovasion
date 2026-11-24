@@ -1,4 +1,3 @@
-
 ---
 import { siteData } from '../data/site';
 
@@ -33,19 +32,10 @@ const sharedBenefits = [
 ];
 ---
 
-<section
-  id="harga"
-  aria-labelledby="pricing-heading"
-  class="bg-surface-raised py-20 lg:py-28"
->
+<section id="harga" aria-labelledby="pricing-heading" class="border-t border-surface-border bg-white py-20 lg:py-28">
   <div class="container-custom">
-    <div
-      class="mb-4 inline-flex items-center gap-1.5 rounded-full
-             border border-brand-border bg-brand-muted px-3 py-1"
-    >
-      <span class="text-[11px] font-bold uppercase tracking-widest text-brand">
-        Investasi
-      </span>
+    <div class="mb-4 inline-flex items-center gap-2">
+      <span class="text-xs font-bold uppercase tracking-[0.16em] text-brand">Investasi</span>
     </div>
 
     <h2
@@ -57,148 +47,137 @@ const sharedBenefits = [
     </h2>
 
     <p class="mb-10 max-w-2xl text-base leading-relaxed text-ink-secondary lg:mb-14">
-      Pilih paket berdasarkan informasi dan fitur yang dibutuhkan. Landing Page dan sistem khusus dapat dibahas sebagai lingkup terpisah.
+      Pilih paket berdasarkan informasi dan fitur yang dibutuhkan. Landing Page dan sistem khusus dapat dibahas sebagai
+      lingkup terpisah.
     </p>
 
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-6">
-      {
-        packages.map((tier) => {
-          const message = [
-            'Halo Web Inovasion, saya tertarik dengan paket website berikut.',
-            '',
-            `Paket: ${tier.name}`,
-            `Harga: ${tier.price}`,
-            `Keterangan: ${tier.priceNote}`,
-            '',
-            'Boleh saya konsultasi mengenai detail fitur, ruang lingkup pengerjaan, dan biaya tambahan jika ada?',
-          ].join('\n');
+      {packages.map((tier) => {
+        const message = [
+          'Halo Web Inovasion, saya tertarik dengan paket website berikut.',
+          '',
+          `Paket: ${tier.name}`,
+          `Harga: ${tier.price}`,
+          `Keterangan: ${tier.priceNote}`,
+          '',
+          'Boleh saya konsultasi mengenai detail fitur, ruang lingkup pengerjaan, dan biaya tambahan jika ada?',
+        ].join('\n');
 
-          const whatsappUrl =
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-          return (
-            <article
-              class:list={[
-                'relative flex h-full flex-col rounded-2xl border p-6',
-                'transition-all duration-300 hover:-translate-y-1',
-                'lg:p-7',
-                tier.popular
-                  ? 'border-brand bg-brand shadow-glow-sm'
-                  : 'border-surface-border bg-surface-base hover:shadow-card',
-              ]}
-            >
-              {tier.popular && (
-                <span
-                  class="absolute -top-3 left-1/2 -translate-x-1/2
+        return (
+          <article
+            class:list={[
+              'relative flex h-full flex-col rounded-2xl border p-6',
+              'transition-all duration-300 hover:-translate-y-1',
+              'lg:p-7',
+              tier.popular
+                ? 'border-brand bg-brand shadow-glow-sm'
+                : 'border-surface-border bg-white hover:border-brand/35 hover:shadow-card',
+            ]}
+          >
+            {tier.popular && (
+              <span
+                class="absolute -top-3 left-1/2 -translate-x-1/2
                          whitespace-nowrap rounded-full bg-ink-primary
                          px-4 py-1.5 text-[10px] font-bold tracking-wide text-white"
-                >
-                  Company profile lengkap
-                </span>
-              )}
+              >
+                Company profile lengkap
+              </span>
+            )}
 
-              <div class="mb-5">
-                <p
-                  class:list={[
-                    'mb-2 text-sm font-bold',
-                    tier.popular ? 'text-white/85' : 'text-ink-muted',
-                  ]}
-                >
-                  {tier.name}
-                </p>
+            <div class="mb-5">
+              <p class:list={['mb-2 text-sm font-bold', tier.popular ? 'text-white/85' : 'text-ink-muted']}>
+                {tier.name}
+              </p>
 
-                <p
-                  class:list={[
-                    'text-3xl font-extrabold leading-tight tracking-tight lg:text-[2rem]',
-                    tier.popular ? 'text-white' : 'text-ink-primary',
-                  ]}
-                >
-                  {tier.price}
-                </p>
-
-                <p
-                  class:list={[
-                    'mt-2 text-xs leading-relaxed',
-                    tier.popular ? 'text-white/75' : 'text-ink-secondary',
-                  ]}
-                >
-                  {tier.priceNote}
-                </p>
-              </div>
-
-              <div
+              <p
                 class:list={[
-                  'mb-5 h-px',
-                  tier.popular ? 'bg-white/20' : 'bg-surface-border',
-                ]}
-              />
-
-              <ul class="mb-7 flex flex-1 flex-col gap-3" role="list">
-                {tier.features.map((feature) => (
-                  <li
-                    class:list={[
-                      'flex items-start gap-2.5 text-sm leading-relaxed',
-                      tier.popular ? 'text-white/95' : 'text-ink-secondary',
-                    ]}
-                  >
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke={tier.popular ? '#FFFFFF' : '#0F766E'}
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="mt-0.5 flex-shrink-0"
-                      aria-hidden="true"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Konsultasi WhatsApp untuk paket ${tier.name}`}
-                class:list={[
-                  'mt-auto block rounded-xl px-4 py-3 text-center',
-                  'text-sm font-bold transition-colors duration-200',
-                  tier.popular
-                    ? 'bg-white text-brand hover:bg-teal-50'
-                    : 'border border-surface-border bg-surface-raised text-brand hover:border-brand hover:bg-brand-muted',
+                  'text-3xl font-extrabold leading-tight tracking-tight lg:text-[2rem]',
+                  tier.popular ? 'text-white' : 'text-ink-primary',
                 ]}
               >
-                {tier.cta}
-                <span class="ml-1" aria-hidden="true">→</span>
-              </a>
-            </article>
-          );
-        })
-      }
+                {tier.price}
+              </p>
+
+              <p class:list={['mt-2 text-xs leading-relaxed', tier.popular ? 'text-white/75' : 'text-ink-secondary']}>
+                {tier.priceNote}
+              </p>
+            </div>
+
+            <div class:list={['mb-5 h-px', tier.popular ? 'bg-white/20' : 'bg-surface-border']} />
+
+            <ul class="mb-7 flex flex-1 flex-col gap-3" role="list">
+              {tier.features.map((feature) => (
+                <li
+                  class:list={[
+                    'flex items-start gap-2.5 text-sm leading-relaxed',
+                    tier.popular ? 'text-white/95' : 'text-ink-secondary',
+                  ]}
+                >
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={tier.popular ? '#FFFFFF' : '#0F766E'}
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mt-0.5 flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Konsultasi WhatsApp untuk paket ${tier.name}`}
+              class:list={[
+                'mt-auto block rounded-xl px-4 py-3 text-center',
+                'text-sm font-bold transition-colors duration-200',
+                tier.popular
+                  ? 'bg-white text-brand hover:bg-teal-50'
+                  : 'border border-surface-border bg-surface-raised text-brand hover:border-brand hover:bg-brand-muted',
+              ]}
+            >
+              {tier.cta}
+              <span class="ml-1" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </article>
+        );
+      })}
     </div>
 
     <div class="mt-6 rounded-2xl border border-brand-border bg-brand-muted/50 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
       <div>
         <h3 class="font-bold text-ink-primary">Butuh landing page atau fitur khusus?</h3>
-        <p class="mt-1 text-sm leading-relaxed text-ink-secondary">{siteData.services.find(({ name }) => name === 'Landing Page')?.name} {siteData.landingPagePrice}. Sistem dan integrasi khusus dihitung setelah kebutuhan dibahas.</p>
+        <p class="mt-1 text-sm leading-relaxed text-ink-secondary">
+          {siteData.services.find(({ name }) => name === 'Landing Page')?.name} {siteData.landingPagePrice}. Sistem dan
+          integrasi khusus dihitung setelah kebutuhan dibahas.
+        </p>
       </div>
-      <a href="#contact" class="mt-4 inline-flex shrink-0 rounded-lg border border-brand px-4 py-2.5 text-sm font-semibold text-brand transition hover:bg-brand hover:text-white sm:mt-0">Diskusikan kebutuhan</a>
+      <a
+        href="#contact"
+        class="mt-4 inline-flex shrink-0 rounded-lg border border-brand px-4 py-2.5 text-sm font-semibold text-brand transition hover:bg-brand hover:text-white sm:mt-0"
+      >
+        Diskusikan kebutuhan
+      </a>
     </div>
 
     <div class="mt-14">
       <div class="mb-6 max-w-2xl">
-        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
-          Termasuk dalam Paket
-        </p>
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-brand">Termasuk dalam Paket</p>
 
-        <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-ink-primary">
-          Hal yang Sudah Diperhitungkan
-        </h3>
+        <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-ink-primary">Hal yang Sudah Diperhitungkan</h3>
 
         <p class="text-sm leading-relaxed text-ink-secondary">
           Setiap paket mencantumkan lingkup yang jelas. Detail halaman dan fitur disepakati sebelum pengerjaan dimulai.
@@ -206,39 +185,33 @@ const sharedBenefits = [
       </div>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          sharedBenefits.map((benefit) => (
-            <div class="flex items-start gap-3 rounded-xl border border-surface-border bg-surface-base p-5">
-              <div
-                class="flex h-10 w-10 flex-shrink-0 items-center justify-center
+        {sharedBenefits.map((benefit) => (
+          <div class="flex items-start gap-3 rounded-xl border border-surface-border bg-surface-base p-5">
+            <div
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center
                        rounded-xl border border-brand-border bg-brand-muted text-brand"
-                aria-hidden="true"
+              aria-hidden="true"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-
-              <div>
-                <h4 class="mb-1 text-sm font-bold text-ink-primary">
-                  {benefit.title}
-                </h4>
-                <p class="text-sm leading-relaxed text-ink-secondary">
-                  {benefit.description}
-                </p>
-              </div>
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
             </div>
-          ))
-        }
+
+            <div>
+              <h4 class="mb-1 text-sm font-bold text-ink-primary">{benefit.title}</h4>
+              <p class="text-sm leading-relaxed text-ink-secondary">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
 
@@ -265,16 +238,17 @@ const sharedBenefits = [
       </svg>
 
       <div>
-        <h4 class="mb-1 text-sm font-bold text-ink-primary">
-          Biaya Perpanjangan
-        </h4>
+        <h4 class="mb-1 text-sm font-bold text-ink-primary">Biaya Perpanjangan</h4>
 
         <p class="text-sm leading-relaxed text-ink-secondary">
-          Perkiraan biaya perpanjangan tahun berikutnya adalah {siteData.renewal.annualDisplay}, untuk domain .com dan shared hosting. Harga final mengikuti tagihan provider saat perpanjangan.
+          Perkiraan biaya perpanjangan tahun berikutnya adalah {siteData.renewal.annualDisplay}, untuk domain .com dan
+          shared hosting. Harga final mengikuti tagihan provider saat perpanjangan.
         </p>
         <h5 class="mb-2 mt-3 text-sm font-bold text-ink-primary">Apa yang termasuk</h5>
         <ul class="list-disc space-y-1 pl-5 text-sm text-ink-secondary">
-          {siteData.renewal.includedItems.map((item) => <li>{item}</li>)}
+          {siteData.renewal.includedItems.map((item) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
     </div>

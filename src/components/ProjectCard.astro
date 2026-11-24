@@ -2,22 +2,36 @@
 import projects from '../data/projects';
 ---
 
-<section id="portfolio" aria-labelledby="portfolio-heading" class="bg-surface-base py-20 lg:py-28">
+<section id="portfolio" aria-labelledby="portfolio-heading" class="bg-white py-20 lg:py-28">
   <div class="container-custom">
-    <div class="mb-4 inline-flex items-center gap-1.5 rounded-full border border-brand-border bg-brand-muted px-3 py-1">
-      <span class="text-[11px] font-bold uppercase tracking-widest text-brand">Contoh proyek</span>
+    <div class="mb-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-12">
+      <div>
+        <p class="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand">
+          Contoh proyek
+        </p>
+        <h2
+          id="portfolio-heading"
+          class="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-ink-primary lg:text-5xl"
+        >
+          Website untuk Perusahaan Teknik dan Industri
+        </h2>
+      </div>
+      <p class="max-w-xl text-base leading-relaxed text-ink-secondary lg:justify-self-end">
+        Saya menampilkan contoh pekerjaan yang sudah dipublikasikan. Informasi hasil, testimoni, dan lokasi klien hanya
+        ditambahkan jika datanya tersedia dan disetujui.
+      </p>
     </div>
-    <h2 id="portfolio-heading" class="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-ink-primary lg:text-4xl">
-      Website untuk Perusahaan Teknik dan Industri
-    </h2>
-    <p class="mb-12 max-w-2xl text-base leading-relaxed text-ink-secondary">
-      Saya menampilkan contoh pekerjaan yang sudah dipublikasikan. Informasi hasil, testimoni, dan lokasi klien hanya ditambahkan jika datanya tersedia dan disetujui.
-    </p>
 
-    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-      {projects.map((project) => (
-        <article class="overflow-hidden rounded-2xl border border-surface-border bg-surface-raised transition hover:-translate-y-1 hover:border-brand/35 hover:shadow-card">
-          <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Kunjungi website ${project.nama}`} class="block overflow-hidden">
+    <div class="flex flex-col gap-8 lg:gap-10">
+      {projects.map((project, index) => (
+        <article class="group grid overflow-hidden rounded-2xl border border-surface-border bg-surface-base lg:grid-cols-2 lg:rounded-3xl">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Kunjungi website ${project.nama}`}
+            class:list={['relative block overflow-hidden bg-surface-card', index % 2 === 1 ? 'lg:order-2' : '']}
+          >
             <img
               src={project.gambar}
               alt={`Tampilan website ${project.nama}`}
@@ -25,33 +39,60 @@ import projects from '../data/projects';
               height="360"
               loading="lazy"
               decoding="async"
-              class="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
+              class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025] lg:absolute lg:inset-0 lg:h-full lg:aspect-auto"
             />
           </a>
-          <div class="p-6">
-            <p class="text-xs font-semibold uppercase tracking-wide text-brand">{project.jenis}</p>
-            <h3 class="mt-2 text-xl font-bold text-ink-primary">{project.nama}</h3>
+          <div
+            class:list={[
+              'p-6 sm:p-8 lg:flex lg:flex-col lg:justify-center lg:p-10',
+              index % 2 === 1 ? 'lg:order-1' : '',
+            ]}
+          >
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-ink-primary lg:text-2xl">{project.nama}</h3>
+              <p class="text-xs font-semibold uppercase tracking-wide text-brand">{project.jenis}</p>
+            </div>
 
             {project.lokasiKlien && <p class="mt-3 text-sm text-ink-secondary">Lokasi klien: {project.lokasiKlien}</p>}
-            {project.masalah && <p class="mt-3 text-sm leading-relaxed text-ink-secondary"><strong class="text-ink-primary">Kebutuhan:</strong> {project.masalah}</p>}
-            {project.solusi && <p class="mt-3 text-sm leading-relaxed text-ink-secondary"><strong class="text-ink-primary">Yang dikerjakan:</strong> {project.solusi}</p>}
+            {project.masalah && (
+              <p class="mt-3 text-sm leading-relaxed text-ink-secondary">
+                <strong class="text-ink-primary">Kebutuhan:</strong> {project.masalah}
+              </p>
+            )}
+            {project.solusi && (
+              <p class="mt-3 text-sm leading-relaxed text-ink-secondary">
+                <strong class="text-ink-primary">Yang dikerjakan:</strong> {project.solusi}
+              </p>
+            )}
 
             {project.hasil?.length ? (
               <ul class="mt-4 space-y-2" aria-label={`Metrik hasil ${project.nama}`}>
-                {project.hasil.map(({ label, value }) => <li class="text-sm text-ink-secondary"><strong class="text-ink-primary">{label}:</strong> {value}</li>)}
+                {project.hasil.map(({ label, value }) => (
+                  <li class="text-sm text-ink-secondary">
+                    <strong class="text-ink-primary">{label}:</strong> {value}
+                  </li>
+                ))}
               </ul>
             ) : null}
 
             {project.testimoni && (
-              <figure class="mt-5 rounded-xl bg-surface-card p-4">
-                <blockquote class="text-sm italic leading-relaxed text-ink-secondary">“{project.testimoni.kutipan}”</blockquote>
+              <figure class="mt-5 rounded-xl border-l-2 border-brand bg-surface-base p-4">
+                <blockquote class="text-sm italic leading-relaxed text-ink-secondary">
+                  “{project.testimoni.kutipan}”
+                </blockquote>
                 <figcaption class="mt-3 text-xs font-semibold text-ink-primary">
-                  {project.testimoni.nama}{project.testimoni.jabatan ? `, ${project.testimoni.jabatan}` : ''}
+                  {project.testimoni.nama}
+                  {project.testimoni.jabatan ? `, ${project.testimoni.jabatan}` : ''}
                 </figcaption>
               </figure>
             )}
 
-            <a href={project.url} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand"
+            >
               Kunjungi website <span aria-hidden="true">→</span>
             </a>
           </div>

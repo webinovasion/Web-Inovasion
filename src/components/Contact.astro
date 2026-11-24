@@ -23,16 +23,15 @@ const contactSchema = {
 
 <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
-<section id="contact" aria-labelledby="contact-heading" class="py-20 lg:py-28 bg-surface-raised">
+<section id="contact" aria-labelledby="contact-heading" class="bg-white py-20 lg:py-28">
   <div class="container-custom">
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-14 items-start">
       <div>
         <div
-          class="inline-flex items-center gap-1.5 rounded-full
-                    border border-brand-border bg-brand-muted
-                    px-3 py-1 mb-4"
+          class="mb-4 inline-flex items-center gap-2"
         >
-          <span class="text-[11px] font-bold tracking-widest text-brand uppercase"> Kontak </span>
+          
+          <span class="text-xs font-bold tracking-[0.16em] text-brand uppercase"> Kontak </span>
         </div>
 
         <h2
@@ -126,7 +125,7 @@ const contactSchema = {
       </div>
 
       <div class="rounded-2xl border border-surface-border
-                  bg-surface-base p-8">
+                  bg-surface-base p-6 shadow-card sm:p-8">
         <form id="contactForm">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>

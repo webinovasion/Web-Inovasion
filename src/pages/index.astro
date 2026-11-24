@@ -1,19 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import Services from "../components/ServiceCard.astro";
-import Pricing from "../components/Pricing.astro";
-import Portfolio from "../components/ProjectCard.astro";
-import FAQ from "../components/FAQ.astro";
-import CTA from "../components/CTA.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/ServiceCard.astro';
+import Pricing from '../components/Pricing.astro';
+import Portfolio from '../components/ProjectCard.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
-
   <Header />
 
   <main>
@@ -21,31 +20,43 @@ import Footer from "../components/Footer.astro";
     <Portfolio />
     <Services />
     <Pricing />
-    <section class="bg-surface-raised py-16 lg:py-20" aria-labelledby="workflow-heading">
+    <section
+      class="border-t border-brand-light/25 bg-[#10131b] py-16 text-white lg:py-20"
+      aria-labelledby="workflow-heading"
+    >
       <div class="container-custom">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest text-brand">Cara kerja</p>
-        <h2 id="workflow-heading" class="mb-8 text-3xl font-extrabold tracking-tight text-ink-primary">Dari kebutuhan hingga website tayang</h2>
+        <p class="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-light">
+          Cara kerja
+        </p>
+        <h2 id="workflow-heading" class="mb-10 max-w-2xl text-3xl font-extrabold tracking-tight text-white lg:text-4xl">
+          Dari kebutuhan hingga website tayang
+        </h2>
         <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ['1', 'Diskusi kebutuhan', 'Ceritakan bisnis, tujuan, dan fitur yang dibutuhkan.'],
-            ['2', 'Sepakati lingkup', 'Pilih paket dan sepakati isi, biaya, serta jadwal proyek.'],
-            ['3', 'Pengerjaan dan revisi', 'Website dibuat setelah materi lengkap, lalu ditinjau sesuai jumlah revisi paket.'],
-            ['4', 'Peluncuran', 'Website ditayangkan dan panduan diberikan sesuai fitur yang dibuat.'],
+            ['01', 'Diskusi kebutuhan', 'Ceritakan bisnis, tujuan, dan fitur yang dibutuhkan.'],
+            ['02', 'Sepakati lingkup', 'Pilih paket dan sepakati isi, biaya, serta jadwal proyek.'],
+            [
+              '03',
+              'Pengerjaan dan revisi',
+              'Website dibuat setelah materi lengkap, lalu ditinjau sesuai jumlah revisi paket.',
+            ],
+            ['04', 'Peluncuran', 'Website ditayangkan dan panduan diberikan sesuai fitur yang dibuat.'],
           ].map(([number, title, description]) => (
-            <li class="rounded-2xl border border-surface-border bg-surface-base p-5">
-              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-muted text-sm font-bold text-brand">{number}</span>
-              <h3 class="mb-2 font-bold text-ink-primary">{title}</h3>
-              <p class="text-sm leading-relaxed text-ink-secondary">{description}</p>
+            <li class="rounded-xl border border-white/[0.08] bg-[#1b1e27] p-5">
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-light/10 text-sm font-bold text-brand-light">
+                {number}
+              </span>
+              <h3 class="mb-2 font-bold text-white">{title}</h3>
+              <p class="text-sm leading-relaxed text-white/65">{description}</p>
             </li>
           ))}
         </ol>
       </div>
     </section>
-    <FAQ />        
+    <FAQ />
     <CTA />
-		<Contact />
+    <Contact />
   </main>
 
   <Footer />
-
 </BaseLayout>
