@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --site-header-height: 4.5rem;
+}
+
 /* ─── Smooth scroll ──────────────────────── */
 html {
   scroll-behavior: smooth;
@@ -40,12 +44,28 @@ body {
     @apply py-20 lg:py-28;
   }
 
+  .site-header-inner {
+    height: var(--site-header-height);
+  }
+
   .cta-background {
     background: linear-gradient(110deg, #10131b 0%, #101b22 55%, #102b2a 100%);
   }
 
   .cta-glow {
     background: radial-gradient(ellipse at 75% 50%, rgba(20, 184, 166, 0.16), transparent 68%);
+  }
+
+  .hero-jumbotron {
+    height: calc(100vh - var(--site-header-height));
+    background-color: #10131b;
+    background-image: radial-gradient(ellipse 48rem 30rem at 50% 43%, rgba(15, 118, 110, 0.22), transparent 72%);
+  }
+
+  @supports (height: 100svh) {
+    .hero-jumbotron {
+      height: calc(100svh - var(--site-header-height));
+    }
   }
 }
 
