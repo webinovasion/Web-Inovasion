@@ -39,6 +39,14 @@ body {
   .section-padding {
     @apply py-20 lg:py-28;
   }
+
+  .cta-background {
+    background: linear-gradient(110deg, #10131b 0%, #101b22 55%, #102b2a 100%);
+  }
+
+  .cta-glow {
+    background: radial-gradient(ellipse at 75% 50%, rgba(20, 184, 166, 0.16), transparent 68%);
+  }
 }
 
 /* ─── Scrollbar (opsional, chromium only) ── */
