@@ -15,7 +15,7 @@ export const siteData = {
     instagram: "https://instagram.com/webinovasion",
     linkedin: "https://www.linkedin.com/in/rayhan-nurahman-1b29a2300/",
   },
-  logo: "/assets/images/logo/logo_web_inovasion.png",
+  logo: "/assets/images/logo/logo.png",
   defaultTitle: "Jasa Website untuk Perusahaan Teknik dan Industri | Web Inovasion",
   defaultDescription:
     "Website untuk perusahaan teknik, industri, kontraktor, dan supplier. Lihat layanan Profil Bisnis, Company Profile, Katalog dengan Dashboard, dan Landing Page.",
