@@ -1,0 +1,23 @@
+---
+const principles = [
+  ["Lingkup disepakati", "Halaman, fitur, materi, revisi, dan biaya dibahas sebelum pengerjaan."],
+  ["Informasi yang berguna", "Isi website disusun agar calon pelanggan memahami bisnis dan cara menghubunginya."],
+  ["Klaim tetap realistis", "Pekerjaan dijelaskan dengan terbuka tanpa menjanjikan peringkat pencarian atau hasil yang belum terukur."],
+];
+---
+
+<section class="bg-surface-base py-16 lg:py-20" aria-labelledby="principles-heading">
+  <div class="container-custom">
+    <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">Prinsip kerja</p>
+    <h2 id="principles-heading" class="mb-8 text-3xl font-extrabold tracking-tight text-ink-primary">Ekspektasi jelas sejak awal</h2>
+    <ul class="grid gap-5 md:grid-cols-3">
+      {principles.map(([heading, body], index) => (
+        <li class="rounded-2xl border border-surface-border bg-white p-6">
+          <span class="mb-5 block text-xs font-bold tracking-[0.16em] text-brand">0{index + 1}</span>
+          <h3 class="mb-2 font-bold text-ink-primary">{heading}</h3>
+          <p class="text-sm leading-relaxed text-ink-secondary">{body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

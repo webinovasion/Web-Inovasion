@@ -1,0 +1,21 @@
+---
+interface Props {
+  profile: {
+    background: string;
+  };
+}
+
+const { profile } = Astro.props;
+---
+
+<section class="bg-[#10131b] py-16 text-white lg:py-20" aria-labelledby="background-heading">
+  <div class="container-custom">
+    <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-light">Latar belakang</p>
+    <h2 id="background-heading" class="mb-4 text-3xl font-extrabold tracking-tight text-white">Perkenalan singkat</h2>
+    {profile.background ? (
+      <p class="max-w-3xl leading-relaxed text-white/70">{profile.background}</p>
+    ) : (
+      <p class="max-w-3xl rounded-xl border border-dashed border-white/20 p-5 text-sm leading-relaxed text-white/60">Latar belakang dan pengalaman Web Inovasion akan segera diperbarui.</p>
+    )}
+  </div>
+</section>

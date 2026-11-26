@@ -1,0 +1,31 @@
+---
+const missions = [
+  'Membantu bisnis menyampaikan informasi layanan, produk, dan kapabilitas dengan jelas melalui website.',
+  'Membangun website yang responsif, fungsional, dan sesuai kebutuhan serta lingkup yang disepakati.',
+  'Memberikan proses kerja yang transparan agar klien memahami biaya, jadwal, dan hasil yang dikerjakan.',
+];
+---
+
+<section class="bg-[#10131b] py-16 text-white lg:py-20" aria-labelledby="vision-mission-heading">
+  <div class="container-custom">
+    <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-light">Arah kami</p>
+    <h2 id="vision-mission-heading" class="mb-8 text-3xl font-extrabold tracking-tight text-white">Visi dan misi Web Inovasion</h2>
+    <div class="grid gap-5 lg:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-[#1b1e27] p-6 lg:p-8">
+        <h3 class="mb-3 text-xl font-bold text-brand-light">Visi</h3>
+        <p class="leading-relaxed text-white/70">Menjadi partner digital yang membantu bisnis membangun kehadiran online yang profesional, mudah dipahami, dan mendukung pertumbuhan jangka panjang.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-[#1b1e27] p-6 lg:p-8">
+        <h3 class="mb-4 text-xl font-bold text-brand-light">Misi</h3>
+        <ul class="space-y-3">
+          {missions.map((mission) => (
+            <li class="flex gap-3 leading-relaxed text-white/70">
+              <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-brand-light" aria-hidden="true"></span>
+              <span>{mission}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

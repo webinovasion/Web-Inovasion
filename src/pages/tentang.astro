@@ -3,106 +3,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTA from '../components/CTA.astro';
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AboutIntro from "../components/tentang/AboutIntro.astro";
+import AboutBackground from "../components/tentang/AboutBackground.astro";
+import AboutField from "../components/tentang/AboutField.astro";
+import AboutVisionMission from "../components/tentang/AboutVisionMission.astro";
+import AboutPrinciples from "../components/tentang/AboutPrinciples.astro";
 import { siteData } from "../data/site";
 
 const title = "Tentang Saya | Web Inovasion";
-const description = "Kenali freelancer di balik Web Inovasion dan fokus pembuatan website untuk perusahaan teknik, industri, kontraktor, dan supplier.";
+const description = "Kenali Web Inovasion, layanan pembuatan website untuk perusahaan teknik, industri, kontraktor, dan supplier, beserta visi dan misinya.";
 const profile = siteData.profile;
 ---
 
 <BaseLayout title={title} description={description}>
   <Header ctaHref="/#contact" />
   <main>
-    <section class="bg-white py-16 lg:py-24" aria-labelledby="about-heading">
-      <div class="container-custom grid items-center gap-10 lg:grid-cols-[1.25fr_0.75fr]">
-        <div>
-          <p class="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand">Tentang saya</p>
-          <h1 id="about-heading" class="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-ink-primary lg:text-5xl">
-            Halo, saya {profile.name || <span class="text-brand">[TODO: isi nama]</span>}.
-          </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-secondary">
-            Saya mengelola Web Inovasion dan membantu bisnis menjelaskan layanan, produk, kapabilitas, serta proyeknya melalui website.
-          </p>
-        </div>
-        <div class="relative mx-auto w-full max-w-sm">
-          <div class="absolute -bottom-4 -left-4 h-28 w-28 rounded-3xl bg-brand-light/20" aria-hidden="true"></div>
-          {profile.photo ? (
-            <img src={profile.photo} alt={`Foto ${profile.name || 'pemilik Web Inovasion'}`} class="relative aspect-[4/5] w-full rounded-2xl border border-surface-border object-cover shadow-card" />
-          ) : (
-            <div role="img" aria-label="Placeholder foto profil, belum diisi" class="relative flex aspect-[4/5] w-full items-center justify-center rounded-2xl border-2 border-dashed border-brand/30 bg-brand-muted p-8 text-center text-sm font-medium text-brand">
-              Slot foto profil<br />TODO: tambahkan foto yang disetujui
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-[#10131b] py-16 text-white lg:py-20" aria-labelledby="background-heading">
-      <div class="container-custom grid gap-10 lg:grid-cols-2">
-        <div>
-          <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-light">Latar belakang</p>
-          <h2 id="background-heading" class="mb-4 text-3xl font-extrabold tracking-tight text-white">Perkenalan singkat</h2>
-          {profile.background ? (
-            <p class="leading-relaxed text-white/70">{profile.background}</p>
-          ) : (
-            <p class="rounded-xl border border-dashed border-white/20 p-5 text-sm leading-relaxed text-white/60">TODO: isi latar belakang dan pengalaman saya sebelum halaman dipublikasikan.</p>
-          )}
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-[#1b1e27] p-6 lg:p-8">
-          <p class="mb-3 text-xs font-bold uppercase tracking-widest text-brand-light">Fokus keahlian</p>
-          <h2 class="mb-4 text-2xl font-extrabold tracking-tight text-white">Perusahaan teknik dan industri</h2>
-          {/* TODO: tinjau draf alasan fokus ini dan ubah jika tidak sesuai pengalaman pribadi. */}
-          <p class="leading-relaxed text-white/70">
-            Saya ingin membantu perusahaan teknik, kontraktor, dan supplier menampilkan layanan, kapabilitas, produk, serta proyek dengan lebih terstruktur. Informasi yang jelas membantu calon klien dan mitra memahami kecocokan bisnis sebelum menghubungi perusahaan.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-white py-16 lg:py-20" aria-labelledby="principles-heading">
-      <div class="container-custom">
-        <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">Prinsip kerja</p>
-        <h2 id="principles-heading" class="mb-8 text-3xl font-extrabold tracking-tight text-ink-primary">Ekspektasi jelas sejak awal</h2>
-        <ul class="grid gap-5 md:grid-cols-3">
-          {[
-            ["Lingkup disepakati", "Halaman, fitur, materi, revisi, dan biaya dibahas sebelum pengerjaan."],
-            ["Informasi yang berguna", "Isi website disusun agar calon pelanggan memahami bisnis dan cara menghubunginya."],
-            ["Klaim tetap realistis", "Saya menjelaskan pekerjaan yang dilakukan tanpa menjanjikan peringkat pencarian atau hasil yang belum terukur."],
-          ].map(([heading, body], index) => (
-            <li class="rounded-2xl border border-surface-border bg-surface-base p-6">
-              <span class="mb-5 block text-xs font-bold tracking-[0.16em] text-brand">0{index + 1}</span>
-              <h3 class="mb-2 font-bold text-ink-primary">{heading}</h3>
-              <p class="text-sm leading-relaxed text-ink-secondary">{body}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <section class="bg-surface-base py-16 lg:py-20" aria-labelledby="process-heading">
-      <div class="container-custom grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <p class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">Proses kerja</p>
-          <h2 id="process-heading" class="mb-4 text-3xl font-extrabold tracking-tight text-ink-primary">Dari diskusi sampai tayang</h2>
-          <a href="/#portfolio" class="inline-flex font-semibold text-brand transition-colors hover:text-brand-hover">Lihat contoh proyek <span class="ml-2" aria-hidden="true">→</span></a>
-        </div>
-        <ol class="space-y-4">
-          {[
-            "Diskusikan tujuan website dan kebutuhan bisnis.",
-            "Sepakati paket, materi, lingkup, biaya, dan jadwal.",
-            "Saya kerjakan website dan menyiapkan revisi sesuai paket.",
-            "Website ditayangkan dan panduan diberikan sesuai fitur yang dibuat.",
-          ].map((step, index) => (
-            <li class="flex gap-4 rounded-xl border border-surface-border bg-white p-4">
-              <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-brand-muted text-xs font-bold tracking-wide text-brand">0{index + 1}</span>
-              <span class="self-center text-sm leading-relaxed text-ink-secondary">{step}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
-    
+    <AboutIntro profile={profile} />
+    <AboutBackground profile={profile} />
+    <AboutField />
+    <AboutVisionMission />
+    <AboutPrinciples />
     <CTA />
   </main>
   <Footer />
