@@ -15,11 +15,11 @@ const icons = {
 };
 ---
 
-<section aria-labelledby="hero-local-heading" class="relative overflow-hidden bg-hero py-22 lg:py-28">
+<section aria-labelledby="hero-local-heading" class="relative overflow-hidden bg-[#10131b] py-16 text-white lg:py-20">
   <!-- Background glow — dekoratif -->
   <div
     class="absolute left-1/2 top-0 h-[480px] w-[480px]
-           -translate-x-1/2 rounded-full bg-brand/8 blur-3xl"
+           -translate-x-1/2 rounded-full bg-brand-light/10 blur-3xl"
     aria-hidden="true"
   >
   </div>
@@ -30,8 +30,8 @@ const icons = {
       <div>
         <span
           class="inline-flex items-center gap-1.5 rounded-full
-                 border border-brand-border bg-brand-muted
-                 px-4 py-[7px] text-sm font-medium text-brand"
+                 border border-brand-light/20 bg-brand-light/10
+                 px-4 py-[7px] text-sm font-medium text-brand-light"
         >
           <svg
             width="14"
@@ -50,22 +50,22 @@ const icons = {
 
         <h1
           id="hero-local-heading"
-          class="mt-[22px] max-w-xl text-[1.9rem] font-extrabold
-                 leading-[1.15] tracking-tight text-ink-primary
-                 lg:text-[2.8rem]"
+          class="mt-5 max-w-2xl text-4xl font-extrabold
+                 leading-[1.08] tracking-tight text-white
+                 sm:text-5xl lg:text-6xl"
         >
           {page.hero.title}
         </h1>
 
-        <p class="mt-[18px] max-w-lg text-base leading-relaxed
-                  text-ink-secondary">
+        <p class="mt-5 max-w-xl text-sm leading-relaxed sm:text-base
+                  text-white/70">
           {page.hero.subtitle}
         </p>
 
-        <div class="mt-[30px] flex flex-wrap gap-3">
+        <div class="mt-7 flex flex-wrap gap-3">
           <a
             href="#contact"
-            class="inline-flex items-center gap-[7px] rounded-[11px] bg-brand px-[22px] py-3 text-sm
+            class="inline-flex items-center gap-[7px] rounded-lg bg-brand px-5 py-3 text-sm
           font-semibold text-white transition-colors hover:bg-brand-hover"
           >
             {page.cta.primary.text}
@@ -84,37 +84,37 @@ const icons = {
           </a>
           <a
             href={page.cta.secondary.href}
-            class="inline-flex items-center gap-[7px] rounded-[11px] border border-surface-border
-        bg-surface-raised px-[22px] py-3 text-sm font-semibold text-ink-primary transition-colors hover:bg-surface-card"
+            class="inline-flex items-center gap-[7px] rounded-lg border border-white/25
+        px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-brand-light hover:text-brand-light"
           >
             {page.cta.secondary.text}
           </a>
         </div>
 
-        <p class="mt-6 text-sm leading-relaxed text-ink-muted">
+        <p class="mt-6 text-sm leading-relaxed text-white/55">
           Konsultasi awal singkat melalui WhatsApp.
         </p>
       </div>
 
       <!-- RIGHT -->
       <div>
-        <div class="rounded-[24px] border border-surface-border
-                 bg-surface-raised p-7 shadow-card">
+        <div class="rounded-2xl border border-white/10
+                 bg-[#1b1e27] p-7 shadow-card">
           <div class="mb-[22px] flex items-start justify-between">
             <div>
               <p class="mb-1.5 text-[11px] font-bold uppercase
-                        tracking-wider text-brand">
+                        tracking-wider text-brand-light">
                 Cakupan Layanan
               </p>
               <h2 class="text-[1.4rem] font-extrabold tracking-tight
-                         text-ink-primary">
+                         text-white">
                 {page.city}
               </h2>
             </div>
 
             <span
-              class="whitespace-nowrap rounded-full bg-brand-muted
-                         px-2.5 py-1 text-[11px] font-bold text-brand"
+              class="whitespace-nowrap rounded-full bg-brand-light/10
+                         px-2.5 py-1 text-[11px] font-bold text-brand-light"
             >
               Bekasi
             </span>
@@ -125,8 +125,8 @@ const icons = {
               page.areas.map(({ heading }) => (
                 <div
                   class="flex items-center gap-3 rounded-xl
-                       border border-surface-border bg-surface-card
-                       px-4 py-4 text-sm font-semibold text-ink-secondary"
+                       border border-white/10 bg-white/[0.04]
+                       px-4 py-4 text-sm font-semibold text-white/75"
                 >
                   <svg
                     width="13"
@@ -137,7 +137,7 @@ const icons = {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="flex-shrink-0 text-ink-disabled"
+                    class="flex-shrink-0 text-brand-light"
                     aria-hidden="true"
                     set:html={icons.check}
                   />
@@ -149,7 +149,7 @@ const icons = {
 
           <div
             class="mt-[18px] flex items-center gap-[9px]
-                      rounded-2xl bg-brand-muted px-4 py-3.5"
+                      rounded-xl bg-brand-light/10 px-4 py-3.5"
           >
             <svg
               width="15"
@@ -164,7 +164,7 @@ const icons = {
               aria-hidden="true"
               set:html={icons.pin}
             />
-            <p class="text-[12.5px] leading-relaxed text-brand">
+            <p class="text-[12.5px] leading-relaxed text-brand-light">
               Diskusi dan koordinasi proyek dapat dilakukan secara online.
             </p>
           </div>

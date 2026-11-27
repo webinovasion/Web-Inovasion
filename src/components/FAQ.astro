@@ -1,6 +1,12 @@
 ---
 import { siteData } from '../data/site';
 
+interface Props {
+  pagePath?: string;
+}
+
+const { pagePath = '' } = Astro.props;
+
 const [profilePackage, companyPackage, catalogPackage] = siteData.packages;
 const officialServices = siteData.services.map(({ name }) => name).join(', ');
 
@@ -40,7 +46,7 @@ const WA_NUMBER = siteData.contact.phone.replace('+', '');
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': 'https://webinovasion.com/#faq',
+  '@id': `${siteData.url}${pagePath}/#faq`,
   mainEntity: faqs.map((faq) => ({
     '@type': 'Question',
     name: faq.q,

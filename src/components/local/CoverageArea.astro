@@ -10,14 +10,10 @@ const { page } = Astro.props;
 const pinIcon = `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`;
 ---
 
-<section id="areas" aria-labelledby="areas-heading" class="py-20 lg:py-28 bg-surface-base">
+<section id="areas" aria-labelledby="areas-heading" class="bg-surface-base py-20 lg:py-28">
   <div class="container-custom">
     <div class="mx-auto mb-10 max-w-3xl text-center">
-      <span
-        class="inline-flex items-center gap-1.5 rounded-full
-               border border-brand-border bg-brand-muted
-               px-4 py-1.5 text-sm font-semibold text-brand"
-      >
+      <p class="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">
         <svg
           width="14"
           height="14"
@@ -30,18 +26,18 @@ const pinIcon = `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circ
           aria-hidden="true"
           set:html={pinIcon}
         />
-        Jangkauan Layanan
-      </span>
+        Jangkauan layanan
+      </p>
 
       <h2
         id="areas-heading"
-        class="mt-5 text-3xl font-extrabold tracking-tight
-               text-ink-primary md:text-4xl"
+        class="text-3xl font-extrabold tracking-tight
+               text-ink-primary lg:text-4xl"
       >
         Bisnis di Kota dan Kabupaten Bekasi
       </h2>
 
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-secondary">
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-secondary">
         Saya melayani kebutuhan bisnis di Kota dan Kabupaten Bekasi. Konsultasi awal dapat dilakukan singkat melalui WhatsApp.
       </p>
     </div>
